@@ -1,0 +1,90 @@
+"use client"
+
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { Play, ArrowRight, Clock, Eye } from "lucide-react"
+import { Section } from "@/components/ui/section"
+import { Badge } from "@/components/ui/badge"
+import { featuredVideos } from "@/data/content"
+import { cn } from "@/lib/utils"
+
+export function VideosSection() {
+  return (
+    <Section
+      title="Featured Videos"
+      subtitle="Sing along and learn with our most popular educational videos!"
+      className="bg-gradient-to-b from-white to-cream"
+    >
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {featuredVideos.slice(0, 6).map((video, i) => (
+          <Link key={video.id} href={video.href}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              whileHover={{ y: -6 }}
+              className="group cursor-pointer overflow-hidden rounded-2xl bg-white shadow-soft transition-all duration-300 hover:shadow-card"
+            >
+              <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-coral/10 to-purple/10">
+                <div className="flex h-full items-center justify-center">
+                  <span className="text-6xl opacity-30">
+                    {["🔤", "🔢", "🐾", "🎨", "🕉️", "🔷"][i]}
+                  </span>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all group-hover:bg-black/10">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    className="flex h-14 w-14 items-center justify-center rounded-full bg-coral text-white shadow-glow-coral transition-all group-hover:scale-110"
+                  >
+                    <Play className="ml-0.5 h-6 w-6" />
+                  </motion.div>
+                </div>
+                {video.featured && (
+                  <div className="absolute top-3 left-3">
+                    <Badge variant="coral">
+                      <Play className="h-3 w-3" /> Featured
+                    </Badge>
+                  </div>
+                )}
+                <div className="absolute bottom-3 right-3 rounded-full bg-black/60 px-2.5 py-1">
+                  <span className="flex items-center gap-1 font-display text-xs text-white">
+                    <Clock className="h-3 w-3" /> {video.duration}
+                  </span>
+                </div>
+              </div>
+
+              <div className="p-4">
+                <h3 className="font-display text-base font-bold text-dark line-clamp-2 group-hover:text-coral transition-colors">
+                  {video.title}
+                </h3>
+                <div className="mt-2 flex items-center gap-3">
+                  <Badge variant={video.category === "ABC" ? "coral" : video.category === "Counting" ? "yellow" : video.category === "Animals" ? "sky" : video.category === "Colors" ? "green" : "purple"}>
+                    {video.category}
+                  </Badge>
+                  <span className="flex items-center gap-1 font-body text-xs text-gray">
+                    <Eye className="h-3 w-3" /> {video.views}
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </Link>
+        ))}
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="mt-10 text-center"
+      >
+        <Link
+          href="/videos"
+          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-coral to-purple px-6 py-3 font-display text-sm font-bold text-white shadow-soft transition-all hover:shadow-card hover:scale-105"
+        >
+          Watch All Videos <ArrowRight className="h-4 w-4" />
+        </Link>
+      </motion.div>
+    </Section>
+  )
+}

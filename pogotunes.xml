@@ -121,7 +121,7 @@
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:var(--font-body);background:var(--white);color:var(--dark);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-body);background:var(--white);color:var(--dark);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
@@ -165,7 +165,7 @@ ul{list-style:none}
 .gradient-text{background:linear-gradient(135deg,var(--coral),var(--yellow),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 /* ============ SEARCH OVERLAY ============ */
-#secSearch{position:fixed;top:0;left:0;width:100%;height:100%;z-index:10000;background:linear-gradient(135deg,rgba(255,107,107,0.97),rgba(107,203,255,0.97),rgba(178,141,255,0.97),rgba(255,217,61,0.97));background-size:400% 400%;animation:gradientShift 15s ease infinite;display:none;justify-content:center;align-items:center;padding:20px}
+#secSearch{position:fixed;top:0;left:0;width:100%;height:100%;height:100dvh;z-index:10000;background:linear-gradient(135deg,rgba(255,107,107,0.97),rgba(107,203,255,0.97),rgba(178,141,255,0.97),rgba(255,217,61,0.97));background-size:400% 400%;animation:gradientShift 15s ease infinite;display:none;justify-content:center;align-items:center;padding:20px}
 #secSearch.active{display:flex}
 .search-overlay-close{position:absolute;top:20px;right:30px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;transition:var(--transition);z-index:10001}
 .search-overlay-close:hover{transform:rotate(90deg)}
@@ -198,7 +198,7 @@ ul{list-style:none}
 .header-menu-btn{display:none;font-size:1.5rem}
 .header-menu-btn:hover{background:rgba(255,107,107,0.15);color:var(--coral)}
 .mobile-dropdown{position:absolute;top:100%;left:0;width:100%;background:var(--white);box-shadow:0 10px 25px rgba(0,0,0,0.1);border-bottom:3px solid var(--purple);overflow:hidden;max-height:0;transition:max-height 0.35s cubic-bezier(0.4,0,0.2,1);z-index:99999}
-.mobile-dropdown.active{max-height:450px}
+.mobile-dropdown.active{max-height:520px}
 .mobile-nav{display:flex;flex-direction:column;padding:15px 20px;gap:5px}
 .mobile-nav a{display:flex;align-items:center;gap:15px;padding:12px 18px;border-radius:var(--radius-sm);font-family:var(--font-rounded);font-size:1rem;font-weight:500;color:var(--dark);transition:var(--transition)}
 .mobile-nav a i{width:24px;text-align:center;color:var(--coral);font-size:1.1rem}
@@ -684,7 +684,12 @@ body.bedtime-mode .wave-bottom{background:url("data:image/svg+xml,%3Csvg viewBox
   .drag-source-row,.drag-target-row{flex-direction:column;align-items:center;gap:8px}
 }
 @media(max-width:480px){
-  .categories-grid{grid-template-columns:repeat(2,1fr)}
+  .categories-grid{grid-template-columns:repeat(2,1fr)
+  .hero-cta{flex-direction:column;align-items:center}
+  .hero-cta .btn-primary,.hero-cta .btn-secondary{width:100%;justify-content:center}
+  .quiz-choices{grid-template-columns:1fr}
+  .memory-grid{grid-template-columns:repeat(3,1fr);max-width:280px}
+}
   .videos-grid{grid-template-columns:repeat(2,1fr)}
   .abc-grid{grid-template-columns:repeat(4,1fr)}
   .hindi-grid{grid-template-columns:repeat(4,1fr)}
@@ -736,7 +741,7 @@ body.bedtime-mode .wave-bottom{background:url("data:image/svg+xml,%3Csvg viewBox
   <!-- SEARCH OVERLAY -->
   <div id='secSearch'>
     <div class='search-overlay-inner'>
-      <button aria-label='Close search' class='search-overlay-close'><i class='fas fa-times'/></button>
+      <button aria-label='Close search' class='search-overlay-close' onclick='closeSearch()'><i class='fas fa-times'/></button>
       <h2>🔍 What do you want to learn?</h2>
       <form action='/search' class='search-form' method='get'>
         <input name='q' placeholder='Search songs, ABCs, numbers...' type='text'/>
@@ -777,7 +782,7 @@ body.bedtime-mode .wave-bottom{background:url("data:image/svg+xml,%3Csvg viewBox
         <button aria-label='Bedtime Mode' class='header-bedtime-btn'><i class='fas fa-moon'/></button>
         <button aria-label='Toggle Sound' class='header-sound-btn'><i class='fas fa-volume-up'/></button>
         <button aria-label='Search' class='header-search-btn'><i class='fas fa-search'/></button>
-        <button aria-label='Menu' class='header-menu-btn'><i class='fas fa-bars'/></button>
+        <button aria-label='Menu' class='header-menu-btn' id='headerMenuBtn' onclick='toggleMobileMenu()'><i class='fas fa-bars'/></button>
       </div>
     </div>
     <div class='mobile-dropdown' id='mobileDropdown'>
@@ -1694,6 +1699,10 @@ body.bedtime-mode .wave-bottom{background:url("data:image/svg+xml,%3Csvg viewBox
        4. Parent gate form uses button click, not form submit
   ============================================================ -->
   <script>//<![CDATA[
+window.closeSearch = function() {
+  var so = document.getElementById('secSearch');
+  if (so) { so.classList.remove('active'); document.body.style.overflow = ''; }
+};
 document.addEventListener('DOMContentLoaded', function() {
 
   // ---- HEADER SCROLL ----
@@ -1729,10 +1738,14 @@ document.addEventListener('DOMContentLoaded', function() {
       var inp = searchOverlay.querySelector('input');
       if (inp) setTimeout(function() { inp.focus(); }, 100);
     });
-    searchClose.addEventListener('click', function() {
+    searchClose.addEventListener('click', closeSearchOverlay);
+    searchOverlay.addEventListener('click', function(e) {
+      if (e.target === this) closeSearchOverlay();
+    });
+    function closeSearchOverlay() {
       searchOverlay.classList.remove('active');
       document.body.style.overflow = '';
-    });
+    }
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
         searchOverlay.classList.remove('active');
@@ -1745,7 +1758,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var menuBtn = document.querySelector('.header-menu-btn');
   var dropdownPanel = document.getElementById('mobileDropdown');
 
-  function toggleMenu() {
+  function toggleMobileMenu() {
     if (!dropdownPanel) return;
     var isActive = dropdownPanel.classList.toggle('active');
     var icon = menuBtn ? menuBtn.querySelector('i') : null;
@@ -1765,7 +1778,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   if (menuBtn && dropdownPanel) {
-    menuBtn.addEventListener('click', function(e) { e.stopPropagation(); toggleMenu(); });
+    menuBtn.addEventListener('click', function(e) { e.stopPropagation(); toggleMobileMenu(); });
     document.addEventListener('click', function(e) {
       if (header && !header.contains(e.target)) closeMenu();
     });
@@ -2741,11 +2754,30 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  document.querySelectorAll('.abc-letter').forEach(function(el){
+    el.addEventListener('click',function(){window.location.href='/search?q=Letter '+this.textContent.trim();});
+  });
+  document.querySelectorAll('.hindi-char').forEach(function(el){
+    el.addEventListener('click',function(){window.location.href='/search?q='+encodeURIComponent(this.textContent.trim())+'+Hindi';});
+  });
+  document.querySelectorAll('.count-num').forEach(function(el){
+    el.addEventListener('click',function(){window.location.href='/search?q=Number+'+this.textContent.trim();});
+  });
+  document.querySelectorAll('.animal-card').forEach(function(el){
+    el.addEventListener('click',function(){var n=this.querySelector('.animal-name');if(n) window.location.href='/search?q='+encodeURIComponent(n.textContent.trim());});
+  });
+  document.querySelectorAll('.color-swatch').forEach(function(el){
+    el.addEventListener('click',function(){window.location.href='/search?q=Color+'+this.textContent.trim();});
+  });
 }); // END DOMContentLoaded
 
 // ==================================================
 // CMS DYNAMIC WIDGET — FIXED (own safe DOMContentLoaded)
 // ==================================================
+window.closeSearch = function() {
+  var so = document.getElementById('secSearch');
+  if (so) { so.classList.remove('active'); document.body.style.overflow = ''; }
+};
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.cms-dynamic-widget').forEach(function(widget) {
     var label = widget.getAttribute('data-label');

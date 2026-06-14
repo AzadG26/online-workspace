@@ -1,0 +1,97 @@
+import type { Metadata } from "next"
+import { Baloo_2, Fredoka, Nunito } from "next/font/google"
+import { Header } from "@/components/layout/header"
+import { Footer } from "@/components/layout/footer"
+import { PageTransition } from "@/components/page-transition"
+import { ServiceWorkerRegister } from "@/components/service-worker-register"
+import "./globals.css"
+
+const baloo = Baloo_2({
+  variable: "--font-display",
+  subsets: ["latin"],
+  display: "swap",
+})
+
+const fredoka = Fredoka({
+  variable: "--font-rounded",
+  subsets: ["latin"],
+  display: "swap",
+})
+
+const nunito = Nunito({
+  variable: "--font-body",
+  subsets: ["latin"],
+  display: "swap",
+})
+
+export const metadata: Metadata = {
+  title: {
+    default: "Pogo Tunes — Fun Learning for Kids",
+    template: "%s | Pogo Tunes",
+  },
+  description:
+    "Pogo Tunes makes learning fun with educational songs, games, videos, and activities for kids. Free and accessible for everyone.",
+  keywords: [
+    "kids learning",
+    "educational songs",
+    "ABC",
+    "counting",
+    "children education",
+    "preschool",
+    "kindergarten",
+    "learning games",
+    "Pogo Tunes",
+  ],
+  manifest: "/manifest.json",
+  icons: {
+    icon: [{ url: "/icon-192.svg", sizes: "192x192", type: "image/svg+xml" }],
+    apple: "/icon-192.svg",
+  },
+  appleWebApp: {
+    capable: true,
+    title: "Pogo Tunes",
+    statusBarStyle: "default",
+  },
+  openGraph: {
+    title: "Pogo Tunes — Fun Learning for Kids",
+    description: "Making learning fun with songs, games, and activities.",
+    url: "https://pogotunes.com",
+    siteName: "Pogo Tunes",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pogo Tunes — Fun Learning for Kids",
+    description: "Making learning fun with songs, games, and activities.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en" className={`${baloo.variable} ${fredoka.variable} ${nunito.variable}`}>
+      <body className="flex min-h-screen flex-col bg-cream font-body text-dark antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-2xl focus:bg-coral focus:px-6 focus:py-3 focus:font-display focus:text-sm focus:font-bold focus:text-white focus:shadow-glow-coral focus:outline-none"
+        >
+          Skip to main content
+        </a>
+        <Header />
+        <div id="main-content" className="flex-1">
+          <PageTransition>{children}</PageTransition>
+        </div>
+        <Footer />
+        <ServiceWorkerRegister />
+      </body>
+    </html>
+  )
+}
