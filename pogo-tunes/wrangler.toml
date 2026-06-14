@@ -1,0 +1,5 @@
+name = "pogo-tunes"
+pages_build_output_dir = ".next"
+
+[env.production]
+  # No environment variables needed — all content is static/data-driven

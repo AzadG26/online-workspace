@@ -87,6 +87,100 @@ npm run lint      # Run ESLint
 
 ---
 
+## 🌍 Deploy Online (100% Free)
+
+All features work on every free tier below — games, quizzes, PWA, service worker, dynamic routes, SEO — no paid plan needed.
+
+### 🚀 Option 1: Vercel (Recommended — Easiest)
+
+Vercel is made by the creators of Next.js. Everything works out of the box.
+
+```bash
+# 1. Push your code to GitHub (already done)
+
+# 2. Go to https://vercel.com and click "Add New → Project"
+
+# 3. Import your GitHub repo (AzadG26/online-workspace)
+
+# 4. In "Configure Project", set:
+#    Root Directory:  pogo-tunes/
+#    Framework:       Next.js  (auto-detected)
+#    Build Command:   npm run build  (auto)
+#    Output Dir:      .next  (auto)
+
+# 5. Click "Deploy" — done in ~2 minutes
+```
+
+**What you get free:** Auto SSL, custom domain, 100 GB bandwidth/mo, 100 GB-hours serverless execution, CI/CD from GitHub.
+
+**Custom domain (optional):**
+1. Go to Project → Settings → Domains
+2. Add your domain (e.g. `pogotunes.com`)
+3. Update your domain's DNS Nameservers to Vercel's
+
+---
+
+### 🟣 Option 2: Netlify (Great Alternative)
+
+```bash
+# 1. Go to https://netlify.com and click "Add new site → Import existing project"
+
+# 2. Connect your GitHub repo (AzadG26/online-workspace)
+
+# 3. In deploy settings:
+#    Root Directory:  pogo-tunes/
+#    Build Command:   npm run build
+#    Publish Dir:     .next
+
+# 4. Add a netlify.toml (already included — configures Next.js)
+
+# 5. Click "Deploy"
+```
+
+**What you get free:** Auto SSL, custom domain, 100 GB bandwidth/mo, 300 build minutes/mo.
+
+---
+
+### ☁️ Option 3: Cloudflare Pages (Fastest CDN)
+
+```bash
+# 1. Go to https://pages.cloudflare.com and click "Create a project"
+
+# 2. Connect your GitHub repo
+
+# 3. In build settings:
+#    Root Directory:  pogo-tunes/
+#    Build Command:   npm run build
+#    Build Output:    .next
+
+# 4. Click "Save and Deploy"
+```
+
+**What you get free:** Auto SSL, custom domain, unlimited bandwidth, 500K requests/mo, global CDN.
+
+---
+
+### ✅ Checklist — Verify Everything Works After Deploy
+
+| Feature | How to Test |
+|---------|------------|
+| Home page | Visit `/` — hero, categories, videos load |
+| Games | Visit `/games` — all 6 games playable |
+| Quiz | Visit `/quiz` — questions load, score tracks |
+| Flashcards | Visit `/flashcards` — flip, shuffle, auto-play |
+| Search | Visit `/search?q=abc` — results appear |
+| Blog | Visit `/blog` + article pages |
+| Videos | Visit `/videos` + detail pages |
+| Dynamic routes | `/games/memory-match`, `/blog/[slug]` etc. |
+| PWA | Open in Chrome → install prompt appears |
+| Offline | Go offline → `/offline` page shows |
+| SEO | View page source — meta tags, structured data present |
+| 404 | Visit `/anything-random` — styled 404 page |
+| Mobile | Resize browser — responsive layout |
+| Service Worker | DevTools → Application → Service Workers → registered |
+
+---
+
 ## 🏗️ Project Structure
 
 ```

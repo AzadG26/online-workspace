@@ -1,0 +1,18 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+  base = "pogo-tunes/"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Service-Worker-Allowed = "/"
+
+[[redirects]]
+  from = "/_next/static/*"
+  to = "/_next/static/:splat"
+  status = 200
