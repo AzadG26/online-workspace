@@ -1,7 +1,34 @@
 {
   "name": "pogo-tunes",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "Premium educational platform for kids — interactive games, quizzes, flashcards, videos, and worksheets. Built with Next.js 16, TypeScript, and Tailwind CSS v4.",
+  "keywords": [
+    "kids learning",
+    "educational games",
+    "children education",
+    "preschool",
+    "kindergarten",
+    "ABC",
+    "counting",
+    "phonics",
+    "Next.js",
+    "Tailwind CSS"
+  ],
+  "homepage": "https://pogotunes.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AzadG26/online-workspace.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AzadG26/online-workspace/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Pogo Tunes",
+    "email": "support@pogotunes.com",
+    "url": "https://pogotunes.netlify.app"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
