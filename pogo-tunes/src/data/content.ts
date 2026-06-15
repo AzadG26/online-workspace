@@ -36,6 +36,7 @@ export interface VideoItem {
   category: string
   href: string
   featured?: boolean
+  youtubeId?: string
 }
 
 export interface GameItem {
@@ -270,14 +271,14 @@ export const categories: Category[] = [
 ]
 
 export const featuredVideos: VideoItem[] = [
-  { id: "v1", title: "ABC Song for Kids", thumbnail: "/api/placeholder/640/360", duration: "3:45", views: "2.5M", category: "ABC", href: "/videos/abc-song", featured: true },
-  { id: "v2", title: "Learn Counting 1-10", thumbnail: "/api/placeholder/640/360", duration: "4:20", views: "1.8M", category: "Counting", href: "/videos/counting-1-10", featured: true },
-  { id: "v3", title: "Animal Sounds for Kids", thumbnail: "/api/placeholder/640/360", duration: "5:10", views: "3.2M", category: "Animals", href: "/videos/animal-sounds", featured: true },
-  { id: "v4", title: "Colors Song", thumbnail: "/api/placeholder/640/360", duration: "3:30", views: "1.5M", category: "Colors", href: "/videos/colors-song", featured: true },
-  { id: "v5", title: "Hindi Varnamala", thumbnail: "/api/placeholder/640/360", duration: "6:00", views: "900K", category: "Hindi", href: "/videos/hindi-varnamala", featured: true },
-  { id: "v6", title: "Shape Song", thumbnail: "/api/placeholder/640/360", duration: "4:15", views: "2.1M", category: "Shapes", href: "/videos/shape-song" },
-  { id: "v7", title: "Fruit Names", thumbnail: "/api/placeholder/640/360", duration: "5:30", views: "1.2M", category: "Fruits", href: "/videos/fruit-names" },
-  { id: "v8", title: "Animal Dance Party", thumbnail: "/api/placeholder/640/360", duration: "4:45", views: "4.0M", category: "Animals", href: "/videos/animal-dance" },
+  { id: "v1", title: "ABC Song for Kids", thumbnail: "/api/placeholder/640/360", duration: "3:45", views: "2.5M", category: "ABC", href: "/videos/abc-song", featured: true, youtubeId: "ml20_XPDENI" },
+  { id: "v2", title: "Learn Counting 1-10", thumbnail: "/api/placeholder/640/360", duration: "4:20", views: "1.8M", category: "Counting", href: "/videos/counting-1-10", featured: true, youtubeId: "bg0T9f7hH7o" },
+  { id: "v3", title: "Animal Sounds for Kids", thumbnail: "/api/placeholder/640/360", duration: "5:10", views: "3.2M", category: "Animals", href: "/videos/animal-sounds", featured: true, youtubeId: "ml20_XPDENI" },
+  { id: "v4", title: "Colors Song", thumbnail: "/api/placeholder/640/360", duration: "3:30", views: "1.5M", category: "Colors", href: "/videos/colors-song", featured: true, youtubeId: "ml20_XPDENI" },
+  { id: "v5", title: "Hindi Varnamala", thumbnail: "/api/placeholder/640/360", duration: "6:00", views: "900K", category: "Hindi", href: "/videos/hindi-varnamala", featured: true, youtubeId: "ml20_XPDENI" },
+  { id: "v6", title: "Shape Song", thumbnail: "/api/placeholder/640/360", duration: "4:15", views: "2.1M", category: "Shapes", href: "/videos/shape-song", youtubeId: "ml20_XPDENI" },
+  { id: "v7", title: "Fruit Names", thumbnail: "/api/placeholder/640/360", duration: "5:30", views: "1.2M", category: "Fruits", href: "/videos/fruit-names", youtubeId: "ml20_XPDENI" },
+  { id: "v8", title: "Animal Dance Party", thumbnail: "/api/placeholder/640/360", duration: "4:45", views: "4.0M", category: "Animals", href: "/videos/animal-dance", youtubeId: "ml20_XPDENI" },
 ]
 
 export const shorts: ShortItem[] = [

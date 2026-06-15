@@ -1,5 +1,7 @@
-name = "pogo-tunes"
-pages_build_output_dir = ".next"
+# Cloudflare Pages configuration
+# For full Next.js support (API routes, SSR), use `@cloudflare/next-on-pages`.
+# For static export only, change build output to "out".
 
-[env.production]
-  # No environment variables needed — all content is static/data-driven
+pages_build_command = "npm run build"
+pages_build_output_dir = ".next"
+node_compat = true
