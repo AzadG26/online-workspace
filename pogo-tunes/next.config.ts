@@ -24,4 +24,8 @@ const nextConfig: NextConfig = {
 
 export default nextConfig
 
-import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());
+// Dev-only: enable Cloudflare bindings in local dev
+const isDev = process.env.NODE_ENV === 'development'
+if (isDev) {
+  import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev())
+}
