@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Play, Camera, Globe, PinIcon, ExternalLink } from "lucide-react"
+import { Play, Camera, Globe, PinIcon, ExternalLink, Globe2, BookOpen } from "lucide-react"
 import { categories, characters } from "@/data/content"
 
 const socialLinks = [
@@ -13,6 +13,11 @@ const socialLinks = [
   { label: "Twitter", icon: ExternalLink, href: "https://x.com/pogotunes", color: "hover:text-dark" },
 ]
 
+const platformLinks = [
+  { label: "Main Site", href: "https://pogotunes.netlify.app", icon: Globe2 },
+  { label: "Blogger Blog", href: "https://pogotunes.blogspot.com", icon: BookOpen },
+]
+
 const quickLinks = [
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -21,6 +26,7 @@ const quickLinks = [
   { label: "Worksheets", href: "/worksheets" },
   { label: "Flashcards", href: "/flashcards" },
 ]
+
 
 const legalLinks = [
   { label: "Privacy Policy", href: "/privacy" },
@@ -36,7 +42,7 @@ export function Footer() {
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-coral via-yellow via-sky via-purple to-green" />
 
       <div className="mx-auto max-w-7xl px-4">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div>
             <Link href="/" className="inline-flex items-center gap-2">
               <span className="font-display text-2xl font-bold">
@@ -74,6 +80,25 @@ export function Footer() {
                   >
                     {link.label}
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-display text-lg font-bold text-dark">Our Platforms</h4>
+            <ul className="mt-4 space-y-3">
+              {platformLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 font-body text-sm text-gray transition-colors hover:text-coral"
+                  >
+                    <link.icon className="h-4 w-4" />
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>

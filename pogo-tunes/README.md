@@ -14,7 +14,9 @@
   <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind%20CSS%20v4-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS v4"></a>
   <br>
   <a href="https://github.com/AzadG26/online-workspace"><img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License"></a>
-  <a href="https://pogotunes.netlify.app"><img src="https://img.shields.io/badge/Live%20Demo-Netlify-00C7B7?logo=netlify&logoColor=white" alt="Live Demo"></a>
+  <a href="https://pogotunes.netlify.app"><img src="https://img.shields.io/badge/Live%20Demo-Netlify-00C7B7?logo=netlify&logoColor=white" alt="Netlify"></a>
+  <a href="https://pogo-tunes.pages.dev"><img src="https://img.shields.io/badge/Live%20Demo-Cloudflare-F38020?logo=cloudflare&logoColor=white" alt="Cloudflare"></a>
+  <a href="https://pogotunes.blogspot.com"><img src="https://img.shields.io/badge/Blog-Blogger-FF5722?logo=blogger&logoColor=white" alt="Blogger"></a>
   <a href="https://www.youtube.com/@Pogotunes"><img src="https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white" alt="YouTube"></a>
 </p>
 
@@ -235,8 +237,9 @@ pogo-tunes/
 
 The Pogo Tunes Next.js app is deployed at:
 
-- **Netlify:** [https://pogotunes.netlify.app](https://pogotunes.netlify.app)
-- **Blogger:** [https://pogotunes.blogspot.com](https://pogotunes.blogspot.com)
+- **Next.js App:** [https://pogotunes.netlify.app](https://pogotunes.netlify.app) — main app on Netlify
+- **Cloudflare Worker:** [https://pogo-tunes.pages.dev](https://pogo-tunes.pages.dev) — SSR/API deployment on Cloudflare
+- **Blogger:** [https://pogotunes.blogspot.com](https://pogotunes.blogspot.com) — legacy blog
 - **YouTube:** [@Pogotunes](https://www.youtube.com/@Pogotunes)
 
 ---
