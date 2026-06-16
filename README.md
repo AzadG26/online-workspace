@@ -8,17 +8,27 @@ A collection of educational web projects for children's learning and development
 
 A premium, production-grade children's educational platform built with Next.js 16, TypeScript, and Tailwind CSS v4. Features interactive games, quizzes, flashcards, videos, and more — all completely free and ad-free.
 
-- **34+ routes** including games, quizzes, learning categories, blog, and media
+- **35 routes** including games, quizzes, learning categories, blog, and media
 - **6 fully playable games** with scoring, levels, animations, and sound effects
 - **12 learning categories** covering ABCs, Hindi, Counting, Colors, Animals, and more
 - **PWA support** with manifest, service worker, and offline fallback
-- **SEO optimized** with sitemap, robots.txt, and structured metadata
+- **SEO optimized** with sitemap (34 URLs), robots.txt, and structured metadata
+- **Deployed on 3 platforms:** Netlify, Cloudflare Workers (via OpenNext), and Blogger
+
+### Live Sites
+
+| Platform | URL | Type |
+|----------|-----|------|
+| Netlify | [pogotunes.netlify.app](https://pogotunes.netlify.app) | Next.js static + SSR |
+| Cloudflare Workers | [pogotunes.physicswallahlakshyabatch.workers.dev](https://pogotunes.physicswallahlakshyabatch.workers.dev) | OpenNext SSR + API |
+| Blogger | [pogotunes.blogspot.com](https://pogotunes.blogspot.com) | Legacy blog |
+| YouTube | [@Pogotunes](https://www.youtube.com/@Pogotunes) | Video content |
 
 [View Pogo Tunes README →](./pogo-tunes/README.md)
 
 ### Pogotunes Blogger Theme
 
-A custom Blogger theme (XML) for the Pogo Tunes educational content channel.
+A custom Blogger theme (XML) for the Pogo Tunes educational content channel — SEO-optimized with improved meta tags and canonical URLs.
 
 ## Tech Stack
 
@@ -27,6 +37,15 @@ A custom Blogger theme (XML) for the Pogo Tunes educational content channel.
 - **Languages:** TypeScript, CSS
 - **Icons:** Lucide React
 - **PWA:** Custom service worker, Web App Manifest
+- **Cloudflare:** OpenNext adapter for Workers deployment
+
+## Deployment
+
+The Next.js app is configured for multi-platform deployment:
+
+- **Vercel:** `vercel.json` — Next.js framework, auto-configures
+- **Netlify:** `netlify.toml` — build command + publish directory
+- **Cloudflare:** `wrangler.jsonc` + `open-next.config.ts` — OpenNext adapter for SSR
 
 ## License
 

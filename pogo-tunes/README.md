@@ -233,14 +233,16 @@ pogo-tunes/
 
 ---
 
-## 🌐 Live Site
+## 🌐 Live Sites
 
-The Pogo Tunes Next.js app is deployed at:
+The Pogo Tunes Next.js app is deployed on 3 platforms:
 
-- **Next.js App:** [https://pogotunes.netlify.app](https://pogotunes.netlify.app) — main app on Netlify
-- **Cloudflare Worker:** [https://pogo-tunes.pages.dev](https://pogo-tunes.pages.dev) — SSR/API deployment on Cloudflare
-- **Blogger:** [https://pogotunes.blogspot.com](https://pogotunes.blogspot.com) — legacy blog
-- **YouTube:** [@Pogotunes](https://www.youtube.com/@Pogotunes)
+| Platform | URL | Type |
+|----------|-----|------|
+| **Netlify** | [pogotunes.netlify.app](https://pogotunes.netlify.app) | Next.js static + SSR |
+| **Cloudflare Workers** | [pogotunes.physicswallahlakshyabatch.workers.dev](https://pogotunes.physicswallahlakshyabatch.workers.dev) | OpenNext SSR + API routes |
+| **Blogger (legacy)** | [pogotunes.blogspot.com](https://pogotunes.blogspot.com) | Original educational blog |
+| **YouTube** | [@Pogotunes](https://www.youtube.com/@Pogotunes) | Video library |
 
 ---
 
