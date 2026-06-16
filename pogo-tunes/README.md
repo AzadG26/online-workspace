@@ -155,14 +155,17 @@ Vercel is made by the creators of Next.js. Everything works out of the box.
 
 # 4. Click "Save and Deploy"
 
-# NOTE: For API routes (contact form) to work on Cloudflare Pages,
-# install the adapter: npm install @cloudflare/next-on-pages
-# Then change build command to: npx @cloudflare/next-on-pages
+# ⚠️ Do NOT include wrangler.toml — it triggers the wrong deploy command.
+# Build settings are configured in the dashboard only.
+
+# For API routes to work on Cloudflare Pages, install the adapter:
+#   npm install @cloudflare/next-on-pages
+# Then change Build Command to: npx @cloudflare/next-on-pages
 ```
 
 **What you get free:** Auto SSL, custom domain, unlimited bandwidth, 500K requests/mo, global CDN.
 
-**⚠️ Cloudflare note:** API routes (like the contact form) require the `@cloudflare/next-on-pages` adapter. Vercel and Netlify support API routes natively with no extra setup.
+**⚠️ Cloudflare note:** API routes require the `@cloudflare/next-on-pages` adapter. Vercel/Netlify support API routes natively with no extra setup. Do not include `wrangler.toml` in your repo — Cloudflare Pages CI auto-detects it and runs the wrong deploy command.
 
 ---
 
