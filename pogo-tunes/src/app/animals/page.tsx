@@ -20,6 +20,7 @@ export default function AnimalsPage() {
         emoji="🐾"
         gradient="linear-gradient(135deg, #6BCBFF, #A0DEFF)"
         color="var(--color-sky)"
+        categoryId="animals"
       />
 
       <Section title="Meet the Animals" subtitle="Tap any animal to learn more!" className="bg-white">

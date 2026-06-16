@@ -4,6 +4,8 @@ import { useState, type FormEvent } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Mail, MessageSquare, HelpCircle, ArrowRight, CheckCircle, AlertCircle, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { StructuredData } from "@/components/structured-data"
+import { contactPageSchema, organizationSchema } from "@/lib/structured-data"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
@@ -37,7 +39,9 @@ export default function ContactPage() {
   }
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-cream to-white pt-24 pb-16 md:pt-32">
+    <>
+      <StructuredData schema={[contactPageSchema(), organizationSchema()]} />
+      <section className="min-h-screen bg-gradient-to-b from-cream to-white pt-24 pb-16 md:pt-32">
       <div className="mx-auto max-w-4xl px-4">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -156,5 +160,6 @@ export default function ContactPage() {
         </div>
       </div>
     </section>
+    </>
   )
 }

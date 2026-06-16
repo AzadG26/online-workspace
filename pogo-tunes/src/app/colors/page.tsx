@@ -20,6 +20,7 @@ export default function ColorsPage() {
         emoji="🎨"
         gradient="linear-gradient(135deg, #6EE7B7, #96F0CC)"
         color="var(--color-green)"
+        categoryId="colors"
       />
 
       <Section title="Color Palette" subtitle="Tap any color to learn its name!" className="bg-white">

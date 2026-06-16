@@ -6,6 +6,8 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowLeft } from "lucide-react"
 import { getShortContent, shorts } from "@/data/content"
+import { StructuredData } from "@/components/structured-data"
+import { breadcrumbSchema } from "@/lib/structured-data"
 
 function ShortDetailContent() {
   const params = useParams()
@@ -32,6 +34,23 @@ function ShortDetailContent() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 pb-16">
+      <StructuredData
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            "@id": `https://pogotunes.vercel.app${short.href}/#video`,
+            name: short.title,
+            description: `${short.title} - Quick educational short for kids from Pogo Tunes.`,
+            publisher: { "@id": "https://pogotunes.vercel.app/#organization" },
+          },
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Shorts", url: "/shorts" },
+            { name: short.title, url: short.href },
+          ]),
+        ]}
+      />
       <Link
         href="/shorts"
         className="mb-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-gray hover:text-purple transition-colors"

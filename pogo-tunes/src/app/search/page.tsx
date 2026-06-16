@@ -4,6 +4,8 @@ import { useState, useMemo } from "react"
 import { motion } from "framer-motion"
 import { Search, X, Gamepad2, BookOpen, Sparkles } from "lucide-react"
 import { categories, featuredVideos, games, blogPosts, shorts } from "@/data/content"
+import { StructuredData } from "@/components/structured-data"
+import { breadcrumbSchema } from "@/lib/structured-data"
 
 const ALL_CONTENT = [
   ...categories.map((c) => ({ title: c.title, description: c.description, href: c.href, icon: c.emoji, type: "Category" as const })),
@@ -36,7 +38,28 @@ export default function SearchPage() {
   }, [results])
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-cream to-white pt-24 md:pt-32">
+    <>
+      <StructuredData
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://pogotunes.vercel.app/search/#search",
+            name: "Search Pogo Tunes",
+            description: "Search for educational content, games, videos, and articles for kids.",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: "https://pogotunes.vercel.app/search?q={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          },
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Search", url: "/search" },
+          ]),
+        ]}
+      />
+      <section className="min-h-screen bg-gradient-to-b from-cream to-white pt-24 md:pt-32">
       <div className="mx-auto max-w-4xl px-4 pb-16">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -138,5 +161,6 @@ export default function SearchPage() {
         )}
       </div>
     </section>
+    </>
   )
 }

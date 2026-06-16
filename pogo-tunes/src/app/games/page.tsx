@@ -5,10 +5,21 @@ import { motion } from "framer-motion"
 import { ArrowRight, Gamepad2 } from "lucide-react"
 import { Section } from "@/components/ui/section"
 import { games } from "@/data/content"
+import { StructuredData } from "@/components/structured-data"
+import { collectionPageSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 export default function GamesPage() {
   return (
     <>
+      <StructuredData
+        schema={[
+          collectionPageSchema("Fun Learning Games", "Play and learn with interactive educational games for kids.", "/games", games.length),
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Games", url: "/games" },
+          ]),
+        ]}
+      />
       <section className="relative overflow-hidden bg-gradient-to-b from-yellow/10 via-cream to-white pt-24 pb-12 md:pt-32">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <motion.h1

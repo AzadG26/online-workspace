@@ -24,13 +24,16 @@ const nunito = Nunito({
   display: "swap",
 })
 
+const BASE_URL = "https://pogotunes.vercel.app"
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: {
     default: "Pogo Tunes — Fun Learning for Kids",
     template: "%s | Pogo Tunes",
   },
   description:
-    "Pogo Tunes makes learning fun with educational songs, games, videos, and activities for kids. Free and accessible for everyone.",
+    "Pogo Tunes makes learning fun with free educational songs, games, videos, and activities for kids. Preschool learning for ABCs, counting, colors, shapes, animals, Hindi, and more. Safe, ad-free, and accessible for everyone.",
   keywords: [
     "kids learning",
     "educational songs",
@@ -41,10 +44,19 @@ export const metadata: Metadata = {
     "kindergarten",
     "learning games",
     "Pogo Tunes",
+    "free kids education",
+    "preschool learning",
+    "educational videos for kids",
+    "toddler learning",
+    "Hindi for kids",
+    "early childhood education",
   ],
   manifest: "/manifest.json",
   icons: {
-    icon: [{ url: "/icon-192.svg", sizes: "192x192", type: "image/svg+xml" }],
+    icon: [
+      { url: "/icon-192.svg", sizes: "192x192", type: "image/svg+xml" },
+      { url: "/icon-192.svg", sizes: "512x512", type: "image/svg+xml" },
+    ],
     apple: "/icon-192.svg",
   },
   appleWebApp: {
@@ -54,20 +66,43 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Pogo Tunes — Fun Learning for Kids",
-    description: "Making learning fun with songs, games, and activities.",
-    url: "https://pogotunes.com",
+    description:
+      "Free educational platform for kids. Interactive games, videos, songs, and activities for preschool learning. Safe, ad-free, and fun!",
+    url: BASE_URL,
     siteName: "Pogo Tunes",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: `${BASE_URL}/icon-192.svg`,
+        width: 192,
+        height: 192,
+        alt: "Pogo Tunes — Fun Learning for Kids",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    site: "@pogotunes",
+    creator: "@pogotunes",
     title: "Pogo Tunes — Fun Learning for Kids",
-    description: "Making learning fun with songs, games, and activities.",
+    description:
+      "Free educational platform for kids. Interactive games, videos, songs, and activities for preschool learning.",
+    images: [`${BASE_URL}/icon-192.svg`],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: BASE_URL,
   },
   other: {
     "google-site-verification": "KXvi68MWY9C0_ykKInw25pwdDgB7R04eJbjD9tfF038",
@@ -89,9 +124,9 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Header />
-        <div id="main-content" className="flex-1">
+        <main id="main-content" className="flex-1">
           <PageTransition>{children}</PageTransition>
-        </div>
+        </main>
         <Footer />
         <ServiceWorkerRegister />
       </body>

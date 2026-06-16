@@ -2,6 +2,9 @@
 
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { categories } from "@/data/content"
+import { StructuredData } from "@/components/structured-data"
+import { categorySchema, breadcrumbSchema } from "@/lib/structured-data"
 
 interface CategoryHeroProps {
   title: string
@@ -9,11 +12,27 @@ interface CategoryHeroProps {
   emoji: string
   gradient: string
   color: string
+  categoryId?: string
 }
 
-export function CategoryHero({ title, description, emoji, gradient, color }: CategoryHeroProps) {
+export function CategoryHero({ title, description, emoji, gradient, color, categoryId }: CategoryHeroProps) {
+  const cat = categoryId ? categories.find((c) => c.id === categoryId) : null
+
   return (
-    <section
+    <>
+      {cat && (
+        <StructuredData
+          schema={[
+            categorySchema(cat),
+            breadcrumbSchema([
+              { name: "Home", url: "/" },
+              { name: "Categories", url: "/categories" },
+              { name: cat.title, url: cat.href },
+            ]),
+          ]}
+        />
+      )}
+      <section
       className="relative overflow-hidden pt-24 pb-12 md:pt-32 md:pb-16"
       style={{
         background: `linear-gradient(135deg, ${color}15, #FFF8E7, #FFFFFF)`,
@@ -52,5 +71,6 @@ export function CategoryHero({ title, description, emoji, gradient, color }: Cat
         </div>
       </div>
     </section>
+    </>
   )
 }

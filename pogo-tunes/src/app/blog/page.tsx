@@ -5,10 +5,21 @@ import { motion } from "framer-motion"
 import { Calendar, ArrowRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { blogPosts } from "@/data/content"
+import { StructuredData } from "@/components/structured-data"
+import { collectionPageSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 export default function BlogPage() {
   return (
     <>
+      <StructuredData
+        schema={[
+          collectionPageSchema("Pogo Tunes Blog", "Learning tips, parenting guides, and educational resources for parents and teachers.", "/blog", blogPosts.length),
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Blog", url: "/blog" },
+          ]),
+        ]}
+      />
       <section className="relative overflow-hidden bg-gradient-to-b from-purple/10 via-cream to-white pt-24 pb-12 md:pt-32">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <motion.h1

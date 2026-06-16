@@ -5,10 +5,21 @@ import { motion } from "framer-motion"
 import { Play, Clock, Eye } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { featuredVideos, categories } from "@/data/content"
+import { StructuredData } from "@/components/structured-data"
+import { collectionPageSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 export default function VideosPage() {
   return (
     <>
+      <StructuredData
+        schema={[
+          collectionPageSchema("Learning Videos", "Educational videos for kids covering ABCs, counting, colors, animals, and more.", "/videos", featuredVideos.length),
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Videos", url: "/videos" },
+          ]),
+        ]}
+      />
       <section className="relative overflow-hidden bg-gradient-to-b from-coral/10 via-cream to-white pt-24 pb-12 md:pt-32">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <motion.h1

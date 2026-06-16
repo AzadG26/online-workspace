@@ -7,6 +7,8 @@ import { motion } from "framer-motion"
 import { ArrowLeft, Clock, Eye, ExternalLink } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { getVideoContent, featuredVideos } from "@/data/content"
+import { StructuredData } from "@/components/structured-data"
+import { videoObjectSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 function VideoDetailContent() {
   const params = useParams()
@@ -33,6 +35,16 @@ function VideoDetailContent() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 pb-16">
+      <StructuredData
+        schema={[
+          videoObjectSchema(video),
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Videos", url: "/videos" },
+            { name: video.title, url: video.href },
+          ]),
+        ]}
+      />
       <Link
         href="/videos"
         className="mb-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-gray hover:text-coral transition-colors"

@@ -23,6 +23,7 @@ export default function CountingPage() {
         emoji="🔢"
         gradient="linear-gradient(135deg, #FFD93D, #FFE680)"
         color="var(--color-yellow)"
+        categoryId="counting"
       />
 
       <Section title="Numbers 1-20" subtitle="Tap any number to learn more!" className="bg-white">

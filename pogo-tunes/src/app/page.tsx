@@ -7,10 +7,13 @@ import { FeaturesSection } from "@/components/home/features-section"
 import { CharactersSection } from "@/components/home/characters-section"
 import { CTASection } from "@/components/home/cta-section"
 import { BlogSection } from "@/components/home/blog-section"
+import { StructuredData } from "@/components/structured-data"
+import { webSiteSchema, organizationSchema } from "@/lib/structured-data"
 
 export default function HomePage() {
   return (
     <>
+      <StructuredData schema={[webSiteSchema(), organizationSchema()]} />
       <Hero />
       <CategoriesSection />
       <VideosSection />

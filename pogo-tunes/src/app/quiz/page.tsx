@@ -3,10 +3,28 @@
 import { motion } from "framer-motion"
 import { QuizEngine } from "@/components/quiz-engine"
 import { Sparkles } from "lucide-react"
+import { StructuredData } from "@/components/structured-data"
+import { breadcrumbSchema, faqPageSchema } from "@/lib/structured-data"
+import { quizQuestions } from "@/data/content"
 
 export default function QuizPage() {
+  const faqItems = quizQuestions.slice(0, 6).map((q) => ({
+    question: q.question,
+    answer: q.options[q.correctIndex],
+  }))
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-coral/5 via-cream to-white pt-24">
+    <>
+      <StructuredData
+        schema={[
+          faqPageSchema(faqItems),
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Quiz", url: "/quiz" },
+          ]),
+        ]}
+      />
+      <div className="min-h-screen bg-gradient-to-b from-coral/5 via-cream to-white pt-24">
       <div className="mx-auto max-w-3xl px-4 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,5 +50,6 @@ export default function QuizPage() {
         </motion.div>
       </div>
     </div>
+    </>
   )
 }

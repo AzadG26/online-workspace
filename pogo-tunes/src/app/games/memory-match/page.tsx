@@ -4,10 +4,27 @@ import { motion } from "framer-motion"
 import { MemoryMatch } from "@/components/games/memory-match"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import { StructuredData } from "@/components/structured-data"
+import { gameSchema, breadcrumbSchema } from "@/lib/structured-data"
+import { getGameContent } from "@/data/content"
 
 export default function MemoryMatchPage() {
+  const game = getGameContent("memory-match")
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-coral/5 via-cream to-white pt-24">
+      {game && (
+        <StructuredData
+          schema={[
+            gameSchema(game),
+            breadcrumbSchema([
+              { name: "Home", url: "/" },
+              { name: "Games", url: "/games" },
+              { name: game.title, url: game.href },
+            ]),
+          ]}
+        />
+      )}
       <div className="mx-auto max-w-4xl px-4 pb-16">
         <Link href="/games" className="mb-6 flex items-center gap-2 font-display text-sm font-semibold text-gray hover:text-coral transition-colors">
           <ArrowLeft className="h-4 w-4" /> Back to Games

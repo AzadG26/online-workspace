@@ -4,10 +4,13 @@ import { motion } from "framer-motion"
 import { Heart, Sparkles, Globe, BookOpen } from "lucide-react"
 import { Section } from "@/components/ui/section"
 import { characters } from "@/data/content"
+import { StructuredData } from "@/components/structured-data"
+import { aboutPageSchema, organizationSchema } from "@/lib/structured-data"
 
 export default function AboutPage() {
   return (
     <>
+      <StructuredData schema={[aboutPageSchema(), organizationSchema()]} />
       <section className="relative overflow-hidden bg-gradient-to-b from-coral/10 via-cream to-white pt-24 pb-12 md:pt-32">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <motion.h1

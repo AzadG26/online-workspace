@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://pogotunes.com/sitemap.xml",
+    sitemap: "https://pogotunes.vercel.app/sitemap.xml",
   }
 }

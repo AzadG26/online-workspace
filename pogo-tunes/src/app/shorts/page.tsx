@@ -5,10 +5,21 @@ import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Section } from "@/components/ui/section"
 import { shorts } from "@/data/content"
+import { StructuredData } from "@/components/structured-data"
+import { collectionPageSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 export default function ShortsPage() {
   return (
     <>
+      <StructuredData
+        schema={[
+          collectionPageSchema("Quick Shorts", "Bite-sized educational shorts for kids. Fun learning in short videos!", "/shorts", shorts.length),
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Shorts", url: "/shorts" },
+          ]),
+        ]}
+      />
       <section className="relative overflow-hidden bg-gradient-to-b from-purple/10 via-cream to-white pt-24 pb-12 md:pt-32">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <motion.h1

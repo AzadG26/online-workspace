@@ -5,12 +5,23 @@ import { motion } from "framer-motion"
 import { Download, Printer, ArrowRight } from "lucide-react"
 import { Section } from "@/components/ui/section"
 import { categories } from "@/data/content"
+import { StructuredData } from "@/components/structured-data"
+import { collectionPageSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const worksheetCategories = categories.slice(0, 6)
 
 export default function WorksheetsPage() {
   return (
     <>
+      <StructuredData
+        schema={[
+          collectionPageSchema("Free Worksheets", "Download free printable worksheets for kids. Practice letters, numbers, colors, and more!", "/worksheets", worksheetCategories.length),
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Worksheets", url: "/worksheets" },
+          ]),
+        ]}
+      />
       <section className="relative overflow-hidden bg-gradient-to-b from-green/10 via-cream to-white pt-24 pb-12 md:pt-32">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <motion.h1

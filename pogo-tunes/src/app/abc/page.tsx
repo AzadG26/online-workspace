@@ -20,6 +20,7 @@ export default function ABCPage() {
         emoji="🔤"
         gradient="linear-gradient(135deg, #FF6B6B, #FF8E8E)"
         color="var(--color-coral)"
+        categoryId="abc"
       />
 
       <Section title="Alphabet Letters" subtitle="Tap any letter to start learning!" className="bg-white">

@@ -5,10 +5,21 @@ import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Section } from "@/components/ui/section"
 import { categories } from "@/data/content"
+import { StructuredData } from "@/components/structured-data"
+import { collectionPageSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 export default function CategoriesPage() {
   return (
     <>
+      <StructuredData
+        schema={[
+          collectionPageSchema("Explore & Learn", "Choose a topic and start your learning adventure with Pogo, Tuni, and Bobo!", "/categories", categories.length),
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Categories", url: "/categories" },
+          ]),
+        ]}
+      />
       <section className="relative overflow-hidden bg-gradient-to-b from-coral/10 via-cream to-white pt-24 pb-12 md:pt-32">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <motion.h1

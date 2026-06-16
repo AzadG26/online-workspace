@@ -20,6 +20,7 @@ export default function HindiPage() {
         emoji="🕉️"
         gradient="linear-gradient(135deg, #B28DFF, #CCB0FF)"
         color="var(--color-purple)"
+        categoryId="hindi"
       />
 
       <Section title="Hindi Varnamala" subtitle="Tap any letter to start learning!" className="bg-white">

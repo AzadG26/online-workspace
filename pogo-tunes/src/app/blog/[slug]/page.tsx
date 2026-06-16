@@ -6,6 +6,8 @@ import { motion } from "framer-motion"
 import { ArrowLeft, Calendar, User } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { getBlogPost, getRelatedPosts } from "@/data/content"
+import { StructuredData } from "@/components/structured-data"
+import { articleSchema, blogPostingSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 function BlogPostContent() {
   const params = useParams()
@@ -29,6 +31,17 @@ function BlogPostContent() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 pb-16">
+      <StructuredData
+        schema={[
+          articleSchema(post),
+          blogPostingSchema(post),
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: post.title, url: `/blog/${post.id}` },
+          ]),
+        ]}
+      />
       <Link
         href="/blog"
         className="mb-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-gray hover:text-coral transition-colors"

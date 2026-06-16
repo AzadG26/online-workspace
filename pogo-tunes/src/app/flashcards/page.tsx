@@ -6,6 +6,8 @@ import { Shuffle, RotateCcw, ChevronLeft, ChevronRight, Play, Pause, Keyboard } 
 import { Section } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
 import { abcLetters, animalData, colorData } from "@/data/content"
+import { StructuredData } from "@/components/structured-data"
+import { collectionPageSchema, breadcrumbSchema } from "@/lib/structured-data"
 
 const CATEGORIES = [
   { id: "letters", label: "Letters", emoji: "🔤" },
@@ -110,6 +112,15 @@ export default function FlashcardsPage() {
 
   return (
     <>
+      <StructuredData
+        schema={[
+          collectionPageSchema("Flashcards", "Interactive flashcards for kids to learn letters, animals, and colors.", "/flashcards", 100),
+          breadcrumbSchema([
+            { name: "Home", url: "/" },
+            { name: "Flashcards", url: "/flashcards" },
+          ]),
+        ]}
+      />
       <section className="relative overflow-hidden bg-gradient-to-b from-purple/10 via-cream to-white pt-24 pb-12 md:pt-32">
         <div className="mx-auto max-w-7xl px-4 text-center">
           <motion.h1
