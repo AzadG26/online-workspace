@@ -145,30 +145,23 @@ Vercel is made by the creators of Next.js. Everything works out of the box.
 
 This project uses `@opennextjs/cloudflare` to deploy to Cloudflare Workers with full SSR and API route support.
 
-#### One-time setup (Cloudflare dashboard):
+#### CI/CD Settings (Cloudflare Dashboard):
 
-1. Go to [Cloudflare Dashboard → Workers & Pages](https://dash.cloudflare.com/) and create a Worker named `pogo-tunes`
-2. Go to the Worker's settings and add these bindings:
-   - `ASSETS` → (must be created automatically)  
-   - `IMAGES` → Cloudflare Images
-
-#### CI/CD (auto-deploy from GitHub):
-
-```bash
-# If using Cloudflare Pages:
-#   Build command:   npm run build
-#   Deploy command:  npx wrangler deploy
-#   Root directory:  pogo-tunes/
-
-# The wrangler.jsonc in the repo configures deployment automatically.
-# On first deploy, remove the `services` block from wrangler.jsonc
-# (the self-reference binding), deploy once to create the Worker,
-# then add it back to enable caching.
+```
+Build command:   npm run build    # produces .next/ + .open-next/worker.js
+Deploy command:  npx wrangler deploy
+Root directory:  pogo-tunes/
 ```
 
-**What you get free:** 100K requests/day, auto SSL, custom domain, global CDN.
+The `open-next.config.ts` sets `buildCommand: "next build"` so OpenNext calls Next.js directly (no recursion). The `wrangler.jsonc` has no self-reference binding, so the first deploy succeeds immediately.
 
-**⚠️ Note:** First deploy requires the self-reference binding to be removed from `wrangler.jsonc` (already done in this repo). After the Worker exists, uncomment the `services` block in `wrangler.jsonc` and re-deploy to enable OpenNext caching.
+#### One-time Cloudflare setup:
+
+1. Go to [Cloudflare Dashboard → Workers & Pages](https://dash.cloudflare.com/)
+2. Create a Worker named `pogo-tunes`
+3. The first deploy will create it automatically (no bindings needed)
+
+**What you get free:** 100K requests/day, auto SSL, custom domain, global CDN.
 
 ---
 
