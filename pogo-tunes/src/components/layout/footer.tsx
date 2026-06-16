@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Play, Camera, Globe, PinIcon, ExternalLink, Globe2, BookOpen } from "lucide-react"
+import { Play, Camera, Globe, PinIcon, ExternalLink, Globe2, BookOpen, Zap } from "lucide-react"
 import { categories, characters } from "@/data/content"
 
 const socialLinks = [
@@ -15,6 +15,7 @@ const socialLinks = [
 
 const platformLinks = [
   { label: "Main Site", href: "https://pogotunes.netlify.app", icon: Globe2 },
+  { label: "Vercel", href: "https://pogotunes.vercel.app", icon: Zap },
   { label: "Blogger Blog", href: "https://pogotunes.blogspot.com", icon: BookOpen },
 ]
 

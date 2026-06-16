@@ -15,7 +15,7 @@
     "Next.js",
     "Tailwind CSS"
   ],
-  "homepage": "https://pogotunes.netlify.app",
+  "homepage": "https://pogotunes.vercel.app",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AzadG26/online-workspace.git"
@@ -27,7 +27,7 @@
   "author": {
     "name": "Pogo Tunes",
     "email": "support@pogotunes.com",
-    "url": "https://pogotunes.netlify.app"
+    "url": "https://pogotunes.vercel.app"
   },
   "scripts": {
     "build": "opennextjs-cloudflare build",

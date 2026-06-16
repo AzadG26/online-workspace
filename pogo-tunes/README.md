@@ -14,8 +14,9 @@
   <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind%20CSS%20v4-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS v4"></a>
   <br>
   <a href="https://github.com/AzadG26/online-workspace"><img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License"></a>
+  <a href="https://pogotunes.vercel.app"><img src="https://img.shields.io/badge/Live%20Demo-Vercel-000000?logo=vercel&logoColor=white" alt="Vercel"></a>
   <a href="https://pogotunes.netlify.app"><img src="https://img.shields.io/badge/Live%20Demo-Netlify-00C7B7?logo=netlify&logoColor=white" alt="Netlify"></a>
-  <a href="https://pogo-tunes.pages.dev"><img src="https://img.shields.io/badge/Live%20Demo-Cloudflare-F38020?logo=cloudflare&logoColor=white" alt="Cloudflare"></a>
+  <a href="https://pogotunes.physicswallahlakshyabatch.workers.dev"><img src="https://img.shields.io/badge/Live%20Demo-Cloudflare-F38020?logo=cloudflare&logoColor=white" alt="Cloudflare"></a>
   <a href="https://pogotunes.blogspot.com"><img src="https://img.shields.io/badge/Blog-Blogger-FF5722?logo=blogger&logoColor=white" alt="Blogger"></a>
   <a href="https://www.youtube.com/@Pogotunes"><img src="https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white" alt="YouTube"></a>
 </p>
@@ -82,7 +83,7 @@ Open [http://localhost:3000](http://localhost:3000) to see the app.
 ### Build for Production
 
 ```bash
-npm run build     # Builds 34+ routes
+npm run build     # Builds 35 routes
 npm run start     # Start production server
 npm run lint      # Run ESLint
 ```
@@ -107,10 +108,10 @@ Vercel is made by the creators of Next.js. Everything works out of the box.
 # 4. In "Configure Project", set:
 #    Root Directory:  pogo-tunes/
 #    Framework:       Next.js  (auto-detected)
-#    Build Command:   npm run build  (auto)
-#    Output Dir:      .next  (auto)
 
 # 5. Click "Deploy" — done in ~2 minutes
+
+# Note: Uses `next build --webpack` in vercel.json to avoid Turbopack EPIPE issue on Vercel's build infra
 ```
 
 **What you get free:** Auto SSL, custom domain, 100 GB bandwidth/mo, 100 GB-hours serverless execution, CI/CD from GitHub.
@@ -235,10 +236,11 @@ pogo-tunes/
 
 ## 🌐 Live Sites
 
-The Pogo Tunes Next.js app is deployed on 3 platforms:
+The Pogo Tunes Next.js app is deployed on 4 platforms:
 
 | Platform | URL | Type |
 |----------|-----|------|
+| **Vercel** | [pogotunes.vercel.app](https://pogotunes.vercel.app) | Next.js SSR + API (primary) |
 | **Netlify** | [pogotunes.netlify.app](https://pogotunes.netlify.app) | Next.js static + SSR |
 | **Cloudflare Workers** | [pogotunes.physicswallahlakshyabatch.workers.dev](https://pogotunes.physicswallahlakshyabatch.workers.dev) | OpenNext SSR + API routes |
 | **Blogger (legacy)** | [pogotunes.blogspot.com](https://pogotunes.blogspot.com) | Original educational blog |
