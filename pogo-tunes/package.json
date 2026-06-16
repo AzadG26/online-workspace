@@ -30,7 +30,8 @@
     "url": "https://pogotunes.netlify.app"
   },
   "scripts": {
-    "build": "next build",
+    "build": "opennextjs-cloudflare build",
+    "build:next": "next build",
     "dev": "next dev",
     "start": "next start",
     "lint": "eslint",
