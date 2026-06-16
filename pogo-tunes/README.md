@@ -141,31 +141,34 @@ Vercel is made by the creators of Next.js. Everything works out of the box.
 
 ---
 
-### ☁️ Option 3: Cloudflare Pages (Fastest CDN)
+### ☁️ Option 3: Cloudflare Workers (via OpenNext)
+
+This project uses `@opennextjs/cloudflare` to deploy to Cloudflare Workers with full SSR and API route support.
+
+#### One-time setup (Cloudflare dashboard):
+
+1. Go to [Cloudflare Dashboard → Workers & Pages](https://dash.cloudflare.com/) and create a Worker named `pogo-tunes`
+2. Go to the Worker's settings and add these bindings:
+   - `ASSETS` → (must be created automatically)  
+   - `IMAGES` → Cloudflare Images
+
+#### CI/CD (auto-deploy from GitHub):
 
 ```bash
-# 1. Go to https://pages.cloudflare.com and click "Create a project"
+# If using Cloudflare Pages:
+#   Build command:   npm run build
+#   Deploy command:  npx wrangler deploy
+#   Root directory:  pogo-tunes/
 
-# 2. Connect your GitHub repo
-
-# 3. In build settings:
-#    Root Directory:  pogo-tunes/
-#    Build Command:   npm run build
-#    Build Output:    .next
-
-# 4. Click "Save and Deploy"
-
-# ⚠️ Do NOT include wrangler.toml — it triggers the wrong deploy command.
-# Build settings are configured in the dashboard only.
-
-# For API routes to work on Cloudflare Pages, install the adapter:
-#   npm install @cloudflare/next-on-pages
-# Then change Build Command to: npx @cloudflare/next-on-pages
+# The wrangler.jsonc in the repo configures deployment automatically.
+# On first deploy, remove the `services` block from wrangler.jsonc
+# (the self-reference binding), deploy once to create the Worker,
+# then add it back to enable caching.
 ```
 
-**What you get free:** Auto SSL, custom domain, unlimited bandwidth, 500K requests/mo, global CDN.
+**What you get free:** 100K requests/day, auto SSL, custom domain, global CDN.
 
-**⚠️ Cloudflare note:** API routes require the `@cloudflare/next-on-pages` adapter. Vercel/Netlify support API routes natively with no extra setup. Do not include `wrangler.toml` in your repo — Cloudflare Pages CI auto-detects it and runs the wrong deploy command.
+**⚠️ Note:** First deploy requires the self-reference binding to be removed from `wrangler.jsonc` (already done in this repo). After the Worker exists, uncomment the `services` block in `wrangler.jsonc` and re-deploy to enable OpenNext caching.
 
 ---
 
