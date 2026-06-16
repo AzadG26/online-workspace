@@ -57,6 +57,7 @@ export interface ShortItem {
   emoji: string
   color: string
   href: string
+  youtubeId?: string
 }
 
 export interface BlogPost {
@@ -272,24 +273,24 @@ export const categories: Category[] = [
 
 export const featuredVideos: VideoItem[] = [
   { id: "v1", title: "ABC Song for Kids", thumbnail: "/api/placeholder/640/360", duration: "3:45", views: "2.5M", category: "ABC", href: "/videos/abc-song", featured: true, youtubeId: "ml20_XPDENI" },
-  { id: "v2", title: "Learn Counting 1-10", thumbnail: "/api/placeholder/640/360", duration: "4:20", views: "1.8M", category: "Counting", href: "/videos/counting-1-10", featured: true, youtubeId: "bg0T9f7hH7o" },
-  { id: "v3", title: "Animal Sounds for Kids", thumbnail: "/api/placeholder/640/360", duration: "5:10", views: "3.2M", category: "Animals", href: "/videos/animal-sounds", featured: true, youtubeId: "ml20_XPDENI" },
-  { id: "v4", title: "Colors Song", thumbnail: "/api/placeholder/640/360", duration: "3:30", views: "1.5M", category: "Colors", href: "/videos/colors-song", featured: true, youtubeId: "ml20_XPDENI" },
-  { id: "v5", title: "Hindi Varnamala", thumbnail: "/api/placeholder/640/360", duration: "6:00", views: "900K", category: "Hindi", href: "/videos/hindi-varnamala", featured: true, youtubeId: "ml20_XPDENI" },
-  { id: "v6", title: "Shape Song", thumbnail: "/api/placeholder/640/360", duration: "4:15", views: "2.1M", category: "Shapes", href: "/videos/shape-song", youtubeId: "ml20_XPDENI" },
-  { id: "v7", title: "Fruit Names", thumbnail: "/api/placeholder/640/360", duration: "5:30", views: "1.2M", category: "Fruits", href: "/videos/fruit-names", youtubeId: "ml20_XPDENI" },
-  { id: "v8", title: "Animal Dance Party", thumbnail: "/api/placeholder/640/360", duration: "4:45", views: "4.0M", category: "Animals", href: "/videos/animal-dance", youtubeId: "ml20_XPDENI" },
+  { id: "v2", title: "Learn Counting 1-10", thumbnail: "/api/placeholder/640/360", duration: "4:20", views: "1.8M", category: "Counting", href: "/videos/counting-1-10", featured: true, youtubeId: "x56sn6P-TeI" },
+  { id: "v3", title: "Animal Sounds for Kids", thumbnail: "/api/placeholder/640/360", duration: "5:10", views: "3.2M", category: "Animals", href: "/videos/animal-sounds", featured: true, youtubeId: "oIIRTVt3eWg" },
+  { id: "v4", title: "Colors Song", thumbnail: "/api/placeholder/640/360", duration: "3:30", views: "1.5M", category: "Colors", href: "/videos/colors-song", featured: true, youtubeId: "C4vrEtwoa7g" },
+  { id: "v5", title: "Hindi Varnamala", thumbnail: "/api/placeholder/640/360", duration: "6:00", views: "900K", category: "Hindi", href: "/videos/hindi-varnamala", featured: true, youtubeId: "sadhJ7RIMtA" },
+  { id: "v6", title: "Shape Song", thumbnail: "/api/placeholder/640/360", duration: "4:15", views: "2.1M", category: "Shapes", href: "/videos/shape-song", youtubeId: "P6tst9UecTk" },
+  { id: "v7", title: "Fruit Names", thumbnail: "/api/placeholder/640/360", duration: "5:30", views: "1.2M", category: "Fruits", href: "/videos/fruit-names", youtubeId: "CQGzS5sh16g" },
+  { id: "v8", title: "Animal Dance Party", thumbnail: "/api/placeholder/640/360", duration: "4:45", views: "4.0M", category: "Animals", href: "/videos/animal-dance", youtubeId: "k6ItISdnJ9g" },
 ]
 
 export const shorts: ShortItem[] = [
-  { id: "s1", title: "Letter A", emoji: "🍎", color: "var(--color-coral)", href: "/shorts/letter-a" },
-  { id: "s2", title: "Number 1", emoji: "1️⃣", color: "var(--color-yellow)", href: "/shorts/number-1" },
-  { id: "s3", title: "Red Color", emoji: "🔴", color: "var(--color-coral)", href: "/shorts/red-color" },
-  { id: "s4", title: "Cat", emoji: "🐱", color: "var(--color-purple)", href: "/shorts/cat" },
-  { id: "s5", title: "Triangle", emoji: "🔺", color: "var(--color-green)", href: "/shorts/triangle" },
-  { id: "s6", title: "Dog", emoji: "🐶", color: "var(--color-sky)", href: "/shorts/dog" },
-  { id: "s7", title: "Apple", emoji: "🍎", color: "var(--color-coral)", href: "/shorts/apple" },
-  { id: "s8", title: "Car", emoji: "🚗", color: "var(--color-yellow)", href: "/shorts/car" },
+  { id: "s1", title: "Letter A", emoji: "🍎", color: "var(--color-coral)", href: "/shorts/letter-a", youtubeId: "ml20_XPDENI" },
+  { id: "s2", title: "Number 1", emoji: "1️⃣", color: "var(--color-yellow)", href: "/shorts/number-1", youtubeId: "x56sn6P-TeI" },
+  { id: "s3", title: "Red Color", emoji: "🔴", color: "var(--color-coral)", href: "/shorts/red-color", youtubeId: "C4vrEtwoa7g" },
+  { id: "s4", title: "Cat", emoji: "🐱", color: "var(--color-purple)", href: "/shorts/cat", youtubeId: "oIIRTVt3eWg" },
+  { id: "s5", title: "Triangle", emoji: "🔺", color: "var(--color-green)", href: "/shorts/triangle", youtubeId: "P6tst9UecTk" },
+  { id: "s6", title: "Dog", emoji: "🐶", color: "var(--color-sky)", href: "/shorts/dog", youtubeId: "6VC8xnmRaFE" },
+  { id: "s7", title: "Apple", emoji: "🍎", color: "var(--color-coral)", href: "/shorts/apple", youtubeId: "kJRPx32mfUw" },
+  { id: "s8", title: "Car", emoji: "🚗", color: "var(--color-yellow)", href: "/shorts/car", youtubeId: "k6ItISdnJ9g" },
 ]
 
 export const games: GameItem[] = [

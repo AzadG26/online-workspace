@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useCallback } from "react"
 import { useParams } from "next/navigation"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -10,6 +11,9 @@ function ShortDetailContent() {
   const params = useParams()
   const slug = params.slug as string
   const short = getShortContent(slug)
+  const [showEmbed, setShowEmbed] = useState(false)
+
+  const playVideo = useCallback(() => setShowEmbed(true), [])
 
   if (!short) {
     return (
@@ -40,14 +44,47 @@ function ShortDetailContent() {
         animate={{ opacity: 1, scale: 1 }}
         className="flex flex-col items-center"
       >
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 3, repeat: Infinity }}
-          className="flex h-64 w-64 items-center justify-center rounded-[2rem] shadow-card md:h-80 md:w-80"
-          style={{ background: `linear-gradient(135deg, ${short.color}, ${short.color}88)` }}
-        >
-          <span className="text-8xl md:text-9xl">{short.emoji}</span>
-        </motion.div>
+        {short.youtubeId ? (
+          <div className="relative aspect-[9/16] w-full max-w-sm overflow-hidden rounded-[2rem] shadow-card">
+            {showEmbed ? (
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${short.youtubeId}?autoplay=1&rel=0`}
+                title={short.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="h-full w-full"
+              />
+            ) : (
+              <>
+                <img
+                  src={`https://img.youtube.com/vi/${short.youtubeId}/hqdefault.jpg`}
+                  alt={short.title}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                  <button
+                    onClick={playVideo}
+                    className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 text-purple shadow-lg transition-all hover:scale-110"
+                    aria-label="Play short"
+                  >
+                    <svg className="ml-1 h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        ) : (
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="flex h-64 w-64 items-center justify-center rounded-[2rem] shadow-card md:h-80 md:w-80"
+            style={{ background: `linear-gradient(135deg, ${short.color}, ${short.color}88)` }}
+          >
+            <span className="text-8xl md:text-9xl">{short.emoji}</span>
+          </motion.div>
+        )}
         <h1 className="mt-6 font-display text-3xl font-bold text-dark">{short.title}</h1>
         <p className="mt-2 font-body text-lg text-gray text-center max-w-md">
           Learn about {short.title.toLowerCase()} with Pogo Tunes!
