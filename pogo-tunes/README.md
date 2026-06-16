@@ -16,7 +16,6 @@
   <a href="https://github.com/AzadG26/online-workspace"><img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License"></a>
   <a href="https://pogotunes.vercel.app"><img src="https://img.shields.io/badge/Live%20Demo-Vercel-000000?logo=vercel&logoColor=white" alt="Vercel"></a>
   <a href="https://pogotunes.netlify.app"><img src="https://img.shields.io/badge/Live%20Demo-Netlify-00C7B7?logo=netlify&logoColor=white" alt="Netlify"></a>
-  <a href="https://pogotunes.physicswallahlakshyabatch.workers.dev"><img src="https://img.shields.io/badge/Live%20Demo-Cloudflare-F38020?logo=cloudflare&logoColor=white" alt="Cloudflare"></a>
   <a href="https://pogotunes.blogspot.com"><img src="https://img.shields.io/badge/Blog-Blogger-FF5722?logo=blogger&logoColor=white" alt="Blogger"></a>
   <a href="https://www.youtube.com/@Pogotunes"><img src="https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white" alt="YouTube"></a>
 </p>
@@ -236,13 +235,12 @@ pogo-tunes/
 
 ## 🌐 Live Sites
 
-The Pogo Tunes Next.js app is deployed on 4 platforms:
+The Pogo Tunes Next.js app is deployed on 3 platforms:
 
 | Platform | URL | Type |
 |----------|-----|------|
 | **Vercel** | [pogotunes.vercel.app](https://pogotunes.vercel.app) | Next.js SSR + API (primary) |
 | **Netlify** | [pogotunes.netlify.app](https://pogotunes.netlify.app) | Next.js static + SSR |
-| **Cloudflare Workers** | [pogotunes.physicswallahlakshyabatch.workers.dev](https://pogotunes.physicswallahlakshyabatch.workers.dev) | OpenNext SSR + API routes |
 | **Blogger (legacy)** | [pogotunes.blogspot.com](https://pogotunes.blogspot.com) | Original educational blog |
 | **YouTube** | [@Pogotunes](https://www.youtube.com/@Pogotunes) | Video library |
 

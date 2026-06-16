@@ -13,7 +13,7 @@ A premium, production-grade children's educational platform built with Next.js 1
 - **12 learning categories** covering ABCs, Hindi, Counting, Colors, Animals, and more
 - **PWA support** with manifest, service worker, and offline fallback
 - **SEO optimized** with sitemap (34 URLs), robots.txt, and structured metadata
-- **Deployed on 4 platforms:** Vercel, Netlify, Cloudflare Workers (via OpenNext), and Blogger
+- **Deployed on 3 platforms:** Vercel, Netlify, and Blogger
 
 ### Live Sites
 
@@ -21,7 +21,6 @@ A premium, production-grade children's educational platform built with Next.js 1
 |----------|-----|------|
 | **Vercel** | [pogotunes.vercel.app](https://pogotunes.vercel.app) | Next.js SSR + API (primary) |
 | Netlify | [pogotunes.netlify.app](https://pogotunes.netlify.app) | Next.js static + SSR |
-| Cloudflare Workers | [pogotunes.physicswallahlakshyabatch.workers.dev](https://pogotunes.physicswallahlakshyabatch.workers.dev) | OpenNext SSR + API |
 | Blogger | [pogotunes.blogspot.com](https://pogotunes.blogspot.com) | Legacy blog |
 | YouTube | [@Pogotunes](https://www.youtube.com/@Pogotunes) | Video content |
 

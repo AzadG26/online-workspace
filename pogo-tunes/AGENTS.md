@@ -7,5 +7,4 @@ This version has breaking changes — APIs, conventions, and file structure may 
 # Live URLs
 - Vercel: https://pogotunes.vercel.app
 - Netlify: https://pogotunes.netlify.app
-- Cloudflare Workers: https://pogotunes.physicswallahlakshyabatch.workers.dev
 - Blogger: https://pogotunes.blogspot.com
