@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { Menu, X, Search, ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { mainNav } from "@/data/content"
@@ -14,6 +14,7 @@ export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const pathname = usePathname()
+  const router = useRouter()
   const searchInputRef = useRef<HTMLInputElement>(null)
   const headerRef = useRef<HTMLElement>(null)
 
@@ -244,6 +245,12 @@ export function Header() {
                   type="text"
                   placeholder="Search songs, ABCs, numbers..."
                   className="w-full rounded-2xl border-2 border-cream-dark bg-white py-4 pl-14 pr-14 font-body text-lg text-dark outline-none transition-all focus:border-coral focus:shadow-glow-coral"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && searchInputRef.current?.value.trim()) {
+                      router.push(`/search?q=${encodeURIComponent(searchInputRef.current.value.trim())}`)
+                      setIsSearchOpen(false)
+                    }
+                  }}
                 />
                 <button
                   onClick={() => setIsSearchOpen(false)}

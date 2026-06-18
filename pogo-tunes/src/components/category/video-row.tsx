@@ -10,7 +10,7 @@ export function VideoRow({ category }: { category?: string }) {
     ? featuredVideos.filter((v) => v.category.toLowerCase() === category.toLowerCase())
     : featuredVideos.slice(0, 3)
 
-  return (
+  return videos.length > 0 ? (
     <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
       {videos.map((video, i) => (
         <Link key={video.id} href={video.href} className="snap-start shrink-0 w-64">
@@ -43,6 +43,13 @@ export function VideoRow({ category }: { category?: string }) {
           </motion.div>
         </Link>
       ))}
+    </div>
+  ) : (
+    <div className="rounded-2xl bg-cream/50 p-8 text-center">
+      <p className="font-display text-base text-gray">More videos coming soon for this category! 🎬</p>
+      <Link href="/videos" className="mt-2 inline-flex items-center gap-1 font-display text-sm font-bold text-coral hover:underline">
+        Browse all videos →
+      </Link>
     </div>
   )
 }

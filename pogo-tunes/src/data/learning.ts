@@ -44,7 +44,7 @@ export const numberInteractive: InteractiveItem[] = [
   { label: "6", emoji: "🐝", phrase: "6 Bees!", description: "Six busy bees buzzing around!" },
   { label: "7", emoji: "🌈", phrase: "7 Colors!", description: "The rainbow has seven beautiful colors!" },
   { label: "8", emoji: "🐙", phrase: "8 Arms!", description: "An octopus has eight tentacles!" },
-  { label: "9", emoji: "🪐", phrase: "9 Planets!", description: "Our solar system has eight planets!" },
+  { label: "9", emoji: "🪐", phrase: "8 Planets!", description: "Our solar system has eight amazing planets!" },
   { label: "10", emoji: "🍩", phrase: "10 Doughnuts!", description: "Ten yummy doughnuts in a box!" },
 ]
 

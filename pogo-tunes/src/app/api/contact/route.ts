@@ -27,33 +27,39 @@ export async function POST(request: NextRequest) {
       source: "pogo-tunes-contact-form",
     }
 
-    // Forward to support email via mailto: fallback
-    // In production, connect a free email service:
-    //   - Resend (https://resend.com) — 100 emails/day free
-    //   - SendGrid (https://sendgrid.com) — 100 emails/day free
-    //   - Mailgun (https://mailgun.com) — 5,000 emails/month free
-    //
-    // Example with Resend:
-    //   await fetch("https://api.resend.com/emails", {
-    //     method: "POST",
-    //     headers: {
-    //       Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       from: "Pogo Tunes <noreply@pogotunes.com>",
-    //       to: ["support@pogotunes.com"],
-    //       subject: `New contact from ${payload.name}`,
-    //       text: `Name: ${payload.name}\nEmail: ${payload.email}\nMessage: ${payload.message}`,
-    //     }),
-    //   })
+    let sent = false
 
-    console.log("Contact form submission:", payload)
+    if (process.env.RESEND_API_KEY) {
+      try {
+        const res = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: "Pogo Tunes <noreply@pogotunes.vercel.app>",
+            to: ["azadg26@gmail.com"],
+            subject: `New contact from ${payload.name}`,
+            text: `Name: ${payload.name}\nEmail: ${payload.email}\nMessage: ${payload.message}`,
+          }),
+        })
+        if (res.ok) sent = true
+      } catch {
+        // Resend failed, fall through to mailto
+      }
+    }
+
+    const mailtoUrl = `mailto:azadg26@gmail.com?subject=${encodeURIComponent(`Contact from ${payload.name}`)}&body=${encodeURIComponent(`Name: ${payload.name}\nEmail: ${payload.email}\n\nMessage:\n${payload.message}`)}`
 
     return NextResponse.json(
       {
         success: true,
-        message: "Thank you! We'll get back to you soon.",
+        sent,
+        mailtoUrl,
+        message: sent
+          ? "Thank you! Your message has been sent successfully."
+          : "Thank you! We'll get back to you soon.",
       },
       { status: 200 },
     )

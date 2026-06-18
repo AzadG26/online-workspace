@@ -11,6 +11,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
   const [errorMsg, setErrorMsg] = useState("")
+  const [mailtoUrl, setMailtoUrl] = useState("")
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -27,7 +28,11 @@ export default function ContactPage() {
       if (res.ok) {
         setStatus("success")
         setFormData({ name: "", email: "", message: "" })
-        setTimeout(() => setStatus("idle"), 5000)
+        if (data.mailtoUrl) {
+          setMailtoUrl(data.mailtoUrl)
+          window.open(data.mailtoUrl, "_blank")
+        }
+        setTimeout(() => setStatus("idle"), 8000)
       } else {
         setStatus("error")
         setErrorMsg(data.error || "Something went wrong.")
@@ -116,7 +121,7 @@ export default function ContactPage() {
                   >
                     <CheckCircle className="h-5 w-5 shrink-0 text-green-dark" />
                     <span className="font-display text-sm font-bold text-green-dark">
-                      Message sent! We&apos;ll get back to you soon.
+                      Message sent! {mailtoUrl && "Check your email app to finish sending."}
                     </span>
                   </motion.div>
                 )}
@@ -142,19 +147,21 @@ export default function ContactPage() {
             className="space-y-6"
           >
             {[
-              { icon: Mail, title: "Email", text: "support@pogotunes.com", color: "text-coral" },
-              { icon: MessageSquare, title: "Social", text: "Message us on Instagram or Facebook", color: "text-purple" },
-              { icon: HelpCircle, title: "Support", text: "Check our FAQ or Parents Guide", color: "text-sky" },
+              { icon: Mail, title: "Email", text: "azadg26@gmail.com", color: "text-coral", href: "mailto:azadg26@gmail.com" },
+              { icon: MessageSquare, title: "Social", text: "Message us on Instagram or Facebook", color: "text-purple", href: "https://instagram.com/pogotunes" },
+              { icon: HelpCircle, title: "Support", text: "Check our FAQ or Parents Guide", color: "text-sky", href: "/quiz" },
             ].map((item) => (
-              <div key={item.title} className="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-soft">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cream">
-                  <item.icon className={`h-5 w-5 ${item.color}`} />
+              <a key={item.title} href={item.href} target={item.href.startsWith("http") || item.href.startsWith("mailto") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}>
+                <div className="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-soft transition-all hover:shadow-card hover:-translate-y-0.5 cursor-pointer">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cream">
+                    <item.icon className={`h-5 w-5 ${item.color}`} />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-base font-bold text-dark">{item.title}</h3>
+                    <p className="mt-1 font-body text-sm text-gray">{item.text}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-display text-base font-bold text-dark">{item.title}</h3>
-                  <p className="mt-1 font-body text-sm text-gray">{item.text}</p>
-                </div>
-              </div>
+              </a>
             ))}
           </motion.div>
         </div>

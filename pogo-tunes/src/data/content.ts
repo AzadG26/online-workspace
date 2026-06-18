@@ -272,14 +272,14 @@ export const categories: Category[] = [
 ]
 
 export const featuredVideos: VideoItem[] = [
-  { id: "v1", title: "ABC Song for Kids", thumbnail: "/api/placeholder/640/360", duration: "3:45", views: "2.5M", category: "ABC", href: "/videos/abc-song", featured: true, youtubeId: "ml20_XPDENI" },
-  { id: "v2", title: "Learn Counting 1-10", thumbnail: "/api/placeholder/640/360", duration: "4:20", views: "1.8M", category: "Counting", href: "/videos/counting-1-10", featured: true, youtubeId: "x56sn6P-TeI" },
-  { id: "v3", title: "Animal Sounds for Kids", thumbnail: "/api/placeholder/640/360", duration: "5:10", views: "3.2M", category: "Animals", href: "/videos/animal-sounds", featured: true, youtubeId: "oIIRTVt3eWg" },
-  { id: "v4", title: "Colors Song", thumbnail: "/api/placeholder/640/360", duration: "3:30", views: "1.5M", category: "Colors", href: "/videos/colors-song", featured: true, youtubeId: "C4vrEtwoa7g" },
-  { id: "v5", title: "Hindi Varnamala", thumbnail: "/api/placeholder/640/360", duration: "6:00", views: "900K", category: "Hindi", href: "/videos/hindi-varnamala", featured: true, youtubeId: "sadhJ7RIMtA" },
-  { id: "v6", title: "Shape Song", thumbnail: "/api/placeholder/640/360", duration: "4:15", views: "2.1M", category: "Shapes", href: "/videos/shape-song", youtubeId: "P6tst9UecTk" },
-  { id: "v7", title: "Fruit Names", thumbnail: "/api/placeholder/640/360", duration: "5:30", views: "1.2M", category: "Fruits", href: "/videos/fruit-names", youtubeId: "CQGzS5sh16g" },
-  { id: "v8", title: "Animal Dance Party", thumbnail: "/api/placeholder/640/360", duration: "4:45", views: "4.0M", category: "Animals", href: "/videos/animal-dance", youtubeId: "k6ItISdnJ9g" },
+  { id: "v1", title: "ABC Song for Kids", thumbnail: "https://img.youtube.com/vi/ml20_XPDENI/hqdefault.jpg", duration: "3:45", views: "2.5M", category: "ABC", href: "/videos/abc-song", featured: true, youtubeId: "ml20_XPDENI" },
+  { id: "v2", title: "Learn Counting 1-10", thumbnail: "https://img.youtube.com/vi/x56sn6P-TeI/hqdefault.jpg", duration: "4:20", views: "1.8M", category: "Counting", href: "/videos/counting-1-10", featured: true, youtubeId: "x56sn6P-TeI" },
+  { id: "v3", title: "Animal Sounds for Kids", thumbnail: "https://img.youtube.com/vi/oIIRTVt3eWg/hqdefault.jpg", duration: "5:10", views: "3.2M", category: "Animals", href: "/videos/animal-sounds", featured: true, youtubeId: "oIIRTVt3eWg" },
+  { id: "v4", title: "Colors Song", thumbnail: "https://img.youtube.com/vi/C4vrEtwoa7g/hqdefault.jpg", duration: "3:30", views: "1.5M", category: "Colors", href: "/videos/colors-song", featured: true, youtubeId: "C4vrEtwoa7g" },
+  { id: "v5", title: "Hindi Varnamala", thumbnail: "https://img.youtube.com/vi/sadhJ7RIMtA/hqdefault.jpg", duration: "6:00", views: "900K", category: "Hindi", href: "/videos/hindi-varnamala", featured: true, youtubeId: "sadhJ7RIMtA" },
+  { id: "v6", title: "Shape Song", thumbnail: "https://img.youtube.com/vi/P6tst9UecTk/hqdefault.jpg", duration: "4:15", views: "2.1M", category: "Shapes", href: "/videos/shape-song", youtubeId: "P6tst9UecTk" },
+  { id: "v7", title: "Fruit Names", thumbnail: "https://img.youtube.com/vi/CQGzS5sh16g/hqdefault.jpg", duration: "5:30", views: "1.2M", category: "Fruits", href: "/videos/fruit-names", youtubeId: "CQGzS5sh16g" },
+  { id: "v8", title: "Animal Dance Party", thumbnail: "https://img.youtube.com/vi/k6ItISdnJ9g/hqdefault.jpg", duration: "4:45", views: "4.0M", category: "Animals", href: "/videos/animal-dance", youtubeId: "k6ItISdnJ9g" },
 ]
 
 export const shorts: ShortItem[] = [
@@ -307,10 +307,10 @@ export const games: GameItem[] = [
 ]
 
 export const blogPosts: BlogPost[] = [
-  { id: "b1", title: "10 Fun Ways to Teach Your Child the Alphabet", excerpt: "Make learning ABCs an exciting adventure with these creative activities...", category: "Learning Tips", image: "/api/placeholder/800/400", date: "2025-01-15", author: "Pogo Tunes Team", href: "/blog/teach-alphabet-fun-ways" },
-  { id: "b2", title: "The Benefits of Music in Early Childhood Education", excerpt: "Discover how music can boost your child's brain development...", category: "Child Development", image: "/api/placeholder/800/400", date: "2025-01-10", author: "Pogo Tunes Team", href: "/blog/music-early-childhood" },
-  { id: "b3", title: "Screen Time Guide for Parents", excerpt: "A balanced approach to digital learning for young children...", category: "Parenting", image: "/api/placeholder/800/400", date: "2025-01-05", author: "Pogo Tunes Team", href: "/blog/screen-time-guide" },
-  { id: "b4", title: "Best Educational Apps for Preschoolers", excerpt: "Our top picks for learning apps that are actually fun...", category: "Reviews", image: "/api/placeholder/800/400", date: "2024-12-28", author: "Pogo Tunes Team", href: "/blog/best-educational-apps" },
+  { id: "b1", title: "10 Fun Ways to Teach Your Child the Alphabet", excerpt: "Make learning ABCs an exciting adventure with these creative activities...", category: "Learning Tips", image: "https://placehold.co/800x400/FF6B6B/FFF?text=ABC+Fun", date: "2025-01-15", author: "Pogo Tunes Team", href: "/blog/teach-alphabet-fun-ways" },
+  { id: "b2", title: "The Benefits of Music in Early Childhood Education", excerpt: "Discover how music can boost your child's brain development...", category: "Child Development", image: "https://placehold.co/800x400/B28DFF/FFF?text=Music+Kids", date: "2025-01-10", author: "Pogo Tunes Team", href: "/blog/music-early-childhood" },
+  { id: "b3", title: "Screen Time Guide for Parents", excerpt: "A balanced approach to digital learning for young children...", category: "Parenting", image: "https://placehold.co/800x400/6BCBFF/FFF?text=Screen+Time", date: "2025-01-05", author: "Pogo Tunes Team", href: "/blog/screen-time-guide" },
+  { id: "b4", title: "Best Educational Apps for Preschoolers", excerpt: "Our top picks for learning apps that are actually fun...", category: "Reviews", image: "https://placehold.co/800x400/6EE7B7/FFF?text=Best+Apps", date: "2024-12-28", author: "Pogo Tunes Team", href: "/blog/best-educational-apps" },
 ]
 
 export const abcLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
@@ -351,6 +351,84 @@ export const colorData = [
   { name: "White", hex: "#FFFFFF", emoji: "⚪" },
 ]
 
+export const shapeData = [
+  { name: "Circle", emoji: "⭕", fact: "A circle has no corners — it's perfectly round!" },
+  { name: "Square", emoji: "🟦", fact: "A square has 4 equal sides and 4 corners!" },
+  { name: "Triangle", emoji: "🔺", fact: "A triangle has 3 sides and 3 corners!" },
+  { name: "Rectangle", emoji: "📘", fact: "A rectangle has 4 sides — 2 short and 2 long!" },
+  { name: "Star", emoji: "⭐", fact: "A star has 5 points that shine bright!" },
+  { name: "Heart", emoji: "❤️", fact: "A heart shape shows love and care!" },
+  { name: "Diamond", emoji: "🔶", fact: "A diamond has 4 sides like a tilted square!" },
+  { name: "Oval", emoji: "🥚", fact: "An oval is like a stretched circle!" },
+  { name: "Pentagon", emoji: "⬠", fact: "A pentagon has 5 sides!" },
+  { name: "Hexagon", emoji: "⬡", fact: "A hexagon has 6 sides — like a honeycomb!" },
+]
+
+export const fruitData = [
+  { name: "Apple", emoji: "🍎", fact: "Apples float in water because they are 25% air!" },
+  { name: "Banana", emoji: "🍌", fact: "Bananas are berries, but strawberries are not!" },
+  { name: "Orange", emoji: "🍊", fact: "Oranges have more vitamin C than lemons!" },
+  { name: "Grapes", emoji: "🍇", fact: "Grapes can be turned into raisins by drying them!" },
+  { name: "Strawberry", emoji: "🍓", fact: "Strawberries are the only fruit with seeds on the outside!" },
+  { name: "Watermelon", emoji: "🍉", fact: "Watermelon is 92% water — perfect for summer!" },
+  { name: "Mango", emoji: "🥭", fact: "Mango is called the king of fruits!" },
+  { name: "Pineapple", emoji: "🍍", fact: "Pineapples take almost 2 years to grow!" },
+  { name: "Cherry", emoji: "🍒", fact: "Cherries are named after the Turkish town Cerasus!" },
+  { name: "Peach", emoji: "🍑", fact: "Peaches have a pit with a seed inside like almonds!" },
+]
+
+export const vegetableData = [
+  { name: "Carrot", emoji: "🥕", fact: "Carrots were originally purple, not orange!" },
+  { name: "Broccoli", emoji: "🥦", fact: "Broccoli has more protein than steak per calorie!" },
+  { name: "Tomato", emoji: "🍅", fact: "Tomatoes are fruits, but we cook them like vegetables!" },
+  { name: "Corn", emoji: "🌽", fact: "Corn always has an even number of rows on each cob!" },
+  { name: "Potato", emoji: "🥔", fact: "Potatoes were the first vegetable grown in space!" },
+  { name: "Peas", emoji: "🫛", fact: "Peas are a great source of plant protein!" },
+  { name: "Cucumber", emoji: "🥒", fact: "Cucumbers are 96% water — the most of any vegetable!" },
+  { name: "Eggplant", emoji: "🍆", fact: "Eggplants are berries and are related to tomatoes!" },
+  { name: "Mushroom", emoji: "🍄", fact: "Mushrooms are fungi, not plants!" },
+  { name: "Onion", emoji: "🧅", fact: "Onions make you cry because of a gas they release!" },
+]
+
+export const birdData = [
+  { name: "Parrot", emoji: "🦜", fact: "Parrots can mimic human speech!" },
+  { name: "Owl", emoji: "🦉", fact: "Owls can turn their heads almost all the way around!" },
+  { name: "Eagle", emoji: "🦅", fact: "Eagles can see a rabbit from 2 miles away!" },
+  { name: "Penguin", emoji: "🐧", fact: "Penguins can't fly but they are amazing swimmers!" },
+  { name: "Peacock", emoji: "🦚", fact: "Only male peacocks have beautiful colorful feathers!" },
+  { name: "Swan", emoji: "🦢", fact: "Swans mate for life with the same partner!" },
+  { name: "Duck", emoji: "🦆", fact: "Duck feathers are waterproof!" },
+  { name: "Flamingo", emoji: "🦩", fact: "Flamingos are pink because of the food they eat!" },
+  { name: "Crow", emoji: "🐦‍⬛", fact: "Crows are one of the smartest birds!" },
+  { name: "Sparrow", emoji: "🐦", fact: "Sparrows can learn new songs from other birds!" },
+]
+
+export const vehicleData = [
+  { name: "Car", emoji: "🚗", fact: "The first car was invented in 1886!" },
+  { name: "Bus", emoji: "🚌", fact: "The longest bus in the world is 100 feet long!" },
+  { name: "Train", emoji: "🚂", fact: "The fastest train goes over 375 miles per hour!" },
+  { name: "Airplane", emoji: "✈️", fact: "Airplanes fly at 35,000 feet above the ground!" },
+  { name: "Bicycle", emoji: "🚲", fact: "Over 1 billion bicycles exist in the world!" },
+  { name: "Boat", emoji: "⛵", fact: "Boats have been used for travel for over 8,000 years!" },
+  { name: "Helicopter", emoji: "🚁", fact: "Helicopters can fly forward, backward, and sideways!" },
+  { name: "Motorcycle", emoji: "🏍️", fact: "Motorcycles use just 2 wheels to stay balanced!" },
+  { name: "Fire Truck", emoji: "🚒", fact: "Fire trucks carry ladders up to 100 feet tall!" },
+  { name: "Ambulance", emoji: "🚑", fact: "Ambulances rush people to the hospital in emergencies!" },
+]
+
+export const bodyPartData = [
+  { name: "Eyes", emoji: "👀", fact: "Your eyes blink about 20 times every minute!" },
+  { name: "Ears", emoji: "👂", fact: "Your ears keep growing throughout your whole life!" },
+  { name: "Nose", emoji: "👃", fact: "Your nose can remember 50,000 different smells!" },
+  { name: "Mouth", emoji: "👄", fact: "Your mouth makes about 1 liter of saliva every day!" },
+  { name: "Hands", emoji: "✋", fact: "Your hands have 27 bones each!" },
+  { name: "Feet", emoji: "🦶", fact: "Your feet have about 8,000 nerves each!" },
+  { name: "Heart", emoji: "🫀", fact: "Your heart beats about 100,000 times every day!" },
+  { name: "Brain", emoji: "🧠", fact: "Your brain uses 20% of your body's energy!" },
+  { name: "Bones", emoji: "🦴", fact: "Babies have 300 bones, adults have 206!" },
+  { name: "Teeth", emoji: "🦷", fact: "Tooth enamel is the hardest substance in your body!" },
+]
+
 export interface BlogContent {
   id: string
   title: string
@@ -383,7 +461,7 @@ export const blogContent: BlogContent[] = [
     category: "Learning Tips",
     date: "2025-01-15",
     author: "Pogo Tunes Team",
-    image: "/api/placeholder/800/400",
+    image: "https://placehold.co/800x400/FF6B6B/FFF?text=ABC+Fun",
     relatedPosts: ["music-early-childhood", "screen-time-guide"],
   },
   {
@@ -404,7 +482,7 @@ export const blogContent: BlogContent[] = [
     category: "Child Development",
     date: "2025-01-10",
     author: "Pogo Tunes Team",
-    image: "/api/placeholder/800/400",
+    image: "https://placehold.co/800x400/B28DFF/FFF?text=Music+Kids",
     relatedPosts: ["teach-alphabet-fun-ways", "best-educational-apps"],
   },
   {
@@ -425,7 +503,7 @@ export const blogContent: BlogContent[] = [
     category: "Parenting",
     date: "2025-01-05",
     author: "Pogo Tunes Team",
-    image: "/api/placeholder/800/400",
+    image: "https://placehold.co/800x400/6BCBFF/FFF?text=Screen+Time",
     relatedPosts: ["music-early-childhood", "best-educational-apps"],
   },
   {
@@ -447,7 +525,7 @@ export const blogContent: BlogContent[] = [
     category: "Reviews",
     date: "2024-12-28",
     author: "Pogo Tunes Team",
-    image: "/api/placeholder/800/400",
+    image: "https://placehold.co/800x400/6EE7B7/FFF?text=Best+Apps",
     relatedPosts: ["screen-time-guide", "teach-alphabet-fun-ways"],
   },
 ]
