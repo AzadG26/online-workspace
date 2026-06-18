@@ -103,6 +103,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: BASE_URL,
+    languages: {
+      en: BASE_URL,
+      hi: `${BASE_URL}/hindi`,
+      "x-default": BASE_URL,
+    },
   },
   other: {
     "google-site-verification": "KXvi68MWY9C0_ykKInw25pwdDgB7R04eJbjD9tfF038",

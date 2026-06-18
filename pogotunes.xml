@@ -48,6 +48,9 @@
     <meta content='https://pogotunes.blogspot.com/favicon.ico' property='og:image'/>
   </b:if>
   <meta content='en_US' property='og:locale'/>
+  <link href='https://pogotunes.blogspot.com/' hreflang='en' rel='alternate'/>
+  <link href='https://pogotunes.blogspot.com/' hreflang='x-default' rel='alternate'/>
+  <meta content='Pogo Tunes' name='apple-mobile-web-app-title'/>
   <meta content='summary_large_image' name='twitter:card'/>
   <meta expr:content='data:blog.pageTitle' name='twitter:title'/>
   <meta expr:content='data:blog.canonicalUrl' name='twitter:url'/>
@@ -69,12 +72,11 @@
   <script type='application/ld+json'>{&quot;@context&quot;:&quot;https://schema.org&quot;,&quot;@type&quot;:&quot;WebSite&quot;,&quot;name&quot;:&quot;<data:blog.title/>&quot;,&quot;url&quot;:&quot;<data:blog.homepageUrl/>&quot;,&quot;description&quot;:&quot;<data:blog.description/>&quot;,&quot;potentialAction&quot;:{&quot;@type&quot;:&quot;SearchAction&quot;,&quot;target&quot;:{&quot;@type&quot;:&quot;EntryPoint&quot;,&quot;urlTemplate&quot;:&quot;<data:blog.homepageUrl/>search?q={search_term}&quot;},&quot;query-input&quot;:&quot;required name=search_term&quot;}}</script>
   <b:if cond='data:blog.url == data:blog.homepageUrl'>
     <script type='application/ld+json'>{&quot;@context&quot;:&quot;https://schema.org&quot;,&quot;@type&quot;:&quot;LearningResource&quot;,&quot;name&quot;:&quot;<data:blog.title/>&quot;,&quot;description&quot;:&quot;<data:blog.description/>&quot;,&quot;educationalLevel&quot;:&quot;Beginner&quot;,&quot;audience&quot;:{&quot;@type&quot;:&quot;Audience&quot;,&quot;audienceType&quot;:&quot;Children&quot;},&quot;learningResourceType&quot;:[&quot;Video&quot;,&quot;Song&quot;,&quot;Activity&quot;],&quot;teaches&quot;:[&quot;Alphabet&quot;,&quot;Numbers 1-100&quot;,&quot;Hindi Varnmala&quot;,&quot;Colors&quot;,&quot;Animals&quot;,&quot;Phonics&quot;]}</script>
+    <script type='application/ld+json'>[{\&quot;@context\&quot;:\&quot;https://schema.org\&quot;,\&quot;@type\&quot;:\&quot;FAQPage\&quot;,\&quot;mainEntity\&quot;:[{\&quot;@type\&quot;:\&quot;Question\&quot;,\&quot;name\&quot;:\&quot;What is Pogo Tunes?\&quot;,\&quot;acceptedAnswer\&quot;:{\&quot;@type\&quot;:\&quot;Answer\&quot;,\&quot;text\&quot;:\&quot;Pogo Tunes is a free educational platform for kids ages 1-6, featuring ABCs, Hindi Varnmala, Numbers, Colors, Animals videos and interactive learning games.\&quot;}},{\&quot;@type\&quot;:\&quot;Question\&quot;,\&quot;name\&quot;:\&quot;Is Pogo Tunes really free?\&quot;,\&quot;acceptedAnswer\&quot;:{\&quot;@type\&quot;:\&quot;Answer\&quot;,\&quot;text\&quot;:\&quot;Yes, 100% free with no ads, no subscriptions, and no tracking. All educational content is free forever.\&quot;}},{\&quot;@type\&quot;:\&quot;Question\&quot;,\&quot;name\&quot;:\&quot;What topics does Pogo Tunes cover?\&quot;,\&quot;acceptedAnswer\&quot;:{\&quot;@type\&quot;:\&quot;Answer\&quot;,\&quot;text\&quot;:\&quot;17+ topics including English alphabet, Hindi Varnmala, phonics, counting 1-100, colors, shapes, animals, birds, fruits, vegetables, vehicles, body parts, days of week, months, opposites, good habits, and community helpers.\&quot;}},{\&quot;@type\&quot;:\&quot;Question\&quot;,\&quot;name\&quot;:\&quot;Is Pogo Tunes safe for toddlers?\&quot;,\&quot;acceptedAnswer\&quot;:{\&quot;@type\&quot;:\&quot;Answer\&quot;,\&quot;text\&quot;:\&quot;Absolutely! Pogo Tunes is designed by educators for children. No ads, no external links, no social media distractions. All content is child-friendly and age-appropriate.\&quot;}}]}]</script>
   </b:if>
   <template-skin>
     <![CDATA[
       #secBlog { max-width:100%; }
-      #secSingle { max-width:100%; }
-      #secSearchResults { max-width:100%; }
     ]]>
   </template-skin>
   <b:skin><![CDATA[
@@ -84,15 +86,6 @@
    ═══════════════════════════════════════════════════ */
 
 :root {
-  /* Brand Palette */
-  --brand-1: #FF6B6B;
-  --brand-2: #FF9F43;
-  --brand-3: #FFD93D;
-  --brand-4: #6BCB77;
-  --brand-5: #4D9BE6;
-  --brand-6: #A855F7;
-  --brand-7: #FF6EB4;
-
   /* Semantic tokens */
   --coral: #FF6B6B;
   --orange: #FF9F43;
@@ -107,7 +100,6 @@
   --dark: #1A1A2E;
   --dark-2: #2D2D44;
   --gray: #6B7280;
-  --gray-light: #9CA3AF;
   --light: #FFF8F0;
   --light-2: #F0F9FF;
   --white: #FFFFFF;
@@ -119,8 +111,6 @@
   --grad-cool: linear-gradient(135deg,#4D9BE6,#A855F7);
   --grad-green: linear-gradient(135deg,#6BCB77,#4D9BE6);
   --grad-bg: linear-gradient(180deg,#FFF8F0 0%,#F0F9FF 50%,#F5F0FF 100%);
-  --grad-card: linear-gradient(145deg,rgba(255,255,255,0.9),rgba(255,255,255,0.7));
-
   /* Shadows */
   --shadow-xs: 0 1px 4px rgba(26,26,46,0.06);
   --shadow-sm: 0 2px 12px rgba(26,26,46,0.08);
@@ -138,14 +128,6 @@
   --r-2xl: 48px;
   --r-full: 9999px;
 
-  /* Legacy compat aliases */
-  --radius-sm: 10px;
-  --radius: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
-  --radius-full: 9999px;
-  --shadow-glow: 0 0 32px rgba(255,107,107,0.35);
-
   /* Typography */
   --font-display: 'Baloo 2', cursive;
   --font-rounded: 'Fredoka', sans-serif;
@@ -155,8 +137,6 @@
   --ease: cubic-bezier(0.4,0,0.2,1);
   --ease-spring: cubic-bezier(0.68,-0.55,0.265,1.55);
   --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-  --transition-slow: all 0.5s cubic-bezier(0.4,0,0.2,1);
-  --bounce: cubic-bezier(0.68,-0.55,0.265,1.55);
 }
 
 /* ── Reset ── */
@@ -190,11 +170,8 @@ ul{list-style:none}
 @keyframes slideUp{from{transform:translateY(32px);opacity:0}to{transform:translateY(0);opacity:1}}
 @keyframes popIn{0%{transform:scale(0)}65%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
 @keyframes cloudDrift{0%{transform:translateX(-120%)}100%{transform:translateX(110vw)}}
-@keyframes shimmerMove{0%{background-position:-200% center}100%{background-position:200% center}}
-@keyframes rainbowBorder{0%{border-color:#FF6B6B}16%{border-color:#FF9F43}32%{border-color:#FFD93D}48%{border-color:#6BCB77}64%{border-color:#4D9BE6}80%{border-color:#A855F7}100%{border-color:#FF6B6B}}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeInScale{from{opacity:0;transform:scale(0.85)}to{opacity:1;transform:scale(1)}}
-@keyframes starPop{0%{transform:scale(0) rotate(-30deg)}60%{transform:scale(1.3) rotate(10deg)}100%{transform:scale(1) rotate(0deg)}}
 @keyframes scrollHint{0%,100%{transform:translateX(0);opacity:0.5}50%{transform:translateX(8px);opacity:1}}
 
 /* Always-visible animation classes (CSS only, no JS dependency) */
@@ -241,37 +218,35 @@ ul{list-style:none}
 /* ══════════════════════════════════
    HEADER
 ══════════════════════════════════ */
-#secHeader{position:fixed;top:0;left:0;width:100%;z-index:9999;padding:14px 0;transition:var(--transition);background:rgba(255,248,240,0.85);backdrop-filter:blur(20px) saturate(2);-webkit-backdrop-filter:blur(20px) saturate(2);border-bottom:1px solid rgba(255,255,255,0.4)}
+#secHeader{position:fixed;top:0;left:0;width:100%;z-index:9999;padding:12px 0;transition:var(--transition);background:rgba(255,248,240,0.88);backdrop-filter:blur(24px) saturate(2);-webkit-backdrop-filter:blur(24px) saturate(2);border-bottom:1px solid rgba(255,107,107,0.1)}
 #secHeader::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--grad-hero);background-size:200% 100%;animation:gradientShift 6s ease infinite;opacity:0;transition:opacity 0.3s}
-#secHeader.scrolled{padding:8px 0;box-shadow:var(--shadow);background:rgba(255,248,240,0.95)}
+#secHeader.scrolled{padding:6px 0;box-shadow:0 4px 30px rgba(26,26,46,0.1);background:rgba(255,248,240,0.97)}
 #secHeader.scrolled::before{opacity:1}
-.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 clamp(16px,3vw,28px);gap:12px}
+.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 clamp(16px,3vw,28px);gap:10px}
 .header-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:clamp(1.15rem,2.5vw,1.4rem);font-weight:800;color:var(--dark);transition:var(--transition);flex-shrink:0}
-.header-logo .logo-icon{width:40px;height:40px;background:var(--grad-primary);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:var(--shadow-glow-coral);transition:var(--transition);flex-shrink:0}
-.header-logo:hover .logo-icon{transform:scale(1.1) rotate(-5deg)}
-.header-logo .logo-text{background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.header-nav{display:flex;gap:2px;align-items:center}
-.header-nav a{padding:7px 14px;border-radius:var(--r-full);font-family:var(--font-rounded);font-size:0.88rem;font-weight:600;color:var(--dark);transition:var(--transition);position:relative;white-space:nowrap}
-.header-nav a:hover,.header-nav a.active{color:var(--coral);background:rgba(255,107,107,0.1)}
-.header-stats{display:flex;align-items:center;gap:6px}
-.stat-chip{display:flex;align-items:center;gap:5px;padding:5px 12px;border-radius:var(--r-full);font-family:var(--font-rounded);font-size:0.78rem;font-weight:700;transition:var(--transition);cursor:default}
-.stat-chip.streak{background:linear-gradient(135deg,rgba(255,107,107,0.15),rgba(255,159,67,0.15));color:var(--coral);border:1px solid rgba(255,107,107,0.25)}
-.stat-chip.stars{background:linear-gradient(135deg,rgba(255,217,61,0.2),rgba(255,159,67,0.2));color:#B8860B;border:1px solid rgba(255,217,61,0.35)}
-.header-actions{display:flex;align-items:center;gap:6px}
-.header-search-btn,.header-menu-btn,.header-sound-btn,.header-bedtime-btn{width:38px;height:38px;border:none;border-radius:50%;background:rgba(26,26,46,0.06);color:var(--dark);font-size:1rem;cursor:pointer;transition:var(--transition);display:flex;align-items:center;justify-content:center}
-.header-search-btn:hover{background:var(--blue);color:#fff;box-shadow:0 4px 12px rgba(77,155,230,0.4)}
-.header-sound-btn:hover{background:var(--yellow);color:var(--dark)}
-.header-bedtime-btn:hover{background:var(--dark);color:#fff}
-.header-menu-btn{display:none;font-size:1.2rem}
-.header-menu-btn:hover{background:var(--coral);color:#fff}
+.header-logo .logo-icon{width:42px;height:42px;background:var(--grad-primary);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:var(--shadow-glow-coral);transition:var(--transition);flex-shrink:0;animation:wiggle 4s ease-in-out infinite}
+.header-logo:hover .logo-icon{transform:scale(1.12) rotate(-8deg);animation:none}
+.header-logo .logo-text{background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.02em}
+.header-nav{display:flex;gap:4px;align-items:center}
+.header-nav a{padding:8px 18px;border-radius:var(--r-full);font-family:var(--font-rounded);font-size:0.85rem;font-weight:700;color:var(--dark-2);transition:var(--transition);position:relative;white-space:nowrap;border:2px solid transparent}
+.header-nav a:hover,.header-nav a.active{color:var(--coral);background:rgba(255,107,107,0.08);border-color:rgba(255,107,107,0.2)}
+.header-nav a i{margin-right:4px;font-size:0.78rem}
+
+.header-actions{display:flex;align-items:center;gap:5px}
+.header-search-btn,.header-menu-btn,.header-sound-btn,.header-bedtime-btn{width:38px;height:38px;border:none;border-radius:50%;background:rgba(26,26,46,0.05);color:var(--dark);font-size:1rem;cursor:pointer;transition:var(--transition);display:flex;align-items:center;justify-content:center;position:relative}
+.header-search-btn:hover{background:var(--blue);color:#fff;box-shadow:0 4px 16px rgba(77,155,230,0.4);transform:translateY(-2px)}
+.header-sound-btn:hover{background:var(--yellow);color:var(--dark);box-shadow:0 4px 16px rgba(255,217,61,0.4);transform:translateY(-2px)}
+.header-bedtime-btn:hover{background:var(--dark);color:#fff;box-shadow:0 4px 16px rgba(26,26,46,0.3);transform:translateY(-2px)}
+.header-menu-btn{display:none;font-size:1.15rem}
+.header-menu-btn:hover{background:var(--coral);color:#fff;box-shadow:0 4px 16px rgba(255,107,107,0.4);transform:translateY(-2px)}
 
 /* Mobile dropdown */
-.mobile-dropdown{position:absolute;top:100%;left:0;width:100%;background:rgba(255,248,240,0.98);backdrop-filter:blur(20px);box-shadow:var(--shadow-lg);border-top:3px solid;border-image:var(--grad-primary) 1;max-height:0;overflow:hidden;transition:max-height 0.4s var(--ease);z-index:99999}
-.mobile-dropdown.active{max-height:520px}
-.mobile-nav{display:flex;flex-direction:column;padding:16px 20px;gap:4px}
-.mobile-nav a{display:flex;align-items:center;gap:14px;padding:11px 16px;border-radius:var(--r);font-family:var(--font-rounded);font-size:0.95rem;font-weight:600;color:var(--dark);transition:var(--transition)}
-.mobile-nav a i{width:20px;text-align:center;color:var(--coral);transition:var(--transition)}
-.mobile-nav a:hover{background:rgba(255,107,107,0.1);color:var(--coral)}
+.mobile-dropdown{position:absolute;top:100%;left:0;width:100%;background:rgba(255,248,240,0.98);backdrop-filter:blur(24px);box-shadow:0 8px 40px rgba(26,26,46,0.15);border-top:3px solid;border-image:var(--grad-primary) 1;max-height:0;overflow:hidden;transition:max-height 0.45s var(--ease);z-index:99999}
+.mobile-dropdown.active{max-height:600px}
+.mobile-nav{display:flex;flex-direction:column;padding:16px 20px;gap:3px}
+.mobile-nav a{display:flex;align-items:center;gap:14px;padding:12px 18px;border-radius:var(--r-lg);font-family:var(--font-rounded);font-size:0.95rem;font-weight:600;color:var(--dark);transition:var(--transition)}
+.mobile-nav a i{width:22px;text-align:center;color:var(--coral);transition:var(--transition);font-size:1.05rem}
+.mobile-nav a:hover{background:rgba(255,107,107,0.1);color:var(--coral);transform:translateX(4px)}
 .mobile-nav a:hover i{transform:scale(1.2)}
 
 /* ══════════════════════════════════
@@ -317,7 +292,7 @@ ul{list-style:none}
 /* ══════════════════════════════════
    HOMEPAGE SECTIONS BASE
 ══════════════════════════════════ */
-#secCategories,#secVideos,#secShorts,#secABC,#secHindi,#secCounting,#secAnimals,#secColors,#secTrust,#secSubscribe,#secBlog,#secGameCenter,#secQuiz,#secLibrary,#secFeatured{padding:clamp(48px,7vw,80px) 0;position:relative}
+#secCategories,#secVideos,#secShorts,#secABC,#secHindi,#secCounting,#secAnimals,#secColors,#secTrust,#secSubscribe,#secBlog,#secGameCenter,#secLibrary{padding:clamp(48px,7vw,80px) 0;position:relative}
 
 /* ══════════════════════════════════
    CATEGORY CARDS
@@ -726,6 +701,9 @@ body:not(.is-homepage) #secBlog{padding-top:clamp(100px,10vw,130px)}
 #shortsModal.active .shorts-container{transform:scale(1)}
 .shorts-player{flex:1;position:relative;overflow:hidden}
 .shorts-player iframe{width:100%;height:100%;border:none}
+.shorts-player .shorts-video-wrapper{width:100%;height:100%;position:relative}
+.shorts-player .shorts-video-wrapper .shorts-caption{position:absolute;bottom:0;left:0;right:0;padding:30px 16px 12px;background:linear-gradient(transparent,rgba(0,0,0,0.7));z-index:5;pointer-events:none}
+.shorts-player .shorts-video-wrapper .shorts-caption h4{font-family:var(--font-display);font-size:0.85rem;font-weight:700;color:#fff;margin:0}
 .shorts-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);gap:14px}
 .shorts-navigation{position:absolute;right:10px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:10}
 .shorts-nav-btn{width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,0.5);border:2px solid rgba(255,255,255,0.25);color:#fff;font-size:0.95rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--transition)}
@@ -744,52 +722,93 @@ body:not(.is-homepage) #secBlog{padding-top:clamp(100px,10vw,130px)}
 .toast-icon{font-size:3rem;display:block}
 .toast-text{font-family:var(--font-rounded);font-size:1.05rem;color:var(--dark);line-height:1.5}
 .toast-text strong{font-family:var(--font-display);font-size:1.25rem;color:var(--coral)}
+#learnPopupOverlay{position:fixed;inset:0;z-index:100002;background:rgba(26,26,46,0.7);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px;animation:fadeIn 0.25s ease}
+#learnPopupOverlay.active{display:flex}
+.learn-popup-card{background:var(--white);border-radius:var(--r-2xl);padding:clamp(28px,5vw,48px) clamp(24px,4vw,44px);text-align:center;max-width:380px;width:100%;position:relative;box-shadow:var(--shadow-xl);border:4px solid var(--yellow);animation:bounceIn 0.4s var(--ease-spring)}
+.learn-popup-card .popup-close{position:absolute;top:12px;right:14px;width:32px;height:32px;border-radius:50%;border:none;background:rgba(26,26,46,0.06);color:var(--gray);font-size:0.95rem;cursor:pointer;transition:var(--transition);display:flex;align-items:center;justify-content:center}
+.learn-popup-card .popup-close:hover{background:var(--coral);color:#fff;transform:rotate(90deg)}
+.learn-popup-main{font-family:var(--font-display);font-size:clamp(4rem,12vw,6rem);font-weight:800;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px}
+.learn-popup-main.hindi{background:var(--grad-cool);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:clamp(3.5rem,10vw,5rem)}
+.learn-popup-main.number{background:var(--grad-warm);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:clamp(3.5rem,10vw,5rem)}
+.learn-popup-main.animal{font-size:clamp(4rem,12vw,5.5rem);background:none;-webkit-text-fill-color:var(--dark);color:var(--dark)}
+.learn-popup-main.color{font-size:clamp(3rem,8vw,4rem);background:none;-webkit-text-fill-color:var(--dark);color:var(--dark);padding:16px 24px;border-radius:var(--r-lg);display:inline-block;min-width:120px}
+.learn-popup-emoji{font-size:clamp(2.5rem,7vw,4rem);display:block;margin-bottom:6px}
+.learn-popup-label{font-family:var(--font-display);font-size:clamp(1.3rem,4vw,1.8rem);font-weight:800;color:var(--dark);margin-bottom:2px}
+.learn-popup-phrase{font-family:var(--font-rounded);font-size:clamp(0.95rem,2.5vw,1.1rem);color:var(--gray);margin-bottom:20px}
+.learn-popup-card .btn-primary{padding:12px 28px;font-size:0.95rem}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .parent-modal{position:fixed;inset:0;z-index:100002;background:rgba(26,26,46,0.7);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px}
 .parent-modal-inner{width:100%;max-width:420px;background:var(--white);padding:32px;border-radius:var(--r-xl);text-align:center;border:4px solid var(--blue);position:relative;box-shadow:var(--shadow-xl)}
 
 /* ══════════════════════════════════
-   FOOTER
+   FOOTER — Playful Night Sky
 ══════════════════════════════════ */
-#secFooter{background:linear-gradient(160deg,#0D0D1F 0%,#1A1A2E 40%,#2D2D44 70%,#1A1A2E 100%);padding:72px 0 0;color:rgba(255,255,255,0.82);position:relative;overflow:hidden}
-#secFooter::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad-hero);background-size:300% 100%;animation:gradientShift 8s ease infinite}
-#secFooter::after{content:'';position:absolute;top:-40%;left:-40%;width:180%;height:180%;background:radial-gradient(circle at 25% 55%,rgba(168,85,247,0.05) 0%,transparent 50%),radial-gradient(circle at 75% 30%,rgba(255,107,107,0.04) 0%,transparent 50%);pointer-events:none}
-.footer-inner{max-width:1200px;margin:0 auto;padding:0 clamp(16px,3vw,28px);position:relative;z-index:1}
-.footer-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:36px;padding-bottom:52px}
-.footer-brand .footer-logo{font-family:var(--font-display);font-size:1.35rem;font-weight:800;color:#fff;margin-bottom:14px;display:flex;align-items:center;gap:10px;transition:var(--transition)}
-.footer-brand .footer-logo .logo-icon{width:36px;height:36px;border-radius:var(--r-sm);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 3px 12px rgba(255,107,107,0.3);flex-shrink:0}
-.footer-brand .footer-logo .logo-text{background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.footer-desc{font-family:var(--font-body);font-size:0.88rem;line-height:1.7;margin-bottom:18px;color:rgba(255,255,255,0.45)}
-.footer-subscribe{display:flex;gap:8px;margin-bottom:22px}
-.footer-subscribe input{flex:1;padding:10px 16px;border-radius:var(--r-full);border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.07);color:#fff;font-family:var(--font-body);font-size:0.84rem;outline:none;transition:var(--transition);min-width:0}
-.footer-subscribe input::placeholder{color:rgba(255,255,255,0.3)}
-.footer-subscribe input:focus{border-color:var(--coral);background:rgba(255,255,255,0.12)}
-.footer-subscribe button{padding:10px 18px;border:none;border-radius:var(--r-full);background:var(--grad-primary);color:#fff;font-family:var(--font-rounded);font-size:0.84rem;font-weight:700;cursor:pointer;transition:var(--transition);flex-shrink:0}
-.footer-subscribe button:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(255,107,107,0.4)}
-.footer-social{display:flex;gap:8px}
-.footer-social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.55);font-size:1rem;transition:var(--transition);border:1px solid rgba(255,255,255,0.06)}
-.footer-social a:hover{transform:translateY(-4px);color:#fff;border-color:transparent}
-.footer-social a:nth-child(1):hover{background:#FF0000;box-shadow:0 4px 16px rgba(255,0,0,0.35)}
-.footer-social a:nth-child(2):hover{background:linear-gradient(135deg,#833AB4,#FD1D1D,#FCAF45);box-shadow:0 4px 16px rgba(131,58,180,0.35)}
-.footer-social a:nth-child(3):hover{background:#1877F2;box-shadow:0 4px 16px rgba(24,119,242,0.35)}
-.footer-social a:nth-child(4):hover{background:#E60023;box-shadow:0 4px 16px rgba(230,0,35,0.35)}
-.footer-links-col h2{font-family:var(--font-display);font-size:1rem;font-weight:800;color:#fff;margin-bottom:20px;position:relative;padding-bottom:10px;margin-top:0}
-.footer-links-col h2::after{content:'';position:absolute;bottom:0;left:0;width:28px;height:3px;background:var(--grad-primary);border-radius:3px}
-.footer-links-col a{font-family:var(--font-body);font-size:0.87rem;color:rgba(255,255,255,0.48);transition:var(--transition);display:flex;align-items:center;gap:8px;margin-bottom:9px;width:fit-content}
-.footer-links-col a:hover{color:var(--coral);padding-left:6px}
-.footer-links-col .widget-content ul{list-style:none;margin:0;padding:0}
-.footer-links-col .widget-content a{display:inline-flex;margin-bottom:8px;color:rgba(255,255,255,0.48);font-size:0.87rem}
-.footer-links-col .widget-content a:hover{color:var(--coral);padding-left:6px}
-.footer-links-col .label-size a{display:inline-block;margin:0 5px 5px 0;padding:3px 12px;background:rgba(255,255,255,0.07);border-radius:var(--r-full);font-size:0.78rem;color:rgba(255,255,255,0.55);transition:var(--transition)}
-.footer-links-col .label-size a:hover{background:rgba(255,107,107,0.2);color:var(--coral);padding-left:12px}
-.footer-links-col .BlogArchive a{color:rgba(255,255,255,0.48);font-size:0.87rem}
-.footer-links-col .BlogArchive a:hover{color:var(--coral)}
-.footer-bottom{text-align:center;padding:20px 0;border-top:1px solid rgba(255,255,255,0.07);font-family:var(--font-body);font-size:0.8rem;color:rgba(255,255,255,0.28);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.footer-bottom a{color:var(--coral);transition:var(--transition)}
+#secFooter{background:linear-gradient(160deg,#1a1a3e 0%,#2d1b69 40%,#1e1040 100%);padding:0;position:relative;overflow:hidden;color:rgba(255,255,255,0.8)}
+#secFooter::before{content:'';position:absolute;inset:0;background-image:radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,0.3),transparent 0),radial-gradient(1px 1px at 30% 60%,rgba(255,255,255,0.2),transparent 0),radial-gradient(1.5px 1.5px at 50% 10%,rgba(255,255,255,0.4),transparent 0),radial-gradient(1px 1px at 70% 80%,rgba(255,255,255,0.2),transparent 0),radial-gradient(1px 1px at 90% 40%,rgba(255,255,255,0.3),transparent 0),radial-gradient(1.5px 1.5px at 20% 90%,rgba(255,255,255,0.25),transparent 0);pointer-events:none}
+#secFooter::after{content:'✨🌟✨';position:absolute;top:20px;right:40px;font-size:1.4rem;letter-spacing:12px;opacity:0.3;animation:float 6s ease-in-out infinite;pointer-events:none}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.footer-wave{display:block;width:100%;height:60px;margin-bottom:-2px}
+.footer-wave svg{width:100%;height:100%;display:block}
+.footer-inner{max-width:1200px;margin:0 auto;padding:clamp(28px,4vw,48px) clamp(16px,3vw,28px) 0;position:relative;z-index:1}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1.3fr;gap:clamp(24px,3.5vw,40px);padding-bottom:36px}
+/* Brand Column */
+.footer-brand-col .footer-logo{font-family:var(--font-display);font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.footer-brand-col .footer-logo .logo-icon{width:38px;height:38px;border-radius:var(--r-sm);background:var(--grad-primary);display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 3px 16px rgba(255,107,107,0.35);flex-shrink:0}
+.footer-brand-col .footer-logo .logo-text{background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-tagline{font-family:var(--font-rounded);font-size:0.82rem;color:var(--yellow);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.footer-desc{font-family:var(--font-body);font-size:0.83rem;line-height:1.65;color:rgba(255,255,255,0.45);margin-bottom:16px}
+.footer-brand-social{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.footer-brand-social a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);font-size:0.9rem;transition:var(--transition);border:1px solid rgba(255,255,255,0.06)}
+.footer-brand-social a:hover{transform:translateY(-3px);color:#fff;border-color:transparent}
+.footer-brand-social a:nth-child(1):hover{background:#FF0000;box-shadow:0 4px 16px rgba(255,0,0,0.35)}
+.footer-brand-social a:nth-child(2):hover{background:linear-gradient(135deg,#833AB4,#FD1D1D,#FCAF45);box-shadow:0 4px 16px rgba(131,58,180,0.35)}
+.footer-brand-social a:nth-child(3):hover{background:#1877F2;box-shadow:0 4px 16px rgba(24,119,242,0.35)}
+.footer-brand-social a:nth-child(4):hover{background:#E60023;box-shadow:0 4px 16px rgba(230,0,35,0.35)}
+.footer-brand-social a:nth-child(5):hover{background:#000;box-shadow:0 4px 16px rgba(0,0,0,0.35)}
+.footer-backlinks{font-size:0.72rem;color:rgba(255,255,255,0.25);display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:6px}
+.footer-backlinks a{color:var(--yellow);font-weight:600}
+.footer-backlinks a:hover{color:var(--coral)}
+/* Explore Column */
+.footer-explore-col h3{font-family:var(--font-display);font-size:0.95rem;font-weight:800;color:#fff;margin:0 0 16px;display:flex;align-items:center;gap:7px;padding-bottom:10px;border-bottom:2px solid rgba(255,255,255,0.06)}
+.footer-explore-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 10px}
+.footer-explore-grid a{font-family:var(--font-body);font-size:0.8rem;color:rgba(255,255,255,0.45);transition:var(--transition);display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:var(--r-sm)}
+.footer-explore-grid a i{width:14px;text-align:center;font-size:0.68rem;color:var(--yellow)}
+.footer-explore-grid a:hover{background:rgba(255,255,255,0.04);color:var(--coral);padding-left:10px}
+/* Contact Column */
+.footer-contact-col h3{font-family:var(--font-display);font-size:0.95rem;font-weight:800;color:#fff;margin:0 0 6px;display:flex;align-items:center;gap:7px;padding-bottom:10px;border-bottom:2px solid rgba(255,255,255,0.06)}
+.footer-contact-col .contact-desc{font-family:var(--font-body);font-size:0.78rem;color:rgba(255,255,255,0.4);line-height:1.5;margin-bottom:14px}
+.footer-contact-col .contact-form-widget form{display:flex;flex-direction:column;gap:8px}
+.footer-contact-col .contact-form-name,.footer-contact-col .contact-form-email,.footer-contact-col .contact-form-email-message{width:100%;padding:9px 12px;border:1px solid rgba(255,255,255,0.12);border-radius:var(--r-sm);font-family:var(--font-body);font-size:0.82rem;background:rgba(255,255,255,0.06);color:#fff;transition:var(--transition);outline:0;box-sizing:border-box}
+.footer-contact-col .contact-form-email-message{resize:vertical;min-height:60px}
+.footer-contact-col .contact-form-name:focus,.footer-contact-col .contact-form-email:focus,.footer-contact-col .contact-form-email-message:focus{border-color:var(--coral);background:rgba(255,255,255,0.1);box-shadow:0 0 0 3px rgba(255,107,107,0.12)}
+.footer-contact-col .contact-form-name::placeholder,.footer-contact-col .contact-form-email::placeholder,.footer-contact-col .contact-form-email-message::placeholder{color:rgba(255,255,255,0.3)}
+.footer-contact-col .contact-form-button-submit{font-family:var(--font-rounded);font-weight:700;font-size:0.82rem;padding:9px 18px;border:0;border-radius:var(--r-sm);background:var(--grad-primary);color:#fff;cursor:pointer;transition:var(--transition)}
+.footer-contact-col .contact-form-button-submit:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(255,107,107,0.3)}
+.footer-contact-col .contact-form-error-message,.footer-contact-col .contact-form-success-message{margin-top:4px;font-family:var(--font-rounded);font-size:0.72rem;padding:5px 10px;border-radius:var(--r-sm)}
+.footer-contact-col .contact-form-error-message{background:rgba(255,107,107,0.1);color:var(--coral);border:1px solid rgba(255,107,107,0.2)}
+.footer-contact-col .contact-form-success-message{background:rgba(107,203,119,0.1);color:#6bcb77;border:1px solid rgba(107,203,119,0.2)}
+.footer-contact-col .mailto-fallback{margin-top:6px;font-size:0.72rem;color:rgba(255,255,255,0.3);text-align:center}
+.footer-contact-col .mailto-fallback a{color:var(--yellow)}
+/* Bottom Bar */
+.footer-bottom{text-align:center;padding:16px clamp(16px,3vw,28px);border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;max-width:1200px;margin:0 auto;font-family:var(--font-body);font-size:0.76rem;color:rgba(255,255,255,0.25)}
+.footer-bottom a{color:var(--coral);font-weight:600;transition:var(--transition)}
 .footer-bottom a:hover{color:var(--yellow)}
 .footer-heart{color:var(--coral);display:inline-block;animation:pulse 1.5s ease infinite}
-.footer-links-bottom{display:flex;gap:16px}
-.footer-links-bottom a{color:rgba(255,255,255,0.28);font-size:0.78rem}
+.footer-links-bottom{display:flex;gap:14px}
+.footer-links-bottom a{color:rgba(255,255,255,0.25);font-size:0.74rem}
 .footer-links-bottom a:hover{color:var(--coral)}
+@media(max-width:992px){
+  .footer-top{grid-template-columns:1fr 1fr}
+  .footer-brand-col{grid-column:1/-1}
+}
+@media(max-width:768px){
+  .footer-top{grid-template-columns:1fr;gap:24px}
+  .footer-explore-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .footer-top{grid-template-columns:1fr;gap:24px}
+  .footer-explore-grid{grid-template-columns:1fr}
+}
 
 /* ══════════════════════════════════
    PAGE CONTENT (Static Pages)
@@ -871,7 +890,6 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
   .videos-grid{grid-template-columns:repeat(2,1fr)}
   .animals-grid{grid-template-columns:repeat(3,1fr)}
   .trust-grid{grid-template-columns:repeat(2,1fr)}
-  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
   .abc-grid{grid-template-columns:repeat(5,1fr)}
   .hindi-grid{grid-template-columns:repeat(5,1fr)}
   .library-grid{grid-template-columns:repeat(3,1fr)}
@@ -888,14 +906,12 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
   .trust-grid{grid-template-columns:repeat(2,1fr)}
   .blog-posts-grid{grid-template-columns:1fr}
   .blog-posts-grid .blog-post-card:first-child{display:block}
-  .footer-top{grid-template-columns:1fr 1fr;gap:24px}
   .search-form{flex-direction:column}
   .post-nav{flex-direction:column}
   .related-posts-grid{grid-template-columns:repeat(2,1fr)}
   .gamification-panel{grid-template-columns:1fr}
   .quiz-choices{grid-template-columns:1fr}
   #secBottomNav{display:flex}
-  #secFooter{padding-bottom:80px}
   #scrollTopBtn{bottom:72px}
   .hero-mascot{width:60px;height:60px;font-size:2rem;bottom:12px;right:14px}
   .library-grid{grid-template-columns:repeat(2,1fr)}
@@ -903,7 +919,6 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
 @media(max-width:576px){
   .counting-grid{grid-template-columns:repeat(6,1fr)}
   .hero-mascot{position:relative;bottom:auto;right:auto;margin:24px auto 0;display:flex}
-  .footer-top{grid-template-columns:1fr}
   .library-grid{grid-template-columns:repeat(2,1fr)}
   .short-card{flex:0 0 125px}
 }
@@ -915,10 +930,8 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
   .colors-grid{grid-template-columns:repeat(3,1fr)}
   .trust-grid{grid-template-columns:1fr}
   .library-grid{grid-template-columns:repeat(2,1fr)}
-  .header-stats{display:none}
 }
 @media(min-width:769px){#secBottomNav{display:none!important}}
-.no-results{text-align:center;padding:20px;color:var(--gray);grid-column:1/-1}
 ]]></b:skin>
 </head>
 <body>
@@ -931,16 +944,16 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
   <b:class cond='data:blog.pageType == &quot;archive&quot;' name='is-archive'/>
   <b:class cond='data:blog.pageType == &quot;index&quot;' name='is-multiple'/>
   <script>document.body.classList.add(&#39;js-active&#39;);</script>
-  <canvas id='kidsConfetti'/>
-  <div id='kidsPopUp'/>
+  <canvas id='kidsConfetti'></canvas>
+  <div id='kidsPopUp'></div>
 
   <div id='secSearch'>
     <div class='search-overlay-inner'>
-      <button aria-label='Close search' class='search-overlay-close'><i class='fas fa-times'/></button>
+      <button aria-label='Close search' class='search-overlay-close'><i class='fas fa-times'></i></button>
       <h2>🔍 What do you want to learn?</h2>
       <form action='/search' class='search-form' method='get'>
         <input name='q' placeholder='Search songs, ABCs, numbers...' required='required' type='text'/>
-        <button type='submit'><i class='fas fa-search'/> Search</button>
+        <button type='submit'><i class='fas fa-search'></i> Search</button>
       </form>
       <div class='popular-tags'>
         <p>Popular searches:</p>
@@ -963,34 +976,30 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
         <span class='logo-text'>Pogo Tunes</span>
       </a>
       <nav aria-label='Main navigation' class='header-nav'>
-        <a expr:href='data:blog.homepageUrl'>Home</a>
-        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secVideos&quot; : data:blog.homepageUrl + &quot;#secVideos&quot;'>Videos</a>
-        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secABC&quot; : data:blog.homepageUrl + &quot;#secABC&quot;'>ABCs</a>
-        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secCounting&quot; : data:blog.homepageUrl + &quot;#secCounting&quot;'>123s</a>
-        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secHindi&quot; : data:blog.homepageUrl + &quot;#secHindi&quot;'>Hindi</a>
-        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secAnimals&quot; : data:blog.homepageUrl + &quot;#secAnimals&quot;'>Animals</a>
-        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secColors&quot; : data:blog.homepageUrl + &quot;#secColors&quot;'>Colors</a>
+        <a expr:href='data:blog.homepageUrl'><i class='fas fa-home'></i> Home</a>
+        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secVideos&quot; : data:blog.homepageUrl + &quot;#secVideos&quot;'><i class='fas fa-play'></i> Videos</a>
+        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secABC&quot; : data:blog.homepageUrl + &quot;#secABC&quot;'><i class='fas fa-font'></i> ABCs</a>
+        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secCounting&quot; : data:blog.homepageUrl + &quot;#secCounting&quot;'><i class='fas fa-calculator'></i> 123s</a>
+        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secHindi&quot; : data:blog.homepageUrl + &quot;#secHindi&quot;'><i class='fas fa-language'></i> Hindi</a>
+        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secAnimals&quot; : data:blog.homepageUrl + &quot;#secAnimals&quot;'><i class='fas fa-paw'></i> Animals</a>
+        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secColors&quot; : data:blog.homepageUrl + &quot;#secColors&quot;'><i class='fas fa-palette'></i> Colors</a>
       </nav>
-      <div class='header-stats'>
-        <div class='stat-chip streak' title='Your Daily Learning Streak!'><i class='fas fa-fire'/> <span id='headerStreakVal'>0</span></div>
-        <div class='stat-chip stars' title='Your Total Star Rewards!'><i class='fas fa-star'/> <span id='headerStarsVal'>0</span></div>
-      </div>
       <div class='header-actions'>
-        <button aria-label='Bedtime Mode' class='header-bedtime-btn' onclick='toggleBedtimeMode()' type='button'><i class='fas fa-moon'/></button>
-        <button aria-label='Toggle Sound' class='header-sound-btn' onclick='toggleSound()' type='button'><i class='fas fa-volume-up'/></button>
-        <button aria-label='Search' class='header-search-btn' onclick='openSearch()' type='button'><i class='fas fa-search'/></button>
-        <button aria-label='Menu' class='header-menu-btn' onclick='toggleMobileMenu()' type='button'><i class='fas fa-bars'/></button>
+        <button aria-label='Bedtime Mode' class='header-bedtime-btn' onclick='toggleBedtimeMode()' type='button'><i class='fas fa-moon'></i></button>
+        <button aria-label='Toggle Sound' class='header-sound-btn' onclick='toggleSound()' type='button'><i class='fas fa-volume-up'></i></button>
+        <button aria-label='Search' class='header-search-btn' onclick='openSearch()' type='button'><i class='fas fa-search'></i></button>
+        <button aria-label='Menu' class='header-menu-btn' onclick='toggleMobileMenu()' type='button'><i class='fas fa-bars'></i></button>
       </div>
     </div>
     <div class='mobile-dropdown' id='mobileDropdown'>
       <nav aria-label='Mobile navigation' class='mobile-nav'>
-        <a expr:href='data:blog.homepageUrl'><i class='fas fa-home'/> Home</a>
-        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secVideos&quot; : data:blog.homepageUrl + &quot;#secVideos&quot;'><i class='fas fa-video'/> Videos</a>
-        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secABC&quot; : data:blog.homepageUrl + &quot;#secABC&quot;'><i class='fas fa-font'/> ABCs</a>
-        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secCounting&quot; : data:blog.homepageUrl + &quot;#secCounting&quot;'><i class='fas fa-calculator'/> 123s</a>
-        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secHindi&quot; : data:blog.homepageUrl + &quot;#secHindi&quot;'><i class='fas fa-language'/> Hindi</a>
-        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secAnimals&quot; : data:blog.homepageUrl + &quot;#secAnimals&quot;'><i class='fas fa-paw'/> Animals</a>
-        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secColors&quot; : data:blog.homepageUrl + &quot;#secColors&quot;'><i class='fas fa-palette'/> Colors</a>
+        <a expr:href='data:blog.homepageUrl'><i class='fas fa-home'></i> Home</a>
+        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secVideos&quot; : data:blog.homepageUrl + &quot;#secVideos&quot;'><i class='fas fa-video'></i> Videos</a>
+        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secABC&quot; : data:blog.homepageUrl + &quot;#secABC&quot;'><i class='fas fa-font'></i> ABCs</a>
+        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secCounting&quot; : data:blog.homepageUrl + &quot;#secCounting&quot;'><i class='fas fa-calculator'></i> 123s</a>
+        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secHindi&quot; : data:blog.homepageUrl + &quot;#secHindi&quot;'><i class='fas fa-language'></i> Hindi</a>
+        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secAnimals&quot; : data:blog.homepageUrl + &quot;#secAnimals&quot;'><i class='fas fa-paw'></i> Animals</a>
+        <a expr:href='(data:blog.url == data:blog.homepageUrl) ? &quot;#secColors&quot; : data:blog.homepageUrl + &quot;#secColors&quot;'><i class='fas fa-palette'></i> Colors</a>
       </nav>
     </div>
   </div>
@@ -999,6 +1008,9 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
     <b:if cond='data:blog.pageType == &quot;index&quot; and data:blog.searchLabel == &quot;&quot; and data:blog.searchQuery == &quot;&quot;'>
     <div id='homepageSections'>
 
+      <b:section id='secHeroSection' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='HTML1' locked='no' title='Hero Banner' type='HTML' version='2'>
+          <b:includable id='main'>
       <div id='secHero'>
         <div class='cloud cloud1'>&#9729;</div>
         <div class='cloud cloud2'>&#9729;</div>
@@ -1016,8 +1028,8 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
           <h1 class='hero-title'>Learn, Play &amp; <span class='highlight'>Grow</span> with Pogo Tunes!</h1>
           <p class='hero-subtitle'>Fun songs, videos &amp; interactive games for toddlers &#8212; ABCs, Hindi, Numbers, Animals, Colors &amp; 17 more topics. All free, all safe!</p>
           <div class='hero-cta'>
-            <button class='btn-primary' onclick='document.getElementById(&quot;secVideos&quot;).scrollIntoView({behavior:&quot;smooth&quot;})' type='button'><i class='fas fa-play'/> Watch Videos</button>
-            <a class='btn-secondary' href='https://www.youtube.com/@Pogotunes?sub_confirmation=1' rel='noopener noreferrer' target='_blank'><i class='fab fa-youtube'/> Subscribe Free</a>
+            <button class='btn-primary' onclick='document.getElementById(&quot;secVideos&quot;).scrollIntoView({behavior:&quot;smooth&quot;})' type='button'><i class='fas fa-play'></i> Watch Videos</button>
+            <a class='btn-secondary' href='https://www.youtube.com/@Pogotunes?sub_confirmation=1' rel='noopener noreferrer' target='_blank'><i class='fab fa-youtube'></i> Subscribe Free</a>
           </div>
           <div class='hero-stats'>
             <div class='hero-stat'><span class='hero-stat-num'>17+</span><span class='hero-stat-label'>Learning Topics</span></div>
@@ -1028,21 +1040,33 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
         </div>
         <div aria-label='Pogo mascot' class='hero-mascot' title='Pogo the Music Bear!'>🐻</div>
       </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
 
+      <b:section id='secCategoriesSection' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='HTML2' locked='no' title='Learning Categories' type='HTML' version='2'>
+          <b:includable id='main'>
       <div class='homepage-section' id='secCategories'>
         <div class='container'>
           <h2 class='section-title'>📚 Learning Categories</h2>
           <div class='categories-grid'>
-            <div class='category-card cat-abc fade-in-scale' role='button' tabindex='0'><span class='cat-emoji'>🔤</span><div class='cat-name'>ABCs</div><div class='cat-count'>26 letters</div><span class='cat-link'>Explore <i class='fas fa-arrow-right'/></span></div>
-            <div class='category-card cat-123 fade-in-scale' role='button' tabindex='0'><span class='cat-emoji'>🔢</span><div class='cat-name'>Counting</div><div class='cat-count'>Numbers 1&#8211;100</div><span class='cat-link'>Explore <i class='fas fa-arrow-right'/></span></div>
-            <div class='category-card cat-colors fade-in-scale' role='button' tabindex='0'><span class='cat-emoji'>🎨</span><div class='cat-name'>Colors</div><div class='cat-count'>10+ colors</div><span class='cat-link'>Explore <i class='fas fa-arrow-right'/></span></div>
-            <div class='category-card cat-animals fade-in-scale' role='button' tabindex='0'><span class='cat-emoji'>🐾</span><div class='cat-name'>Animals</div><div class='cat-count'>12+ friends</div><span class='cat-link'>Explore <i class='fas fa-arrow-right'/></span></div>
-            <div class='category-card cat-hindi fade-in-scale' role='button' tabindex='0'><span class='cat-emoji'>ॐ</span><div class='cat-name'>Hindi</div><div class='cat-count'>Varnmala</div><span class='cat-link'>Explore <i class='fas fa-arrow-right'/></span></div>
-            <div class='category-card cat-songs fade-in-scale' role='button' tabindex='0'><span class='cat-emoji'>🎵</span><div class='cat-name'>Songs</div><div class='cat-count'>Videos &amp; shorts</div><span class='cat-link'>Explore <i class='fas fa-arrow-right'/></span></div>
+            <div class='category-card cat-abc fade-in-scale' role='button' tabindex='0'><span class='cat-emoji'>🔤</span><div class='cat-name'>ABCs</div><div class='cat-count'>26 letters</div><span class='cat-link'>Explore <i class='fas fa-arrow-right'></i></span></div>
+            <div class='category-card cat-123 fade-in-scale' role='button' tabindex='0'><span class='cat-emoji'>🔢</span><div class='cat-name'>Counting</div><div class='cat-count'>Numbers 1&#8211;100</div><span class='cat-link'>Explore <i class='fas fa-arrow-right'></i></span></div>
+            <div class='category-card cat-colors fade-in-scale' role='button' tabindex='0'><span class='cat-emoji'>🎨</span><div class='cat-name'>Colors</div><div class='cat-count'>10+ colors</div><span class='cat-link'>Explore <i class='fas fa-arrow-right'></i></span></div>
+            <div class='category-card cat-animals fade-in-scale' role='button' tabindex='0'><span class='cat-emoji'>🐾</span><div class='cat-name'>Animals</div><div class='cat-count'>12+ friends</div><span class='cat-link'>Explore <i class='fas fa-arrow-right'></i></span></div>
+            <div class='category-card cat-hindi fade-in-scale' role='button' tabindex='0'><span class='cat-emoji'>ॐ</span><div class='cat-name'>Hindi</div><div class='cat-count'>Varnmala</div><span class='cat-link'>Explore <i class='fas fa-arrow-right'></i></span></div>
+            <div class='category-card cat-songs fade-in-scale' role='button' tabindex='0'><span class='cat-emoji'>🎵</span><div class='cat-name'>Songs</div><div class='cat-count'>Videos &amp; shorts</div><span class='cat-link'>Explore <i class='fas fa-arrow-right'></i></span></div>
           </div>
         </div>
       </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
 
+      <b:section id='secGameCenterSection' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='HTML3' locked='no' title='Game Center' type='HTML' version='2'>
+          <b:includable id='main'>
       <div class='homepage-section' id='secGameCenter'>
         <div class='container'>
           <h2 class='section-title'>🎮 Pogo&#39;s Game Center</h2>
@@ -1053,7 +1077,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
             </div>
             <div class='gamification-panel'>
               <div class='daily-challenges'>
-                <h4 class='gamification-title'><i class='fas fa-bullseye'/> Pogo&#39;s Daily Mission</h4>
+                <h4 class='gamification-title'><i class='fas fa-bullseye'></i> Pogo&#39;s Daily Mission</h4>
                 <div class='challenge-item' id='challenge-stars'>
                   <span class='challenge-text'>&#11088; Earn 15 stars today</span>
                   <span class='challenge-progress' id='challenge-stars-prog'>0/15</span>
@@ -1068,7 +1092,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
                 </div>
               </div>
               <div class='badge-shelf-container'>
-                <h4 class='gamification-title'><i class='fas fa-trophy'/> Achievement Badges</h4>
+                <h4 class='gamification-title'><i class='fas fa-trophy'></i> Achievement Badges</h4>
                 <div class='badge-shelf' id='badgeShelf'>
                   <div class='badge-icon locked' id='badge_star_collector'>🌟<span class='badge-tooltip'>Star Collector (50 Stars)</span></div>
                   <div class='badge-icon locked' id='badge_streak_champ'>🔥<span class='badge-tooltip'>Streak Champ (3 Days)</span></div>
@@ -1079,37 +1103,37 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
               </div>
             </div>
             <div class='game-tabs'>
-              <button class='game-tab-btn active' data-target='panelQuiz' type='button'><i class='fas fa-question-circle'/> Fun Quiz</button>
-              <button class='game-tab-btn' data-target='panelDragDrop' type='button'><i class='fas fa-puzzle-piece'/> Matching</button>
-              <button class='game-tab-btn' data-target='panelMemory' type='button'><i class='fas fa-clone'/> Memory Match</button>
-              <button class='game-tab-btn' data-target='panelTracing' type='button'><i class='fas fa-paint-brush'/> Letter Trace</button>
+              <button class='game-tab-btn active' data-target='panelQuiz' type='button'><i class='fas fa-question-circle'></i> Fun Quiz</button>
+              <button class='game-tab-btn' data-target='panelDragDrop' type='button'><i class='fas fa-puzzle-piece'></i> Matching</button>
+              <button class='game-tab-btn' data-target='panelMemory' type='button'><i class='fas fa-clone'></i> Memory Match</button>
+              <button class='game-tab-btn' data-target='panelTracing' type='button'><i class='fas fa-paint-brush'></i> Letter Trace</button>
             </div>
             <div class='game-panel active' id='panelQuiz'>
               <div class='quiz-header'>
                 <div class='quiz-score'>Score: <span id='quizScoreValue'>0</span> &#11088;</div>
                 <div class='quiz-instructions' id='quizInstructionText'>Press &quot;Start Game&quot; to begin learning!</div>
-                <button class='quiz-start-btn' id='quizStartBtn' type='button'><i class='fas fa-play-circle'/> Start Game</button>
+                <button class='quiz-start-btn' id='quizStartBtn' type='button'><i class='fas fa-play-circle'></i> Start Game</button>
               </div>
-              <div class='quiz-options-grid' id='quizOptionsGrid'/>
+              <div class='quiz-options-grid' id='quizOptionsGrid'></div>
             </div>
             <div class='game-panel' id='panelDragDrop'>
               <div class='quiz-header'>
                 <div class='quiz-score'>Score: <span id='dragScoreVal'>0</span> &#11088;</div>
                 <div class='quiz-instructions' id='dragInstructionText'>Drag the animal card into the named basket!</div>
-                <button class='quiz-start-btn' id='dragStartBtn' type='button'><i class='fas fa-play-circle'/> Play Matching</button>
+                <button class='quiz-start-btn' id='dragStartBtn' type='button'><i class='fas fa-play-circle'></i> Play Matching</button>
               </div>
               <div class='drag-container'>
-                <div class='drag-source-row' id='dragSourceRow'/>
-                <div class='drag-target-row' id='dragTargetRow'/>
+                <div class='drag-source-row' id='dragSourceRow'></div>
+                <div class='drag-target-row' id='dragTargetRow'></div>
               </div>
             </div>
             <div class='game-panel' id='panelMemory'>
               <div class='quiz-header'>
                 <div class='quiz-score'>Pairs: <span id='memoryPairsVal'>0</span> / 8 &#11088;</div>
                 <div class='quiz-instructions' id='memoryInstructionText'>Flip cards to match the animal friends!</div>
-                <button class='quiz-start-btn' id='memoryStartBtn' type='button'><i class='fas fa-redo'/> New Match Game</button>
+                <button class='quiz-start-btn' id='memoryStartBtn' type='button'><i class='fas fa-redo'></i> New Match Game</button>
               </div>
-              <div class='memory-grid' id='memoryGrid'/>
+              <div class='memory-grid' id='memoryGrid'></div>
             </div>
             <div class='game-panel' id='panelTracing'>
               <div class='quiz-header'>
@@ -1117,50 +1141,72 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
                 <div class='quiz-instructions' id='tracingInstructionText'>Trace along the dotted lines!</div>
               </div>
               <div class='tracing-board' id='tracingBoard'>
-                <canvas id='tracingCanvas'/>
+                <canvas id='tracingCanvas'></canvas>
                 <div class='tracing-guide-letter' id='tracingGuideLetter'>A</div>
               </div>
               <div class='tracing-controls'>
-                <button class='quiz-start-btn' id='tracingClearBtn' style='background:var(--blue)' type='button'><i class='fas fa-eraser'/> Clear</button>
-                <button class='quiz-start-btn' id='tracingNextBtn' type='button'>Next Letter <i class='fas fa-arrow-right'/></button>
+                <button class='quiz-start-btn' id='tracingClearBtn' style='background:var(--blue)' type='button'><i class='fas fa-eraser'></i> Clear</button>
+                <button class='quiz-start-btn' id='tracingNextBtn' type='button'>Next Letter <i class='fas fa-arrow-right'></i></button>
               </div>
             </div>
           </div>
         </div>
       </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
 
+      <b:section id='secVideosSection' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='HTML4' locked='no' title='Latest Videos' type='HTML' version='2'>
+          <b:includable id='main'>
       <div class='homepage-section' id='secVideos'>
-        <div class='wave-top'/>
+        <div class='wave-top'></div>
         <div class='container'>
           <h2 class='section-title'>🎥 Latest Videos</h2>
           <div class='videos-grid cms-dynamic-widget' data-label='Videos' data-max='6'>
             <div style='text-align:center;padding:40px;color:var(--gray);grid-column:1/-1'>
-              <i class='fas fa-spinner fa-spin' style='font-size:2rem;color:var(--coral)'/>
+              <i class='fas fa-spinner fa-spin' style='font-size:2rem;color:var(--coral)'></i>
               <p style='margin-top:15px;font-family:var(--font-rounded)'>Loading latest videos...</p>
             </div>
           </div>
         </div>
       </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
 
+      <b:section id='secShortsSection' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='HTML5' locked='no' title='YouTube Shorts' type='HTML' version='2'>
+          <b:includable id='main'>
       <div class='homepage-section' id='secShorts'>
         <div class='container'>
-          <h2 class='section-title'>📱 YouTube Shorts</h2>
+          <h2 class='section-title'>📱 Shorts &amp; Reels</h2>
           <div class='shorts-carousel'>
-            <div class='short-card' data-video-id='97_8X5HtbH4' role='button' style='background:linear-gradient(135deg,#FF6B6B,#ee5a24)' tabindex='0'><span class='short-emoji'>🔲</span><span class='short-label'>ABC Song</span></div>
-            <div class='short-card' data-video-id='v-YjW7P-XkU' role='button' style='background:linear-gradient(135deg,#6BCBFF,#0984e3)' tabindex='0'><span class='short-emoji'>🔢</span><span class='short-label'>Count to 10</span></div>
-            <div class='short-card' data-video-id='tRNy2i8DBUc' role='button' style='background:linear-gradient(135deg,#B28DFF,#6c5ce7)' tabindex='0'><span class='short-emoji'>ॐ</span><span class='short-label'>Hindi Letters</span></div>
-            <div class='short-card' data-video-id='t99ELF53yV4' role='button' style='background:linear-gradient(135deg,#6EE7B7,#00b894)' tabindex='0'><span class='short-emoji'>🐱</span><span class='short-label'>Cat Sound</span></div>
-            <div class='short-card' data-video-id='hUu6d4p15k8' role='button' style='background:linear-gradient(135deg,#FFD93D,#fdcb6e)' tabindex='0'><span class='short-emoji'>🎨</span><span class='short-label'>Red Color</span></div>
-            <div class='short-card' data-video-id='3_N81R_5UoI' role='button' style='background:linear-gradient(135deg,#FF8A5C,#e17055)' tabindex='0'><span class='short-emoji'>🐘</span><span class='short-label'>Elephant</span></div>
-            <div class='short-card' data-video-id='y23pM2-8_w8' role='button' style='background:linear-gradient(135deg,#a29bfe,#6c5ce7)' tabindex='0'><span class='short-emoji'>🎵</span><span class='short-label'>Phonics Fun</span></div>
-            <div class='short-card' data-video-id='dQ6QYd3SKOo' role='button' style='background:linear-gradient(135deg,#fd79a8,#e84393)' tabindex='0'><span class='short-emoji'>&#11088;</span><span class='short-label'>Twinkle Star</span></div>
+            <div class='short-card' data-type='youtube' data-video-id='97_8X5HtbH4' role='button' style='background:linear-gradient(135deg,#FF6B6B,#ee5a24)' tabindex='0'><span class='short-emoji'>🔲</span><span class='short-label'>ABC Song</span></div>
+            <div class='short-card' data-type='youtube' data-video-id='v-YjW7P-XkU' role='button' style='background:linear-gradient(135deg,#6BCBFF,#0984e3)' tabindex='0'><span class='short-emoji'>🔢</span><span class='short-label'>Count to 10</span></div>
+            <div class='short-card' data-type='youtube' data-video-id='tRNy2i8DBUc' role='button' style='background:linear-gradient(135deg,#B28DFF,#6c5ce7)' tabindex='0'><span class='short-emoji'>ॐ</span><span class='short-label'>Hindi Letters</span></div>
+            <div class='short-card' data-type='youtube' data-video-id='t99ELF53yV4' role='button' style='background:linear-gradient(135deg,#6EE7B7,#00b894)' tabindex='0'><span class='short-emoji'>🐱</span><span class='short-label'>Cat Sound</span></div>
+            <div class='short-card' data-type='youtube' data-video-id='hUu6d4p15k8' role='button' style='background:linear-gradient(135deg,#FFD93D,#fdcb6e)' tabindex='0'><span class='short-emoji'>🎨</span><span class='short-label'>Red Color</span></div>
+            <div class='short-card' data-type='youtube' data-video-id='3_N81R_5UoI' role='button' style='background:linear-gradient(135deg,#FF8A5C,#e17055)' tabindex='0'><span class='short-emoji'>🐘</span><span class='short-label'>Elephant</span></div>
+            <div class='short-card' data-type='youtube' data-video-id='y23pM2-8_w8' role='button' style='background:linear-gradient(135deg,#a29bfe,#6c5ce7)' tabindex='0'><span class='short-emoji'>🎵</span><span class='short-label'>Phonics Fun</span></div>
+            <div class='short-card' data-type='youtube' data-video-id='dQ6QYd3SKOo' role='button' style='background:linear-gradient(135deg,#fd79a8,#e84393)' tabindex='0'><span class='short-emoji'>&#11088;</span><span class='short-label'>Twinkle Star</span></div>
+            <div class='short-card' data-type='youtube' data-video-id='pVn9SkUqSvc' role='button' style='background:linear-gradient(135deg,#fdcb6e,#e17055)' tabindex='0'><span class='short-emoji'>🐕</span><span class='short-label'>Dog Song</span></div>
+            <div class='short-card' data-type='youtube' data-video-id='Xk0v6vPGdzc' role='button' style='background:linear-gradient(135deg,#00cec9,#0984e3)' tabindex='0'><span class='short-emoji'>🚗</span><span class='short-label'>Wheels Bus</span></div>
+            <div class='short-card' data-type='instagram' data-video-id='C9a2F3pNRzJ' role='button' style='background:linear-gradient(135deg,#833AB4,#FD1D1D)' tabindex='0'><span class='short-emoji'>📸</span><span class='short-label'>Instagram Fun</span></div>
+            <div class='short-card' data-type='instagram' data-video-id='C85pYG3R3Mf' role='button' style='background:linear-gradient(135deg,#FD1D1D,#FCAF45)' tabindex='0'><span class='short-emoji'>🎬</span><span class='short-label'>Reel Time</span></div>
           </div>
-          <div class='scroll-hint'><i class='fas fa-arrow-left'/> Scroll for more <i class='fas fa-arrow-right'/></div>
+          <div class='scroll-hint'><i class='fas fa-arrow-left'></i> Scroll for more <i class='fas fa-arrow-right'></i></div>
         </div>
       </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
 
+      <b:section id='secABCSection' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='HTML6' locked='no' title='Alphabet A-Z' type='HTML' version='2'>
+          <b:includable id='main'>
       <div class='homepage-section' id='secABC'>
-        <div class='wave-top'/>
+        <div class='wave-top'></div>
         <div class='container'>
           <h2 class='section-title'>🔲 Alphabet A-Z</h2>
           <div class='abc-grid'>
@@ -1172,7 +1218,13 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
           </div>
         </div>
       </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
 
+      <b:section id='secHindiSection' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='HTML7' locked='no' title='Hindi Varnmala' type='HTML' version='2'>
+          <b:includable id='main'>
       <div class='homepage-section' id='secHindi'>
         <div class='container'>
           <h2 class='section-title'>ॐ Hindi Varnmala</h2>
@@ -1186,9 +1238,15 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
           </div>
         </div>
       </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
 
+      <b:section id='secCountingSection' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='HTML8' locked='no' title='Numbers 1-100' type='HTML' version='2'>
+          <b:includable id='main'>
       <div class='homepage-section' id='secCounting'>
-        <div class='wave-top'/>
+        <div class='wave-top'></div>
         <div class='container'>
           <h2 class='section-title'>🔢 Numbers 1-100</h2>
           <div class='counting-grid'>
@@ -1205,7 +1263,13 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
           </div>
         </div>
       </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
 
+      <b:section id='secAnimalsSection' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='HTML9' locked='no' title='Animals' type='HTML' version='2'>
+          <b:includable id='main'>
       <div class='homepage-section' id='secAnimals'>
         <div class='container'>
           <h2 class='section-title'>🐾 Animal Friends</h2>
@@ -1225,9 +1289,15 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
           </div>
         </div>
       </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
 
+      <b:section id='secColorsSection' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='HTML10' locked='no' title='Colors' type='HTML' version='2'>
+          <b:includable id='main'>
       <div class='homepage-section' id='secColors'>
-        <div class='wave-top'/>
+        <div class='wave-top'></div>
         <div class='container'>
           <h2 class='section-title'>🎨 Colors Learning</h2>
           <div class='colors-grid'>
@@ -1244,37 +1314,48 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
           </div>
         </div>
       </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
 
+      <b:section id='secTrustSection' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='HTML11' locked='no' title='Trust Badges' type='HTML' version='2'>
+          <b:includable id='main'>
       <div class='homepage-section' id='secTrust'>
         <div class='container'>
           <h2 class='section-title'>👪 Why Parents Trust Us</h2>
           <p class='section-subtitle'>Built for little learners, trusted by parents worldwide &#8212; safe, free, and always educational.</p>
           <div class='trust-grid'>
             <div class='trust-card fade-in'>
-              <div class='trust-icon'><i class='fas fa-shield-alt'/></div>
+              <div class='trust-icon'><i class='fas fa-shield-alt'></i></div>
               <h3>Safe &amp; Secure</h3>
               <p>All content is child-safe with no inappropriate material, violence, or adult themes &#8212; ever.</p>
             </div>
             <div class='trust-card fade-in'>
-              <div class='trust-icon' style='background:var(--grad-cool)'><i class='fas fa-graduation-cap'/></div>
+              <div class='trust-icon' style='background:var(--grad-cool)'><i class='fas fa-graduation-cap'></i></div>
               <h3>Curriculum-Based</h3>
               <p>Topics aligned to early childhood education standards for ages 1&#8211;6 years.</p>
             </div>
             <div class='trust-card fade-in'>
-              <div class='trust-icon' style='background:var(--grad-warm)'><i class='fas fa-ban'/></div>
+              <div class='trust-icon' style='background:var(--grad-warm)'><i class='fas fa-ban'></i></div>
               <h3>Zero Ads</h3>
               <p>Completely ad-free experience &#8212; no interruptions, no distractions, just pure learning.</p>
             </div>
             <div class='trust-card fade-in'>
-              <div class='trust-icon' style='background:var(--grad-green)'><i class='fas fa-gift'/></div>
+              <div class='trust-icon' style='background:var(--grad-green)'><i class='fas fa-gift'></i></div>
               <h3>Free Forever</h3>
               <p>Every song, video, and activity is completely free with no hidden subscriptions.</p>
             </div>
           </div>
         </div>
       </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
 
-      <!-- LEARNING LIBRARY -->
+      <b:section id='secLibrarySection' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='HTML12' locked='no' title='Learning Library' type='HTML' version='2'>
+          <b:includable id='main'>
       <div class='homepage-section' id='secLibrary'>
         <div class='container'>
           <h2 class='section-title'>🎓 Explore All Learning Topics</h2>
@@ -1368,7 +1449,13 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
           </div>
         </div>
       </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
 
+      <b:section id='secSubscribeSection' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='HTML13' locked='no' title='Subscribe Section' type='HTML' version='2'>
+          <b:includable id='main'>
       <div class='homepage-section' id='secSubscribe'>
         <span class='subscribe-floating'>🎵</span>
         <span class='subscribe-floating'>&#11088;</span>
@@ -1378,9 +1465,12 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
         <div class='subscribe-inner'>
           <h2>🎉 Join Our Learning Family!</h2>
           <p>New educational songs and videos every week &#8212; subscribe on YouTube and never miss a lesson!</p>
-          <a class='subscribe-btn' href='https://www.youtube.com/@Pogotunes?sub_confirmation=1' rel='noopener noreferrer' target='_blank'><i class='fab fa-youtube'/> Subscribe Free on YouTube</a>
+          <a class='subscribe-btn' href='https://www.youtube.com/@Pogotunes?sub_confirmation=1' rel='noopener noreferrer' target='_blank'><i class='fab fa-youtube'></i> Subscribe Free on YouTube</a>
         </div>
       </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
 
     </div>
     </b:if>
@@ -1440,9 +1530,9 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
                     <div class='error-suggestions'>
                       <p>Try these instead:</p>
                       <div class='error-links'>
-                        <a class='btn-primary' expr:href='data:blog.homepageUrl'><i class='fas fa-home'/> Go Home</a>
-                        <a class='btn-secondary' href='#' onclick='openSearch();return false'><i class='fas fa-search'/> Search</a>
-                        <a class='btn-secondary' href='#secVideos'><i class='fas fa-video'/> Watch Videos</a>
+                        <a class='btn-primary' expr:href='data:blog.homepageUrl'><i class='fas fa-home'></i> Go Home</a>
+                        <a class='btn-secondary' href='#' onclick='openSearch();return false'><i class='fas fa-search'></i> Search</a>
+                        <a class='btn-secondary' href='#secVideos'><i class='fas fa-video'></i> Watch Videos</a>
                       </div>
                     </div>
                   </div>
@@ -1476,7 +1566,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
           <div class='container'>
             <nav aria-label='Breadcrumb' class='breadcrumb-nav'>
               <ol>
-                <li><a expr:href='data:blog.homepageUrl'><i class='fas fa-home'/> Home</a></li>
+                <li><a expr:href='data:blog.homepageUrl'><i class='fas fa-home'></i> Home</a></li>
                 <b:if cond='data:blog.pageType == &quot;archive&quot;'>
                   <li aria-current='page'>Archive: <data:blog.pageName/></li>
                 <b:else/>
@@ -1511,10 +1601,10 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
                     <div class='post-content'>
                       <h2><a expr:href='data:post.url'><data:post.title/></a></h2>
                       <div class='post-meta'>
-                        <span><i class='far fa-calendar-alt'/> <time><data:post.date/></time></span>
-                        <span><i class='far fa-user'/> <data:post.author/></span>
+                        <span><i class='far fa-calendar-alt'></i> <time><data:post.date/></time></span>
+                        <span><i class='far fa-user'></i> <data:post.author/></span>
                         <b:if cond='data:post.numberOfComments'>
-                          <span><i class='far fa-comment'/> <data:post.numberOfComments/></span>
+                          <span><i class='far fa-comment'></i> <data:post.numberOfComments/></span>
                         </b:if>
                       </div>
                       <div class='post-snippet'><data:post.snippet/></div>
@@ -1525,26 +1615,26 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
                           </b:loop>
                         </div>
                       </b:if>
-                      <a class='read-more-link' expr:href='data:post.url'>Read More <i class='fas fa-arrow-right'/></a>
+                      <a class='read-more-link' expr:href='data:post.url'>Read More <i class='fas fa-arrow-right'></i></a>
                     </div>
                   </div>
                 </b:loop>
               </div>
               <div class='blog-pagination'>
                 <b:if cond='data:newerPageUrl'>
-                  <a expr:href='data:newerPageUrl'><i class='fas fa-arrow-left'/> Newer Posts</a>
+                  <a expr:href='data:newerPageUrl'><i class='fas fa-arrow-left'></i> Newer Posts</a>
                 </b:if>
                 <b:if cond='data:olderPageUrl'>
-                  <a expr:href='data:olderPageUrl'>Older Posts <i class='fas fa-arrow-right'/></a>
+                  <a expr:href='data:olderPageUrl'>Older Posts <i class='fas fa-arrow-right'></i></a>
                 </b:if>
-                <a expr:href='data:blog.homepageUrl'><i class='fas fa-home'/> Home</a>
+                <a expr:href='data:blog.homepageUrl'><i class='fas fa-home'></i> Home</a>
               </div>
             <b:else/>
               <div class='no-results'>
                 <span class='no-results-icon'>📭</span>
                 <h3>No posts here yet</h3>
                 <p>Check back soon, or explore our learning categories on the homepage!</p>
-                <a class='btn-primary' expr:href='data:blog.homepageUrl'><i class='fas fa-home'/> Go Home</a>
+                <a class='btn-primary' expr:href='data:blog.homepageUrl'><i class='fas fa-home'></i> Go Home</a>
               </div>
             </b:if>
           </div>
@@ -1601,7 +1691,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
   <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
     <b:if cond='data:showCmtPopup'>
       <div class='goog-toggle-button'>
-        <div class='goog-inline-block comment-action-icon'/>
+        <div class='goog-inline-block comment-action-icon'></div>
       </div>
     <b:else/>
       <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:messages.deleteComment'>
@@ -1612,7 +1702,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
 </b:includable>
         <b:includable id='commentForm' var='post'>
   <div class='comment-form'>
-    <a name='comment-form'/>
+    <a name='comment-form'></a>
     <h4 id='comment-post-message'><data:messages.postAComment/></h4>
     <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
       <p><data:this.messages.blogComment/></p>
@@ -1626,7 +1716,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
   </div>
 </b:includable>
         <b:includable id='commentFormIframeSrc' var='post'>
-  <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+  <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'></a>
 </b:includable>
         <b:includable id='commentItem' var='comment'>
   <div class='comment' expr:id='&quot;c&quot; + data:comment.id'>
@@ -1675,8 +1765,8 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
 </b:includable>
         <b:includable id='comments' var='post'>
           <div class='comments-section' id='comments'>
-            <a name='comments'/>
-            <h2 class='comments-title'><i class='fas fa-comments'/> <data:post.commentsLabel/></h2>
+            <a name='comments'></a>
+            <h2 class='comments-title'><i class='fas fa-comments'></i> <data:post.commentsLabel/></h2>
             <b:if cond='data:post.allowComments'>
               <div class='comments-list'>
                 <b:loop values='data:post.comments' var='comment'>
@@ -1702,9 +1792,9 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
                       <p class='comment-text'><data:comment.body/></p>
                       <div class='comment-actions'>
                         <b:if cond='data:comment.deleteUrl'>
-                          <a expr:href='data:comment.deleteUrl' rel='nofollow'><i class='fas fa-trash-alt'/> Delete</a>
+                          <a expr:href='data:comment.deleteUrl' rel='nofollow'><i class='fas fa-trash-alt'></i> Delete</a>
                         </b:if>
-                        <a href='javascript:void(0)' onclick='javascript:return replyComment(this)'><i class='fas fa-reply'/> Reply</a>
+                        <a href='javascript:void(0)' onclick='javascript:return replyComment(this)'><i class='fas fa-reply'></i> Reply</a>
                       </div>
                       <b:if cond='data:comment.replies'>
                         <div class='comment-replies'>
@@ -1728,7 +1818,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
                                 </div>
                                 <p class='comment-text'><data:reply.body/></p>
                                 <b:if cond='data:reply.deleteUrl'>
-                                  <a expr:href='data:reply.deleteUrl' rel='nofollow'><i class='fas fa-trash-alt'/> Delete</a>
+                                  <a expr:href='data:reply.deleteUrl' rel='nofollow'><i class='fas fa-trash-alt'></i> Delete</a>
                                 </b:if>
                               </div>
                             </div>
@@ -1741,7 +1831,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
               </div>
               <b:if cond='data:post.allowNewComments'>
                 <div class='comment-form'>
-                  <h3><i class='fas fa-pencil-alt'/> Leave a comment</h3>
+                  <h3><i class='fas fa-pencil-alt'></i> Leave a comment</h3>
                   <div class='comment-form-wrapper'>
                     <a class='btn-primary' expr:href='data:post.addCommentUrl' rel='nofollow'>Post a Comment</a>
                   </div>
@@ -1749,11 +1839,11 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
               </b:if>
               <div class='comment-moderated'>
                 <b:if cond='data:post.commentsModerated'>
-                  <p><i class='fas fa-shield-alt'/> Comments are moderated and may take time to appear.</p>
+                  <p><i class='fas fa-shield-alt'></i> Comments are moderated and may take time to appear.</p>
                 </b:if>
               </div>
             <b:else/>
-              <p class='comments-closed'><i class='fas fa-lock'/> Comments are closed for this post.</p>
+              <p class='comments-closed'><i class='fas fa-lock'></i> Comments are closed for this post.</p>
             </b:if>
             <b:include data='post' name='commentDeleteForm'/>
           </div>
@@ -1775,14 +1865,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
         <b:includable id='commentsTitle'>
   <h3 class='title'><data:messages.comments/></h3>
 </b:includable>
-        <b:includable id='defaultAdUnit'>
-  <ins class='adsbygoogle' data-ad-format='auto' expr:data-ad-client='data:adClientId ?: data:blog.adsenseClientId' expr:data-ad-host='data:blog.adsenseHostId' expr:style='data:style ?: &quot;display: block;&quot;'>
-  
-  </ins>
-  <script>
-   (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</b:includable>
+
         <b:includable id='emailPostIcon'>
   <span class='byline post-icons'>
     <!-- email post links -->
@@ -1857,26 +1940,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
         <b:includable id='iframeComments' var='post'>
   <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
 </b:includable>
-        <b:includable id='inlineAd' var='post'>
-  <b:if cond='!data:view.isPreview'>
-    <b:if cond='data:this.adCode or data:this.adClientId or data:blog.adsenseClientId'>
-      <!-- Ad -->
-      <div class='inline-ad'>
-        <b:if cond='data:this.adCode != &quot;&quot;'>
-          <data:this.adCode/>
-        <b:else/>
-          <b:include cond='data:this.adClientId or data:blog.adsenseClientId' name='defaultAdUnit'/>
-        </b:if>
-      </div>
-    </b:if>
-  <b:else/>
-    <div class='inline-ad'>
-      <div class='inline-ad-placeholder'>
-        <span><b:message name='messages.adsGoHere'/></span>
-      </div>
-    </div>
-  </b:if>
-</b:includable>
+
         <b:includable id='linkShare'>
   <b:with value='&quot;window.prompt(\&quot;Copy to clipboard: Ctrl+C, Enter\&quot;, \&quot;&quot; + data:originalUrl + &quot;\&quot;); return false;&quot;' var='onclick'>
     <b:include name='platformShare'/>
@@ -1896,10 +1960,11 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
   </span>
 </b:includable>
         <b:includable id='pageItem' var='post'>
+          <article itemscope='itemscope' itemtype='https://schema.org/Article'>
           <nav aria-label='Breadcrumb' class='breadcrumb-nav'>
             <ol itemscope='itemscope' itemtype='https://schema.org/BreadcrumbList'>
               <li itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
-                <a expr:href='data:blog.homepageUrl' itemprop='item'><span itemprop='name'><i class='fas fa-home'/> Home</span></a>
+                <a expr:href='data:blog.homepageUrl' itemprop='item'><span itemprop='name'><i class='fas fa-home'></i> Home</span></a>
                 <meta content='1' itemprop='position'/>
               </li>
               <li aria-current='page' itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
@@ -1912,12 +1977,15 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
             <img class='post-featured-img' expr:alt='data:post.title' expr:src='resizeImage(data:post.featuredImage, 800, &quot;16:9&quot;)' loading='eager'/>
           </b:if>
           <h1 class='post-title' itemprop='headline'><data:post.title/></h1>
+          <meta expr:content='data:post.date.iso' itemprop='datePublished'/>
+          <meta expr:content='data:post.lastUpdated.iso' itemprop='dateModified'/>
           <div class='post-meta'>
-            <span><i class='far fa-calendar-alt'/> <time><data:post.date/></time></span>
-            <span><i class='far fa-user'/> <data:post.author/></span>
+            <span><i class='far fa-calendar-alt'></i> <time><data:post.date/></time></span>
+            <span><i class='far fa-user'></i> <data:post.author/></span>
           </div>
           <div class='post-body' expr:id='&quot;post-body-&quot; + data:post.id' itemprop='articleBody'><data:post.body/></div>
           <b:include data='post' name='comments'/>
+          </article>
         </b:includable>
         <b:includable id='platformShare'>
   <a expr:class='&quot;goog-inline-block sharing-&quot; + data:platform.key' expr:data-url='data:originalUrl' expr:href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:onclick='data:onclick ? data:onclick : &quot;&quot;' expr:title='data:platform.shareMessage' target='_blank'>
@@ -1975,13 +2043,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
 
     <!-- Comments -->
     <b:include cond='data:view.isSingleItem' data='post' name='commentPicker'/>
-
-    <!-- Show ad inside post container, after comments, if single item. -->
-    <b:include cond='data:view.isSingleItem and data:post.includeAd' data='post' name='inlineAd'/>
   </article>
-
-  <!-- Show ad outside post container (between posts) for feed pages. -->
-  <b:include cond='data:view.isMultipleItems and data:post.includeAd' data='post' name='inlineAd'/>
 </b:includable>
         <b:includable id='postCommentsLink'>
   <b:if cond='data:view.isMultipleItems'>
@@ -2014,10 +2076,11 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
   <b:include name='headerByline'/>
 </b:includable>
         <b:includable id='postItem' var='post'>
+          <article itemscope='itemscope' itemtype='https://schema.org/Article'>
           <nav aria-label='Breadcrumb' class='breadcrumb-nav'>
             <ol itemscope='itemscope' itemtype='https://schema.org/BreadcrumbList'>
               <li itemprop='itemListElement' itemscope='itemscope' itemtype='https://schema.org/ListItem'>
-                <a expr:href='data:blog.homepageUrl' itemprop='item'><span itemprop='name'><i class='fas fa-home'/> Home</span></a>
+                <a expr:href='data:blog.homepageUrl' itemprop='item'><span itemprop='name'><i class='fas fa-home'></i> Home</span></a>
                 <meta content='1' itemprop='position'/>
               </li>
               <b:if cond='data:post.labels and data:post.labels.first'>
@@ -2036,35 +2099,37 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
             <img class='post-featured-img' expr:alt='data:post.title' expr:src='resizeImage(data:post.featuredImage, 800, &quot;16:9&quot;)' loading='eager'/>
           </b:if>
           <h1 class='post-title' itemprop='headline'><data:post.title/></h1>
+          <meta expr:content='data:post.date.iso' itemprop='datePublished'/>
+          <meta expr:content='data:post.lastUpdated.iso' itemprop='dateModified'/>
           <div class='post-meta'>
-            <span><i class='far fa-calendar-alt'/> <time><data:post.date/></time></span>
-            <span><i class='far fa-user'/> <data:post.author/></span>
+            <span><i class='far fa-calendar-alt'></i> <time><data:post.date/></time></span>
+            <span><i class='far fa-user'></i> <data:post.author/></span>
             <b:if cond='data:post.numberOfComments'>
-              <span><a href='#secComments'><i class='far fa-comment'/> <data:post.numberOfComments/> Comments</a></span>
+              <span><a href='#comments'><i class='far fa-comment'></i> <data:post.numberOfComments/> Comments</a></span>
             </b:if>
           </div>
           <b:if cond='data:post.labels'>
             <div class='post-labels'>
               <b:loop values='data:post.labels' var='label'>
-                <a expr:href='data:label.url' rel='tag'><i class='fas fa-tag'/> <data:label.name/></a>
+                <a expr:href='data:label.url' rel='tag'><i class='fas fa-tag'></i> <data:label.name/></a>
               </b:loop>
             </div>
           </b:if>
           <div class='post-body' expr:id='&quot;post-body-&quot; + data:post.id' itemprop='articleBody'><data:post.body/></div>
           <div class='post-share'>
-            <span class='share-label'><i class='fas fa-share-alt'/> Share:</span>
-            <a aria-label='Share on Facebook' class='share-fb' expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url' rel='noopener noreferrer' target='_blank'><i class='fab fa-facebook-f'/></a>
-            <a aria-label='Share on X' class='share-tw' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' rel='noopener noreferrer' target='_blank'><i class='fab fa-x-twitter'/></a>
-            <a aria-label='Share on WhatsApp' class='share-wa' expr:href='&quot;https://api.whatsapp.com/send?text=&quot; + data:post.title + &quot; &quot; + data:post.url' rel='noopener noreferrer' target='_blank'><i class='fab fa-whatsapp'/></a>
-            <a aria-label='Pin on Pinterest' class='share-pin' expr:href='&quot;https://pinterest.com/pin/create/button/?url=&quot; + data:post.url + &quot;&amp;description=&quot; + data:post.title + (data:post.featuredImage ? &quot;&amp;media=&quot; + data:post.featuredImage : &quot;&quot;)' rel='noopener noreferrer' target='_blank'><i class='fab fa-pinterest-p'/></a>
-            <a aria-label='Copy link' class='share-link' href='#' onclick='return copyPageLink()'><i class='fas fa-link'/></a>
+            <span class='share-label'><i class='fas fa-share-alt'></i> Share:</span>
+            <a aria-label='Share on Facebook' class='share-fb' expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url' rel='noopener noreferrer' target='_blank'><i class='fab fa-facebook-f'></i></a>
+            <a aria-label='Share on X' class='share-tw' expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' rel='noopener noreferrer' target='_blank'><i class='fab fa-x-twitter'></i></a>
+            <a aria-label='Share on WhatsApp' class='share-wa' expr:href='&quot;https://api.whatsapp.com/send?text=&quot; + data:post.title + &quot; &quot; + data:post.url' rel='noopener noreferrer' target='_blank'><i class='fab fa-whatsapp'></i></a>
+            <a aria-label='Pin on Pinterest' class='share-pin' expr:href='&quot;https://pinterest.com/pin/create/button/?url=&quot; + data:post.url + &quot;&amp;description=&quot; + data:post.title + (data:post.featuredImage ? &quot;&amp;media=&quot; + data:post.featuredImage : &quot;&quot;)' rel='noopener noreferrer' target='_blank'><i class='fab fa-pinterest-p'></i></a>
+            <a aria-label='Copy link' class='share-link' href='#' onclick='return copyPageLink()'><i class='fas fa-link'></i></a>
           </div>
           <b:if cond='data:post.labels and data:post.labels.first'>
             <div class='related-posts'>
               <h3>🎈 You Might Also Like</h3>
               <div class='related-posts-grid cms-dynamic-widget' data-max='3' expr:data-exclude='data:post.url' expr:data-label='data:post.labels.first.name'>
                 <div style='text-align:center;padding:20px;color:var(--gray);grid-column:1/-1'>
-                  <i class='fas fa-spinner fa-spin'/> Loading related posts...
+                  <i class='fas fa-spinner fa-spin'></i> Loading related posts...
                 </div>
               </div>
             </div>
@@ -2072,18 +2137,19 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
           <div class='post-nav'>
             <b:if cond='data:newerPageUrl'>
               <a class='prev' expr:href='data:newerPageUrl'>
-                <span class='nav-label'><i class='fas fa-arrow-left'/> Previous</span>
+                <span class='nav-label'><i class='fas fa-arrow-left'></i> Previous</span>
                 <data:newerPageTitle/>
               </a>
             </b:if>
             <b:if cond='data:olderPageUrl'>
               <a class='next' expr:href='data:olderPageUrl'>
-                <span class='nav-label'>Next <i class='fas fa-arrow-right'/></span>
+                <span class='nav-label'>Next <i class='fas fa-arrow-right'></i></span>
                 <data:olderPageTitle/>
               </a>
             </b:if>
           </div>
           <b:include data='post' name='comments'/>
+          </article>
         </b:includable>
         <b:includable id='postJumpLink' var='post'>
   <div class='jump-link flat-button'>
@@ -2169,7 +2235,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
   </span>
 </b:includable>
         <b:includable id='postTitle' var='post'>
-  <a expr:name='data:post.id'/>
+  <a expr:name='data:post.id'></a>
   <b:if cond='data:post.title != &quot;&quot;'>
     <h3 class='post-title entry-title'>
       <b:if cond='data:post.link or (data:post.url and data:view.url != data:post.url)'>
@@ -2189,7 +2255,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
           <div class='container'>
             <nav aria-label='Breadcrumb' class='breadcrumb-nav'>
               <ol>
-                <li><a expr:href='data:blog.homepageUrl'><i class='fas fa-home'/> Home</a></li>
+                <li><a expr:href='data:blog.homepageUrl'><i class='fas fa-home'></i> Home</a></li>
                 <li aria-current='page'>Search</li>
               </ol>
             </nav>
@@ -2208,24 +2274,24 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
                     </b:if>
                     <div class='post-content'>
                       <h2><a expr:href='data:post.url'><data:post.title/></a></h2>
-                      <div class='post-meta'><span><i class='far fa-calendar-alt'/> <data:post.date/></span></div>
+                      <div class='post-meta'><span><i class='far fa-calendar-alt'></i> <data:post.date/></span></div>
                       <div class='post-snippet'><data:post.snippet/></div>
-                      <a class='read-more-link' expr:href='data:post.url'>Read More <i class='fas fa-arrow-right'/></a>
+                      <a class='read-more-link' expr:href='data:post.url'>Read More <i class='fas fa-arrow-right'></i></a>
                     </div>
                   </div>
                 </b:loop>
               </div>
               <div class='blog-pagination'>
-                <b:if cond='data:newerPageUrl'><a expr:href='data:newerPageUrl'><i class='fas fa-arrow-left'/> Newer</a></b:if>
-                <b:if cond='data:olderPageUrl'><a expr:href='data:olderPageUrl'>Older <i class='fas fa-arrow-right'/></a></b:if>
-                <a expr:href='data:blog.homepageUrl'><i class='fas fa-home'/> Home</a>
+                <b:if cond='data:newerPageUrl'><a expr:href='data:newerPageUrl'><i class='fas fa-arrow-left'></i> Newer</a></b:if>
+                <b:if cond='data:olderPageUrl'><a expr:href='data:olderPageUrl'>Older <i class='fas fa-arrow-right'></i></a></b:if>
+                <a expr:href='data:blog.homepageUrl'><i class='fas fa-home'></i> Home</a>
               </div>
             <b:else/>
               <div class='no-results'>
                 <span class='no-results-icon'>🔍</span>
                 <h3>No results found for &quot;<data:blog.searchQuery/>&quot;</h3>
                 <p>Try different keywords or browse our learning categories.</p>
-                <a class='btn-primary' expr:href='data:blog.homepageUrl'><i class='fas fa-home'/> Go Home</a>
+                <a class='btn-primary' expr:href='data:blog.homepageUrl'><i class='fas fa-home'></i> Go Home</a>
               </div>
             </b:if>
           </div>
@@ -2268,7 +2334,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
 </b:includable>
         <b:includable id='threadedCommentForm' var='post'>
   <div class='comment-form'>
-    <a name='comment-form'/>
+    <a name='comment-form'></a>
     <h4 id='comment-post-message'><data:messages.postAComment/></h4>
     <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
       <p><data:this.messages.blogComment/></p>
@@ -2293,7 +2359,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
 </b:includable>
         <b:includable id='threadedComments' var='post'>
   <section class='comments threaded' expr:data-embed='data:post.embedCommentForm' expr:data-num-comments='data:post.numberOfComments' id='comments'>
-    <a name='comments'/>
+    <a name='comments'></a>
 
     <b:include name='commentsTitle'/>
 
@@ -2369,129 +2435,122 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
     </main>
 
     <div id='secFooter'>
+      <div class='footer-wave'>
+        <svg preserveAspectRatio='none' viewBox='0 0 1200 60' xmlns='http://www.w3.org/2000/svg'>
+          <path d='M0,30 C200,0 400,60 600,30 C800,0 1000,60 1200,30 L1200,60 L0,60 Z' fill='rgba(255,255,255,0.03)'/>
+          <path d='M0,40 C200,15 400,55 600,40 C800,15 1000,55 1200,40 L1200,60 L0,60 Z' fill='rgba(255,255,255,0.02)'/>
+        </svg>
+      </div>
       <div class='footer-inner'>
         <div class='footer-top'>
-          <div class='footer-brand'>
+          <div class='footer-brand-col'>
             <a class='footer-logo' expr:href='data:blog.homepageUrl'>
               <span class='logo-icon'>🐻</span>
               <span class='logo-text'>Pogo Tunes</span>
             </a>
-            <p class='footer-desc'>Making learning magical for toddlers and preschoolers with educational songs, games &amp; videos &#8212; ABCs, Hindi, Numbers, Animals, Colors and 17+ topics. Always free, always safe.</p>
-            <div class='footer-subscribe'>
-              <input placeholder='Your email for learning tips...' type='email'/>
-              <button onclick='window.open(&quot;https://www.youtube.com/@Pogotunes?sub_confirmation=1&quot;,&quot;_blank&quot;)' type='button'>Subscribe</button>
+            <div class='footer-tagline'><i class='fas fa-music'></i> Making Learning Magical Since 2024!</div>
+            <p class='footer-desc'>Fun educational songs, games &amp; videos for toddlers and preschoolers — ABCs, Hindi, Numbers, Animals, Colors and 17+ topics. 100% free, safe &amp; ad-free!</p>
+            <div class='footer-brand-social'>
+              <a aria-label='YouTube' href='https://www.youtube.com/@Pogotunes?sub_confirmation=1' rel='noopener noreferrer' target='_blank'><i class='fab fa-youtube'></i></a>
+              <a aria-label='Instagram' href='https://www.instagram.com/pogo.tunes/' rel='noopener noreferrer' target='_blank'><i class='fab fa-instagram'></i></a>
+              <a aria-label='Facebook' href='https://www.facebook.com/profile.php?id=61590129552207' rel='noopener noreferrer' target='_blank'><i class='fab fa-facebook-f'></i></a>
+              <a aria-label='Pinterest' href='https://in.pinterest.com/pogotunes/' rel='noopener noreferrer' target='_blank'><i class='fab fa-pinterest-p'></i></a>
+              <a aria-label='X (Twitter)' href='https://x.com/pogotunes' rel='noopener noreferrer' target='_blank'><i class='fab fa-x-twitter'></i></a>
             </div>
-            <div class='footer-social'>
-              <a aria-label='YouTube' href='https://www.youtube.com/@Pogotunes?sub_confirmation=1' rel='noopener noreferrer' target='_blank'><i class='fab fa-youtube'/></a>
-              <a aria-label='Instagram' href='https://www.instagram.com/pogo.tunes/' rel='noopener noreferrer' target='_blank'><i class='fab fa-instagram'/></a>
-              <a aria-label='Facebook' href='https://www.facebook.com/profile.php?id=61590129552207' rel='noopener noreferrer' target='_blank'><i class='fab fa-facebook-f'/></a>
-              <a aria-label='Pinterest' href='https://in.pinterest.com/pogotunes/' rel='noopener noreferrer' target='_blank'><i class='fab fa-pinterest-p'/></a>
-              <a aria-label='X (Twitter)' href='https://x.com/pogotunes' rel='noopener noreferrer' target='_blank'><i class='fab fa-x-twitter'/></a>
+            <div class='footer-backlinks'><i class='fas fa-globe'></i> Mirrors: <a href='https://pogotunes.vercel.app/' rel='noopener' target='_blank'>Vercel</a> · <a href='https://pogotunes.netlify.app/' rel='noopener' target='_blank'>Netlify</a></div>
+          </div>
+          <div class='footer-explore-col'>
+            <h3>🗺️ Explore</h3>
+            <div class='footer-explore-grid'>
+              <a expr:href='data:blog.homepageUrl'><i class='fas fa-home'></i> Home</a>
+              <a expr:href='data:blog.homepageUrl + &quot;#secVideos&quot;'><i class='fas fa-play'></i> Videos</a>
+              <a expr:href='data:blog.homepageUrl + &quot;#secGameCenter&quot;'><i class='fas fa-gamepad'></i> Game Center</a>
+              <a expr:href='data:blog.homepageUrl + &quot;#secShorts&quot;'><i class='fas fa-phone'></i> Shorts</a>
+              <a expr:href='data:blog.homepageUrl + &quot;#secLibrary&quot;'><i class='fas fa-book'></i> Library</a>
+              <a expr:href='data:blog.homepageUrl + &quot;p/about-us.html&quot;'><i class='fas fa-info-circle'></i> About</a>
+              <a expr:href='data:blog.homepageUrl + &quot;p/contact.html&quot;'><i class='fas fa-envelope'></i> Contact</a>
+              <a expr:href='data:blog.homepageUrl + &quot;p/privacy-policy.html&quot;'><i class='fas fa-lock'></i> Privacy</a>
+              <a expr:href='data:blog.homepageUrl + &quot;p/alphabets.html&quot;'><i class='fas fa-font'></i> Alphabet</a>
+              <a expr:href='data:blog.homepageUrl + &quot;p/hindi-varnmala.html&quot;'><i class='fas fa-language'></i> Hindi</a>
+              <a expr:href='data:blog.homepageUrl + &quot;p/learn-english-phonics.html&quot;'><i class='fas fa-microphone'></i> Phonics</a>
+              <a expr:href='data:blog.homepageUrl + &quot;p/counting.html&quot;'><i class='fas fa-calculator'></i> Counting</a>
+              <a expr:href='data:blog.homepageUrl + &quot;p/colors.html&quot;'><i class='fas fa-palette'></i> Colors</a>
+              <a expr:href='data:blog.homepageUrl + &quot;p/shapes.html&quot;'><i class='fas fa-shapes'></i> Shapes</a>
+              <a expr:href='data:blog.homepageUrl + &quot;p/animals.html&quot;'><i class='fas fa-paw'></i> Animals</a>
+              <a expr:href='data:blog.homepageUrl + &quot;p/fruits.html&quot;'><i class='fas fa-apple-alt'></i> Fruits</a>
+              <a expr:href='data:blog.homepageUrl + &quot;p/vegetables.html&quot;'><i class='fas fa-carrot'></i> Veggies</a>
+              <a expr:href='data:blog.homepageUrl + &quot;p/body-parts.html&quot;'><i class='fas fa-hand-paper'></i> Body</a>
             </div>
           </div>
-          <div class='footer-links-col'>
-            <h2>Quick Links</h2>
-            <a expr:href='data:blog.homepageUrl'>Home</a>
-            <a expr:href='data:blog.homepageUrl + &quot;#secVideos&quot;'>Videos</a>
-            <a expr:href='data:blog.homepageUrl + &quot;#secShorts&quot;'>Shorts</a>
-            <a expr:href='data:blog.homepageUrl + &quot;#secGameCenter&quot;'>Game Center</a>
-            <a expr:href='data:blog.homepageUrl + &quot;#secLibrary&quot;'>Learning Library</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/about-us.html&quot;'>About Us</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/contact.html&quot;'>Contact</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/privacy-policy.html&quot;'>Privacy Policy</a>
-          </div>
-          <div class='footer-links-col'>
-            <b:section id='secFooterLabels'>
-              <b:widget id='Label1' locked='false' title='Topics' type='Label' version='2' visible='true'>
-                <b:widget-settings>
-                  <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
-                  <b:widget-setting name='display'>LIST</b:widget-setting>
-                  <b:widget-setting name='selectedLabelsList'/>
-                  <b:widget-setting name='showType'>ALL</b:widget-setting>
-                  <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
-                </b:widget-settings>
+          <div class='footer-contact-col'>
+            <h3>📬 Get in Touch</h3>
+            <p class='contact-desc'>Have a question or suggestion? Drop us a message and we'll get back to you!</p>
+            <b:section id='secFooterContact'>
+              <b:widget id='ContactForm1' locked='false' title='' type='ContactForm' version='2' visible='true'>
                 <b:includable id='main' var='this'>
-  <b:include name='widget-title'/>
-  <b:include name='content'/>
-</b:includable>
-                <b:includable id='cloud'>
-  <b:loop values='data:labels' var='label'>
-    <span class='label-size'>
-      <a class='label-name' expr:href='data:label.url'><data:label.name/></a>
-    </span>
-  </b:loop>
-</b:includable>
-                <b:includable id='content'>
-  <div class='widget-content'>
-    <b:include name='list'/>
+  <div class='contact-form-widget'>
+    <form name='contact-form'>
+      <input class='contact-form-name' expr:id='data:widget.id + &quot;_contact-form-name&quot;' name='name' placeholder='Your Name *' type='text'/>
+      <input class='contact-form-email' expr:id='data:widget.id + &quot;_contact-form-email&quot;' name='email' placeholder='Your Email *' type='text'/>
+      <textarea class='contact-form-email-message' expr:id='data:widget.id + &quot;_contact-form-email-message&quot;' name='email-message' placeholder='Your Message *' rows='4'></textarea>
+      <input class='contact-form-button contact-form-button-submit' expr:id='data:widget.id + &quot;_contact-form-submit&quot;' type='button' value='Send Message ✉️'/>
+      <div expr:id='data:widget.id + &quot;_contact-form-error-message&quot;' class='contact-form-error-message'></div>
+      <div expr:id='data:widget.id + &quot;_contact-form-success-message&quot;' class='contact-form-success-message'></div>
+    </form>
   </div>
-</b:includable>
-                <b:includable id='list'>
-  <ul>
-    <b:loop values='data:labels' var='label'>
-      <li><a class='label-name' expr:href='data:label.url'><data:label.name/></a></li>
-    </b:loop>
-  </ul>
 </b:includable>
               </b:widget>
             </b:section>
-          </div>
-          <div class='footer-links-col'>
-            <h2>Learning Topics</h2>
-            <a expr:href='data:blog.homepageUrl + &quot;p/alphabets.html&quot;'>English Alphabet</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/hindi-varnmala.html&quot;'>Hindi Varnmala</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/learn-english-phonics.html&quot;'>English Phonics</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/counting.html&quot;'>Counting 1&#8211;100</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/colors.html&quot;'>Colors</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/shapes.html&quot;'>Shapes</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/animals.html&quot;'>Animals</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/birds.html&quot;'>Birds</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/fruits.html&quot;'>Fruits</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/vegetables.html&quot;'>Vegetables</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/vehicles.html&quot;'>Vehicles</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/body-parts.html&quot;'>Body Parts</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/learn-good-habits.html&quot;'>Good Habits</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/learn-community-helpers.html&quot;'>Community Helpers</a>
+            <div class='mailto-fallback'>Form not working? <a href='mailto:pogotunescontact@gmail.com'>Email us directly</a></div>
           </div>
         </div>
-        <div class='footer-bottom'>
-          <span>&#169; <data:blog.title/>. Made with <span class='footer-heart'>&#10084;</span> for little learners everywhere.</span>
-          <span class='footer-links-bottom'>
-            <a expr:href='data:blog.homepageUrl'>Home</a>
-            <a href='#secVideos'>Videos</a>
-            <a href='#secGameCenter'>Games</a>
-            <a expr:href='data:blog.homepageUrl + &quot;p/privacy-policy.html&quot;'>Privacy</a>
-          </span>
-        </div>
+      </div>
+      <div class='footer-bottom'>
+        <span>&#169; <data:blog.title/>. Made with <span class='footer-heart'>&#10084;</span> for little learners everywhere.</span>
+        <span class='footer-links-bottom'>
+          <a expr:href='data:blog.homepageUrl'>Home</a>
+          <a href='#secVideos'>Videos</a>
+          <a href='#secGameCenter'>Games</a>
+          <a expr:href='data:blog.homepageUrl + &quot;p/privacy-policy.html&quot;'>Privacy</a>
+        </span>
       </div>
     </div>
 
     <div class='bottom-nav' id='secBottomNav'>
-      <a class='bottom-nav-item' expr:href='data:blog.homepageUrl'><i class='fas fa-home'/><span>Home</span></a>
-      <a class='bottom-nav-item' expr:href='data:blog.homepageUrl + &quot;#secGameCenter&quot;'><i class='fas fa-gamepad'/><span>Games</span></a>
-      <a class='bottom-nav-item' expr:href='data:blog.homepageUrl + &quot;#secVideos&quot;'><i class='fas fa-play'/><span>Videos</span></a>
-      <a class='bottom-nav-item' expr:href='data:blog.homepageUrl + &quot;#secABC&quot;'><i class='fas fa-font'/><span>ABC</span></a>
-      <a class='bottom-nav-item' expr:href='data:blog.homepageUrl + &quot;#secColors&quot;'><i class='fas fa-palette'/><span>Colors</span></a>
+      <a class='bottom-nav-item' expr:href='data:blog.homepageUrl'><i class='fas fa-home'></i><span>Home</span></a>
+      <a class='bottom-nav-item' expr:href='data:blog.homepageUrl + &quot;#secGameCenter&quot;'><i class='fas fa-gamepad'></i><span>Games</span></a>
+      <a class='bottom-nav-item' expr:href='data:blog.homepageUrl + &quot;#secVideos&quot;'><i class='fas fa-play'></i><span>Videos</span></a>
+      <a class='bottom-nav-item' expr:href='data:blog.homepageUrl + &quot;#secABC&quot;'><i class='fas fa-font'></i><span>ABC</span></a>
+      <a class='bottom-nav-item' expr:href='data:blog.homepageUrl + &quot;#secColors&quot;'><i class='fas fa-palette'></i><span>Colors</span></a>
     </div>
 
     <button aria-label='Scroll to top' class='scroll-top' id='scrollTopBtn' onclick='window.scrollTo({top:0,behavior:&quot;smooth&quot;})' title='Back to top'>
-      <i class='fas fa-chevron-up'/>
+      <i class='fas fa-chevron-up'></i>
     </button>
 
-
+    <div id='learnPopupOverlay'>
+      <div class='learn-popup-card'>
+        <button aria-label='Close' class='popup-close' onclick='closeLearnPopup()'><i class='fas fa-times'></i></button>
+        <span class='learn-popup-emoji' id='learnPopupEmoji'>🍎</span>
+        <div class='learn-popup-main' id='learnPopupMain'>A</div>
+        <div class='learn-popup-label' id='learnPopupLabel'>Apple</div>
+        <div class='learn-popup-phrase' id='learnPopupPhrase'>A for Apple</div>
+        <button class='btn-primary' onclick='replayLearnPopup()' type='button'><i class='fas fa-volume-up'></i> Listen Again</button>
+      </div>
+    </div>
 
     <div class='modal-overlay shorts-overlay' id='shortsModal'>
       <div class='shorts-container'>
-        <button aria-label='Close shorts' class='modal-close' onclick='closeShorts()'><i class='fas fa-times'/></button>
+        <button aria-label='Close shorts' class='modal-close' onclick='closeShorts()'><i class='fas fa-times'></i></button>
         <div class='shorts-player' id='shortsPlayer'>
           <div class='shorts-placeholder'>
-            <i class='fas fa-film'/>
+            <i class='fas fa-film'></i>
             <p>Loading shorts...</p>
           </div>
         </div>
         <div class='shorts-navigation'>
-          <button class='shorts-nav-btn' onclick='prevShort()'><i class='fas fa-chevron-up'/></button>
-          <button class='shorts-nav-btn' onclick='nextShort()'><i class='fas fa-chevron-down'/></button>
+          <button class='shorts-nav-btn' onclick='prevShort()'><i class='fas fa-chevron-up'></i></button>
+          <button class='shorts-nav-btn' onclick='nextShort()'><i class='fas fa-chevron-down'></i></button>
         </div>
         <div class='shorts-progress'>
           <span id='shortsCounter'>1/1</span>
@@ -2593,12 +2652,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
       showBadgeToast(def);
     }
 
-    function updateUI(g) {
-      var starsEl = document.getElementById('headerStarsVal');
-      if (starsEl) starsEl.textContent = g.stars;
-      var streakEl = document.getElementById('headerStreakVal');
-      if (streakEl) streakEl.textContent = g.streak;
-    }
+    function updateUI(g) {} // gamification persists in localStorage
 
     function showLevelUpToast(level) {
       const popup = document.getElementById('kidsPopUp');
@@ -2688,7 +2742,7 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
         });
       });
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeSearch();
+        if (e.key === 'Escape') { closeSearch(); closeLearnPopup(); }
       });
       // Category card smooth-scroll navigation
       document.querySelectorAll('.category-card').forEach(function(card) {
@@ -2704,39 +2758,66 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
           }
         });
       });
-      // Global delegation: interactive elements with data-text or data-sound
+      // Global delegation: interactive elements with popup + sound
       document.addEventListener('click', function(e) {
         var target = e.target.closest('[data-text],[data-sound],[data-word],.abc-letter,.hindi-char,.count-num,.color-swatch,.animal-card,.bird-item,.fruit-item,.veg-item,.shape-item,.vehicle-item,.body-part-item,.phonics-item,.opposite-item,.day-item,.month-item,.habit-item,.helper-item');
         if (!target) return;
         if (target.closest('.category-card,.game-tab-btn,.quiz-choice,.dd-item,.dd-target,.memory-card,.short-card,.header-search-btn,.header-sound-btn,.header-bedtime-btn,.header-menu-btn,.search-overlay-close,.modal-close,.shorts-nav-btn,.subscribe-btn,.tag-chips span')) return;
-        var dataText = target.getAttribute('data-text');
-        var dataWord = target.getAttribute('data-word');
-        var dataSound = target.getAttribute('data-sound');
-        var dataAnimal = target.getAttribute('data-animal');
-        var hasClass = target.classList.contains('abc-letter') || target.classList.contains('hindi-char') || target.classList.contains('count-num') || target.classList.contains('color-swatch') || target.classList.contains('animal-card') || target.classList.contains('bird-item') || target.classList.contains('fruit-item') || target.classList.contains('veg-item') || target.classList.contains('shape-item') || target.classList.contains('vehicle-item') || target.classList.contains('body-part-item') || target.classList.contains('phonics-item') || target.classList.contains('opposite-item') || target.classList.contains('day-item') || target.classList.contains('month-item') || target.classList.contains('habit-item') || target.classList.contains('helper-item');
-        if (!hasClass && !dataText && !dataWord && !dataSound) return;
-        var visualFeedback = target;
-        var starCount = 1;
-        if (dataSound === 'animal' && dataAnimal) {
-          starCount = 2;
-          playAnimalSound(dataAnimal);
-          if (dataText) speakWord(dataText);
-        } else if (dataSound === 'chime') {
-          playSynthChime();
-        } else if (dataWord && dataText) {
-          speakWord(dataText + '. ' + dataWord);
-        } else if (dataText) {
-          speakWord(dataText);
-        } else {
-          var textContent = target.textContent.trim();
-          var textMatch = textContent.match(/[A-Za-z0-9\u0900-\u097F]+/);
-          var cleanText = textMatch ? textMatch[0] : textContent.slice(0,30);
-          if (cleanText.length > 0) speakWord(cleanText);
-          else return;
+        // ABC letter → popup
+        if (target.classList.contains('abc-letter')) {
+          var letter = target.textContent.trim();
+          var word = target.getAttribute('data-word') || '';
+          if (letter && LETTER_DATA[letter]) showLearnPopup('abc', { letter: letter, word: LETTER_DATA[letter].word, emoji: LETTER_DATA[letter].emoji });
+          else if (letter) speakWord(letter);
+          target.style.transform = 'scale(1.2)';
+          setTimeout(function() { target.style.transform = ''; }, 300);
+          return;
         }
-        addStars(starCount);
-        visualFeedback.style.transform = 'scale(1.25)';
-        setTimeout(function() { visualFeedback.style.transform = ''; }, 300);
+        // Hindi character → popup
+        if (target.classList.contains('hindi-char')) {
+          var ch = target.textContent.trim();
+          var hd = HINDI_DATA[ch];
+          if (hd) showLearnPopup('hindi', { char: ch, pron: hd.pron, word: hd.word, emoji: hd.emoji });
+          else speakWord(ch);
+          target.style.transform = 'scale(1.2)';
+          setTimeout(function() { target.style.transform = ''; }, 300);
+          return;
+        }
+        // Number → popup
+        if (target.classList.contains('count-num')) {
+          var num = target.textContent.trim();
+          var numVal = parseInt(num, 10);
+          var words = isNaN(numVal) ? num : numberToWords(numVal);
+          showLearnPopup('number', { num: num, word: words });
+          target.style.transform = 'scale(1.3)';
+          setTimeout(function() { target.style.transform = ''; }, 300);
+          return;
+        }
+        // Animal card → popup
+        if (target.classList.contains('animal-card')) {
+          var name = (target.querySelector('.animal-name') || {}).textContent || '';
+          var sound = (target.querySelector('.animal-sound') || {}).textContent || '';
+          var emoji = (target.querySelector('.animal-emoji') || {}).textContent || '🐾';
+          if (name) showLearnPopup('animal', { name: name, sound: sound.replace(/"/g,''), emoji: emoji });
+          target.style.transform = 'scale(1.08)';
+          setTimeout(function() { target.style.transform = ''; }, 300);
+          return;
+        }
+        // Color swatch → popup
+        if (target.classList.contains('color-swatch')) {
+          var cName = target.textContent.trim();
+          var cBg = target.style.background || '#fff';
+          var cFg = target.style.color || '#333';
+          if (cName) showLearnPopup('color', { name: cName, bg: cBg, fg: cFg });
+          target.style.transform = 'scale(1.2)';
+          setTimeout(function() { target.style.transform = ''; }, 300);
+          return;
+        }
+        // Generic fallback elements
+        var dataText = target.getAttribute('data-text');
+        var dataSound = target.getAttribute('data-sound');
+        if (dataSound === 'chime') { playSynthChime(); return; }
+        if (dataText) speakWord(dataText);
       });
     });
 
@@ -2770,7 +2851,13 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
       }
       currentShortIndex = index;
       var video = shortsList[index];
-      player.innerHTML = '<div class="shorts-video-wrapper"><iframe src="https://www.youtube.com/embed/' + video.id + '?autoplay=1&mute=0&loop=1&playlist=' + video.id + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><div class="shorts-caption"><h4>' + video.title + '</h4></div></div>';
+      var html = '';
+      if (video.type === 'instagram') {
+        html = '<div class="shorts-video-wrapper"><iframe src="https://www.instagram.com/reel/' + video.id + '/embed" frameborder="0" allowfullscreen style="width:100%;height:100%"></iframe><div class="shorts-caption"><h4>' + video.title + '</h4></div></div>';
+      } else {
+        html = '<div class="shorts-video-wrapper"><iframe src="https://www.youtube.com/embed/' + video.id + '?autoplay=1&mute=0&loop=1&playlist=' + video.id + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><div class="shorts-caption"><h4>' + video.title + '</h4></div></div>';
+      }
+      player.innerHTML = html;
       var counter = document.getElementById('shortsCounter');
       if (counter) counter.textContent = (index + 1) + '/' + shortsList.length;
     }
@@ -2825,22 +2912,22 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
     // ---------- Sound Toggle ----------
     var soundEnabled = true;
     try { soundEnabled = localStorage.getItem('pogotunes_sound') !== '0'; } catch(e) {}
+
+    function setSoundIcon() {
+      var icon = document.querySelector('.header-sound-btn i');
+      if (icon) icon.className = soundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
+    }
+
     function toggleSound() {
       soundEnabled = !soundEnabled;
       try { localStorage.setItem('pogotunes_sound', soundEnabled ? '1' : '0'); } catch(e) {}
-      var icon = document.querySelector('.header-sound-btn i');
-      if (icon) icon.className = soundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
-      if (soundEnabled) speakWord('Sound on');
+      setSoundIcon();
     }
-    document.addEventListener('DOMContentLoaded', function() {
-      if (!soundEnabled) {
-        var icon = document.querySelector('.header-sound-btn i');
-        if (icon) icon.className = 'fas fa-volume-mute';
-      }
-    });
 
     // ---------- Speech Audio Engine ----------
     var pogoVoice = null;
+    var speechReady = false;
+
     function loadPogoVoice() {
       if (!('speechSynthesis' in window)) return;
       var voices = window.speechSynthesis.getVoices();
@@ -2848,12 +2935,15 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
       pogoVoice = voices.find(function(v){ return /en[-_]?(US|GB|IN)/i.test(v.lang) && /female|en-us|en-gb/i.test(v.name); })
         || voices.find(function(v){ return /^en/i.test(v.lang); })
         || voices[0];
+      speechReady = true;
     }
+
     if ('speechSynthesis' in window) {
       loadPogoVoice();
       window.speechSynthesis.onvoiceschanged = loadPogoVoice;
     }
-    function speakWord(text) {
+
+    function speakWord(text, lang) {
       if (!soundEnabled || !text) return;
       try {
         if (!('speechSynthesis' in window)) { playChime(); return; }
@@ -2861,17 +2951,32 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
         var u = new SpeechSynthesisUtterance(text);
         u.rate = 0.85;
         u.pitch = 1.15;
-        u.lang = 'en-US';
+        u.lang = lang || 'en-US';
         if (pogoVoice) u.voice = pogoVoice;
         window.speechSynthesis.speak(u);
       } catch (e) { playChime(); }
     }
+
+    // ---------- Audio Context (with modern browser resume support) ----------
     var pogoAudioCtx = null;
+
+    function ensureAudioCtx() {
+      if (!pogoAudioCtx) {
+        try {
+          pogoAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        } catch(e) { return null; }
+      }
+      if (pogoAudioCtx.state === 'suspended') {
+        pogoAudioCtx.resume();
+      }
+      return pogoAudioCtx;
+    }
+
     function playChime() {
       if (!soundEnabled) return;
+      var ctx = ensureAudioCtx();
+      if (!ctx) return;
       try {
-        if (!pogoAudioCtx) pogoAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        var ctx = pogoAudioCtx;
         var osc = ctx.createOscillator();
         var gain = ctx.createGain();
         osc.type = 'sine';
@@ -2886,26 +2991,24 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
       } catch (e) {}
     }
 
-    // ---------- Animal Sound Effects ----------
-    var ANIMAL_SOUNDS = {
-      lion:'roar',tiger:'growl',elephant:'trumpet',monkey:'ooh ooh',dog:'woof woof',cat:'meow',
-      cow:'moo',horse:'neigh',goat:'baa',sheep:'baa baa',rabbit:'squeak',bear:'growl',
-      fox:'yip',wolf:'howl',deer:'bleat',zebra:'neigh',giraffe:'hum',panda:'squeak',
-      camel:'grunt',kangaroo:'chortle',dolphin:'click',whale:'song',shark:'silent',
-      octopus:'bloop',penguin:'honk',parrot:'squawk',owl:'hoot',peacock:'call',
-      butterfly:'flutter',bee:'buzz'
-    };
-    function playAnimalSound(animal) {
-      if (!soundEnabled) return;
-      var sound = ANIMAL_SOUNDS[animal] || animal;
-      speakWord('The ' + animal + ' says ' + sound);
-    }
+    // Warm up audio system on first user interaction (fixes Chrome autoplay policy)
+    document.addEventListener('DOMContentLoaded', function() {
+      setSoundIcon();
+      function warmAudio() {
+        ensureAudioCtx();
+        document.removeEventListener('click', warmAudio);
+        document.removeEventListener('touchstart', warmAudio);
+      }
+      document.addEventListener('click', warmAudio);
+      document.addEventListener('touchstart', warmAudio);
+    });
+
     // ---------- Musical Chime (playful variant) ----------
     function playSynthChime() {
       if (!soundEnabled) return;
+      var ctx = ensureAudioCtx();
+      if (!ctx) return;
       try {
-        if (!pogoAudioCtx) pogoAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        var ctx = pogoAudioCtx;
         var notes = [523.25, 659.25, 783.99];
         notes.forEach(function(freq, i) {
           var osc = ctx.createOscillator();
@@ -2954,39 +3057,6 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
       popup.innerHTML = '<div class="toast copy-link"><span class="toast-icon">🔗</span><div class="toast-text"><strong>Link copied!</strong><br>Page URL copied to clipboard.</div></div>';
       popup.classList.add('active');
       setTimeout(function() { popup.classList.remove('active'); }, 3000);
-    }
-
-    // ---------- Related Posts AJAX Loader ----------
-    function loadRelatedPosts(label, containerId, maxResults) {
-      maxResults = maxResults || 4;
-      var container = document.getElementById(containerId);
-      if (!container) return;
-      container.innerHTML = '<div class="related-loading"><i class="fas fa-spinner fa-spin"></i> Loading...</div>';
-      var url = '/feeds/posts/default/-/' + encodeURIComponent(label) + '?alt=json&max-results=' + maxResults + '&callback=handleRelatedPosts';
-      window.handleRelatedPosts = function(json) {
-        var html = '';
-        if (json.feed && json.feed.entry) {
-          var entries = json.feed.entry;
-          for (var i = 0; i < entries.length; i++) {
-            var entry = entries[i];
-            var title = entry.title.$t;
-            var link = '';
-            var thumb = '';
-            if (entry.link) {
-              for (var j = 0; j < entry.link.length; j++) {
-                if (entry.link[j].rel === 'alternate') { link = entry.link[j].href; break; }
-              }
-            }
-            if (entry.media$thumbnail) thumb = entry.media$thumbnail.url;
-            html += '<div class="related-post"><a href="' + link + '"><div class="related-thumb"><img src="' + (thumb || 'https://via.placeholder.com/120x90?text=No+Image') + '" alt="' + title + '"/></div><div class="related-title">' + title + '</div></a></div>';
-          }
-        }
-        if (!html) html = '<p class="no-related">No related posts found.</p>';
-        container.innerHTML = html;
-      };
-      var script = document.createElement('script');
-      script.src = url;
-      document.head.appendChild(script);
     }
 
     // ---------- Scroll to Top ----------
@@ -3228,113 +3298,6 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
       }, 1500);
     }
 
-    // ---------- Interactive Game: Tracing / Coloring ----------
-    function initColoring(containerId, preset) {
-      var container = document.getElementById(containerId);
-      if (!container) return;
-      container.innerHTML = '<div class="coloring-app"><canvas class="coloring-canvas" id="coloringCanvas"></canvas><div class="coloring-tools"><div class="color-palette"></div><input type="range" class="brush-size" id="brushSize" min="2" max="30" value="8"/><button class="btn-secondary" onclick="clearColoring()"><i class="fas fa-eraser"></i> Clear</button></div></div>';
-      var canvas = document.getElementById('coloringCanvas');
-      if (!canvas) return;
-      var ctx = canvas.getContext('2d');
-      canvas.width = container.clientWidth || 600;
-      canvas.height = 400;
-      ctx.fillStyle = '#fff';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      if (preset) drawColoringPreset(ctx, preset, canvas.width, canvas.height);
-      var drawing = false;
-      var color = '#FF6B6B';
-      var size = 8;
-      var palette = ['#FF6B6B','#FFD93D','#6BCBFF','#6EE7B7','#B28DFF','#FF9FF3','#FECA57','#48DBFB','#FF8A5C','#A29BFE','#FD79A8','#636e72','#2D3436','#FFFFFF'];
-      var paletteDiv = container.querySelector('.color-palette');
-      palette.forEach(function(c) {
-        var swatch = document.createElement('div');
-        swatch.className = 'color-swatch' + (c === color ? ' active' : '');
-        swatch.style.background = c;
-        if (c === '#FFFFFF') swatch.style.border = '1px solid #ddd';
-        swatch.addEventListener('click', function() {
-          paletteDiv.querySelectorAll('.color-swatch').forEach(function(s) { s.classList.remove('active'); });
-          this.classList.add('active');
-          color = c;
-        });
-        paletteDiv.appendChild(swatch);
-      });
-      var sizeSlider = document.getElementById('brushSize');
-      if (sizeSlider) sizeSlider.addEventListener('input', function() { size = parseInt(this.value); });
-      function startDraw(e) {
-        drawing = true;
-        var rect = canvas.getBoundingClientRect();
-        var x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-        var y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
-        ctx.beginPath();
-        ctx.arc(x, y, size / 2, 0, Math.PI * 2);
-        ctx.fillStyle = color;
-        ctx.fill();
-      }
-      function draw(e) {
-        if (!drawing) return;
-        e.preventDefault();
-        var rect = canvas.getBoundingClientRect();
-        var x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-        var y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
-        ctx.lineWidth = size;
-        ctx.lineCap = 'round';
-        ctx.strokeStyle = color;
-        ctx.lineTo(x, y);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.arc(x, y, size / 2, 0, Math.PI * 2);
-        ctx.fillStyle = color;
-        ctx.fill();
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-      }
-      function endDraw() { drawing = false; ctx.beginPath(); }
-      canvas.addEventListener('mousedown', startDraw);
-      canvas.addEventListener('mousemove', draw);
-      canvas.addEventListener('mouseup', endDraw);
-      canvas.addEventListener('mouseleave', endDraw);
-      canvas.addEventListener('touchstart', startDraw, { passive: true });
-      canvas.addEventListener('touchmove', draw, { passive: false });
-      canvas.addEventListener('touchend', endDraw, { passive: true });
-      window.clearColoring = function() {
-        ctx.fillStyle = '#fff';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        if (preset) drawColoringPreset(ctx, preset, canvas.width, canvas.height);
-        addStars(1);
-      };
-    }
-
-    function drawColoringPreset(ctx, preset, w, h) {
-      ctx.strokeStyle = '#ccc';
-      ctx.lineWidth = 3;
-      ctx.setLineDash([8, 5]);
-      if (preset === 'apple' || preset === 'fruit') {
-        ctx.beginPath(); ctx.arc(w / 2, h / 2 + 10, 60, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(w / 2, h / 2 - 50); ctx.lineTo(w / 2, h / 2 - 80); ctx.stroke();
-        ctx.beginPath(); ctx.arc(w / 2 + 5, h / 2 - 80, 8, 0, Math.PI * 2); ctx.stroke();
-      } else if (preset === 'star') {
-        var cx = w / 2, cy = h / 2, outer = 70, inner = 30, points = 5;
-        ctx.beginPath();
-        for (var i = 0; i < points * 2; i++) {
-          var r = i % 2 === 0 ? outer : inner;
-          var angle = (i * Math.PI) / points - Math.PI / 2;
-          var x = cx + r * Math.cos(angle);
-          var y = cy + r * Math.sin(angle);
-          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-        }
-        ctx.closePath(); ctx.stroke();
-      } else if (preset === 'circle') {
-        ctx.beginPath(); ctx.arc(w / 2, h / 2, 80, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(w / 2, h / 2, 50, 0, Math.PI * 2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(w / 2, h / 2, 20, 0, Math.PI * 2); ctx.stroke();
-      } else if (preset === 'house') {
-        ctx.beginPath(); ctx.moveTo(w / 2, h / 2 - 80); ctx.lineTo(w / 2 - 80, h / 2); ctx.lineTo(w / 2 + 80, h / 2); ctx.closePath(); ctx.stroke();
-        ctx.strokeRect(w / 2 - 60, h / 2, 120, 80);
-        ctx.strokeRect(w / 2 - 20, h / 2 + 20, 40, 60);
-      }
-      ctx.setLineDash([]);
-    }
-
     // ---------- Interactive Game: Tracing ----------
     function initTracing(containerId) {
       var container = document.getElementById(containerId);
@@ -3417,7 +3380,9 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
       var isVideo = widget.classList.contains('videos-grid');
       var html = '';
       entries.forEach(function(entry) {
-        var href = entry.link.filter(function(l) { return l.rel === 'alternate'; })[0].href;
+        var altLink = entry.link.filter(function(l) { return l.rel === 'alternate'; })[0];
+        if (!altLink) return;
+        var href = altLink.href;
         if (href === exclude) return;
         var title = entry.title.$t;
         var thumb = entry.media$thumbnail ? entry.media$thumbnail.url : '';
@@ -3438,6 +3403,107 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
       popup.innerHTML = '<div class="toast generic-toast"><div class="toast-text">' + msg + '</div></div>';
       popup.classList.add('active');
       setTimeout(function() { popup.classList.remove('active'); }, duration);
+    }
+
+    // ---------- Learning Popup (Generic for all sections) ----------
+    var LETTER_DATA = {
+      A:{word:'Apple',emoji:'🍎'},B:{word:'Ball',emoji:'⚽'},C:{word:'Cat',emoji:'🐱'},D:{word:'Dog',emoji:'🐕'},
+      E:{word:'Elephant',emoji:'🐘'},F:{word:'Fish',emoji:'🐟'},G:{word:'Goat',emoji:'🐐'},H:{word:'Hat',emoji:'🎩'},
+      I:{word:'Ice Cream',emoji:'🍦'},J:{word:'Jug',emoji:'🏺'},K:{word:'Kite',emoji:'🪁'},L:{word:'Lion',emoji:'🦁'},
+      M:{word:'Monkey',emoji:'🐵'},N:{word:'Nest',emoji:'🪺'},O:{word:'Orange',emoji:'🍊'},P:{word:'Parrot',emoji:'🦜'},
+      Q:{word:'Queen',emoji:'👑'},R:{word:'Rabbit',emoji:'🐰'},S:{word:'Sun',emoji:'☀️'},T:{word:'Tiger',emoji:'🐯'},
+      U:{word:'Umbrella',emoji:'☂️'},V:{word:'Van',emoji:'🚐'},W:{word:'Watch',emoji:'⌚'},X:{word:'Xylophone',emoji:'🎷'},
+      Y:{word:'Yak',emoji:'🐂'},Z:{word:'Zebra',emoji:'🦓'}
+    };
+    var HINDI_DATA = {
+      'क':{pron:'ka',word:'कमल',emoji:'🌸'},'ख':{pron:'kha',word:'खरगोश',emoji:'🐰'},'ग':{pron:'ga',word:'गणेश',emoji:'🕉'},
+      'घ':{pron:'gha',word:'घड़ी',emoji:'⌚'},'ङ':{pron:'nga',word:'कंगन',emoji:'📿'},'च':{pron:'cha',word:'चाँद',emoji:'🌙'},
+      'छ':{pron:'chha',word:'छतरी',emoji:'☂️'},'ज':{pron:'ja',word:'जल',emoji:'💧'},'झ':{pron:'jha',word:'झंडा',emoji:'🚩'},
+      'ञ':{pron:'nya',word:'ज्ञान',emoji:'📖'},'ट':{pron:'Ta',word:'टमाटर',emoji:'🍅'},'ठ':{pron:'Tha',word:'ठंडाई',emoji:'🧊'},
+      'ड':{pron:'Da',word:'डॉक्टर',emoji:'👨‍⚕️'},'ढ':{pron:'Dha',word:'ढोलक',emoji:'🥁'},'ण':{pron:'Na',word:'रतन',emoji:'💎'},
+      'त':{pron:'ta',word:'तारा',emoji:'⭐'},'थ':{pron:'tha',word:'थैला',emoji:'👜'},'द':{pron:'da',word:'दवा',emoji:'💊'},
+      'ध':{pron:'dha',word:'धनुष',emoji:'🏹'},'न':{pron:'na',word:'नदी',emoji:'🏞️'},'प':{pron:'pa',word:'पानी',emoji:'💧'},
+      'फ':{pron:'pha',word:'फल',emoji:'🍎'},'ब':{pron:'ba',word:'बादल',emoji:'☁️'},'भ':{pron:'bha',word:'भालू',emoji:'🐻'},
+      'म':{pron:'ma',word:'मछली',emoji:'🐟'},'य':{pron:'ya',word:'यज्ञ',emoji:'🪔'},'र':{pron:'ra',word:'राजा',emoji:'👑'},
+      'ल':{pron:'la',word:'लता',emoji:'🌿'},'व':{pron:'va',word:'वन',emoji:'🌳'},'श':{pron:'sha',word:'शेर',emoji:'🦁'},
+      'ष':{pron:'Sha',word:'षट्कोण',emoji:'🔶'},'स':{pron:'sa',word:'सूरज',emoji:'☀️'},'ह':{pron:'ha',word:'हाथी',emoji:'🐘'},
+      'क्ष':{pron:'ksha',word:'क्षत्रिय',emoji:'⚔️'},'त्र':{pron:'tra',word:'त्रिशूल',emoji:'🔱'},'ज्ञ':{pron:'gya',word:'ज्ञानी',emoji:'🧠'}
+    };
+    var _learnPopupData = null;
+    function showLearnPopup(type, data) {
+      _learnPopupData = { type: type, data: data };
+      var emojiEl = document.getElementById('learnPopupEmoji');
+      var mainEl = document.getElementById('learnPopupMain');
+      var labelEl = document.getElementById('learnPopupLabel');
+      var phraseEl = document.getElementById('learnPopupPhrase');
+      mainEl.className = 'learn-popup-main';
+      if (type === 'abc') {
+        emojiEl.textContent = data.emoji || '🔤';
+        mainEl.classList.add('letter');
+        mainEl.textContent = data.letter;
+        labelEl.textContent = data.word;
+        phraseEl.textContent = data.letter + ' for ' + data.word;
+        speakWord(data.letter + ' for ' + data.word);
+      } else if (type === 'hindi') {
+        emojiEl.textContent = data.emoji || '🕉️';
+        mainEl.classList.add('hindi');
+        mainEl.textContent = data.char;
+        labelEl.textContent = data.pron + ' - ' + data.word;
+        phraseEl.textContent = data.pron + ' - ' + data.word;
+        speakWord(data.word + ', ' + data.pron, 'hi-IN');
+      } else if (type === 'number') {
+        emojiEl.textContent = '🔢';
+        mainEl.classList.add('number');
+        mainEl.textContent = data.num;
+        labelEl.textContent = data.word;
+        phraseEl.textContent = 'Number ' + data.num;
+        speakWord(data.word || data.num);
+      } else if (type === 'animal') {
+        emojiEl.textContent = data.emoji || '🐾';
+        mainEl.classList.add('animal');
+        mainEl.textContent = data.emoji || '🐾';
+        labelEl.textContent = data.name;
+        phraseEl.textContent = '"' + data.sound + '"';
+        speakWord(data.name + ' says ' + data.sound);
+      } else if (type === 'color') {
+        emojiEl.textContent = '🎨';
+        mainEl.classList.add('color');
+        mainEl.textContent = data.name;
+        mainEl.style.background = data.bg;
+        mainEl.style.color = data.fg;
+        labelEl.textContent = data.name;
+        phraseEl.textContent = 'Color ' + data.name;
+        speakWord(data.name);
+      }
+      document.getElementById('learnPopupOverlay').classList.add('active');
+      addStars(1);
+    }
+    function closeLearnPopup() {
+      document.getElementById('learnPopupOverlay').classList.remove('active');
+    }
+    function replayLearnPopup() {
+      if (!_learnPopupData) return;
+      var type = _learnPopupData.type;
+      var data = _learnPopupData.data;
+      if (type === 'abc') speakWord(data.letter + ' for ' + data.word);
+      else if (type === 'hindi') speakWord(data.word + ', ' + data.pron, 'hi-IN');
+      else if (type === 'number') speakWord(data.word || data.num);
+      else if (type === 'animal') speakWord(data.name + ' says ' + data.sound);
+      else if (type === 'color') speakWord(data.name);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('learnPopupOverlay').addEventListener('click', function(e) {
+        if (e.target === this) closeLearnPopup();
+      });
+    });
+    // Number to English words (1-100)
+    function numberToWords(n) {
+      var ones = ['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+      var tens = ['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+      if (n < 20) return ones[n];
+      var t = Math.floor(n / 10);
+      var o = n % 10;
+      return tens[t] + (o ? ' ' + ones[o] : '');
     }
 
     // ---------- Init on DOM Ready ----------
@@ -3509,10 +3575,11 @@ body,#secHeader,.blog-post-card,.video-card,.animal-card,.trust-card{transition:
       document.querySelectorAll('.short-card').forEach(function(card) {
         card.addEventListener('click', function() {
           var vid = this.getAttribute('data-video-id');
+          var type = this.getAttribute('data-type') || 'youtube';
           if (!vid) return;
           var label = this.querySelector('.short-label');
           var title = label ? label.textContent : 'Video';
-          openShorts([{ id: vid, title: title }]);
+          openShorts([{ id: vid, title: title, type: type }]);
         });
       });
 

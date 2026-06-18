@@ -149,7 +149,7 @@ function VideoDetailContent() {
                     {v.youtubeId ? (
                       <img
                         src={`https://img.youtube.com/vi/${v.youtubeId}/default.jpg`}
-                        alt=""
+                        alt={`${v.title} thumbnail`}
                         className="h-full w-full object-cover"
                       />
                     ) : (
