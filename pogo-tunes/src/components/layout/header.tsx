@@ -76,13 +76,13 @@ export function Header() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 overflow-hidden",
           isScrolled
             ? "bg-white/90 shadow-[0_1px_30px_-8px_rgba(0,0,0,0.08)] backdrop-blur-xl border-b border-white/20"
             : "bg-white/95 backdrop-blur-sm",
         )}
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:h-18">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-2 px-4">
           <Link href="/" className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-coral to-purple shadow-glow-coral">
               <span className="text-base font-bold text-white">P</span>
@@ -93,13 +93,13 @@ export function Header() {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-1 md:flex">
+          <nav className="hidden items-center md:flex">
             {primaryNav.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
                 className={cn(
-                  "flex items-center gap-1.5 rounded-2xl px-3.5 py-2 font-display text-sm font-semibold transition-all duration-200",
+                  "flex items-center gap-1 rounded-xl px-2.5 py-1.5 font-display text-sm font-semibold transition-all duration-200",
                   pathname === item.href
                     ? "bg-gradient-to-r from-coral/10 to-purple/10 text-dark"
                     : "text-gray/70 hover:bg-cream/80 hover:text-dark",
@@ -118,7 +118,7 @@ export function Header() {
               >
                 <button
                   className={cn(
-                    "flex items-center gap-1.5 rounded-2xl px-3.5 py-2 font-display text-sm font-semibold transition-all duration-200",
+                    "flex items-center gap-1 rounded-xl px-2.5 py-1.5 font-display text-sm font-semibold transition-all duration-200",
                     pathname.startsWith("/abc") || pathname.startsWith("/hindi") || pathname.startsWith("/counting") || pathname.startsWith("/colors") || pathname.startsWith("/animals") || pathname.startsWith("/shapes") || pathname.startsWith("/phonics")
                       ? "bg-gradient-to-r from-coral/10 to-purple/10 text-dark"
                       : "text-gray/70 hover:bg-cream/80 hover:text-dark",
@@ -162,7 +162,7 @@ export function Header() {
               onMouseLeave={() => setIsMoreOpen(false)}
             >
               <button
-                className="flex items-center gap-1.5 rounded-2xl px-3.5 py-2 font-display text-sm font-semibold text-gray/70 transition-all hover:bg-cream/80 hover:text-dark"
+                className="flex items-center gap-1 rounded-xl px-2.5 py-1.5 font-display text-sm font-semibold text-gray/70 transition-all hover:bg-cream/80 hover:text-dark"
               >
                 More
                 <ChevronDown className={cn("h-3 w-3 transition-transform duration-200", isMoreOpen && "rotate-180")} />
@@ -197,21 +197,21 @@ export function Header() {
             </div>
           </nav>
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-0.5">
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="flex h-9 w-9 items-center justify-center rounded-xl text-gray/50 transition-all hover:bg-cream/80 hover:text-dark"
+              className="flex h-8 w-8 items-center justify-center rounded-lg text-gray/50 transition-all hover:bg-cream/80 hover:text-dark"
               aria-label="Open search"
             >
-              <Search className="h-[18px] w-[18px]" />
+              <Search className="h-[16px] w-[16px]" />
             </button>
 
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="flex h-9 w-9 items-center justify-center rounded-xl text-gray/50 transition-all hover:bg-cream/80 hover:text-dark md:hidden"
+              className="flex h-8 w-8 items-center justify-center rounded-lg text-gray/50 transition-all hover:bg-cream/80 hover:text-dark md:hidden"
               aria-label={isMobileOpen ? "Close menu" : "Open menu"}
             >
-              {isMobileOpen ? <X className="h-[18px] w-[18px]" /> : <Menu className="h-[18px] w-[18px]" />}
+              {isMobileOpen ? <X className="h-[16px] w-[16px]" /> : <Menu className="h-[16px] w-[16px]" />}
             </button>
           </div>
         </div>
