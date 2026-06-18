@@ -4,13 +4,17 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { Play, ArrowRight, Sparkles, Music } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Star, SparkleIcon, Rainbow, MusicNote, PaintPalette } from "@/components/icons/emojis"
+
+const particleIcons = [Star, MusicNote, Rainbow, SparkleIcon, PaintPalette, Star, SparkleIcon, MusicNote]
 
 const particles = Array.from({ length: 8 }, (_, i) => ({
-  emoji: ["⭐", "🎵", "🌈", "✨", "🎨", "💫", "🌟", "🎶"][i],
+  icon: particleIcons[i],
   x: `${10 + (i * 10)}%`,
   y: `${20 + (i % 4) * 15}%`,
   delay: i * 0.4,
   size: 20 + (i % 3) * 10,
+  color: ["#FFD93D", "#FF6B6B", "#B28DFF", "#6BCBFF", "#6EE7B7", "#FFD93D", "#6BCBFF", "#FF6B6B"][i],
 }))
 
 export function CTASection() {
@@ -21,11 +25,11 @@ export function CTASection() {
           <motion.div
             key={i}
             className="absolute opacity-20"
-            style={{ left: p.x, top: p.y, fontSize: p.size }}
+            style={{ left: p.x, top: p.y }}
             animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: p.delay }}
           >
-            {p.emoji}
+            <p.icon size={p.size} color={p.color} />
           </motion.div>
         ))}
       </div>

@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Home, Gamepad2, BookOpen } from "lucide-react"
+import { PogoFox } from "@/components/icons/characters"
 
 export default function OfflinePage() {
   return (
@@ -12,13 +13,12 @@ export default function OfflinePage() {
         animate={{ opacity: 1, y: 0 }}
         className="flex flex-col items-center text-center"
       >
-        <motion.span
+        <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 3, repeat: Infinity }}
-          className="text-8xl"
         >
-          🦊
-        </motion.span>
+          <PogoFox size={96} />
+        </motion.div>
         <h1 className="mt-6 font-display text-3xl font-bold text-dark">You&apos;re Offline</h1>
         <p className="mt-4 max-w-md font-body text-lg text-gray">
           Don&apos;t worry! Pogo Tunes will be back as soon as you&apos;re connected again.

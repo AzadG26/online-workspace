@@ -1,14 +1,18 @@
 "use client"
 
+import React from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Play, Clock, Eye } from "lucide-react"
+import { Play, Clock, Eye, Star, Sparkles, Music } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { featuredVideos, categories } from "@/data/content"
 import { StructuredData } from "@/components/structured-data"
 import { collectionPageSchema, breadcrumbSchema } from "@/lib/structured-data"
+import { Rainbow, SparkleIcon, MusicNote } from "@/components/icons/emojis"
 
-const floatingIcons = ["🎵", "⭐", "🌈", "✨", "🎶", "💫"]
+const floatingIcons: React.ComponentType<{ className?: string }>[] = [
+  MusicNote, Star, Rainbow, SparkleIcon, Music, Sparkles,
+]
 
 const emojiMap = ["🔤", "🔢", "🐾", "🎨", "🕉️", "🔷", "🍎", "🐶"]
 
@@ -25,15 +29,15 @@ export default function VideosPage() {
         ]}
       />
       <section className="relative overflow-hidden bg-gradient-to-b from-coral/10 via-cream to-white pt-24 pb-12 md:pt-32">
-        {floatingIcons.map((icon, i) => (
+        {floatingIcons.map((Icon, i) => (
           <motion.div
             key={i}
-            className="absolute text-2xl opacity-15 pointer-events-none"
+            className="absolute opacity-15 pointer-events-none"
             style={{ top: `${15 + i * 10}%`, left: `${i % 2 === 0 ? 5 : 92}%` }}
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
           >
-            {icon}
+            <Icon className="h-6 w-6" />
           </motion.div>
         ))}
         <div className="mx-auto max-w-7xl px-4 text-center">

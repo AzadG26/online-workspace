@@ -4,14 +4,16 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
 import { Play, Sparkles, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Star, SparkleIcon, Rainbow, MusicNote, PaintPalette } from "@/components/icons/emojis"
+import { PogoFox, TuniRabbit, BoboBear } from "@/components/icons/characters"
 
 const floatingShapes = [
-  { emoji: "⭐", x: "10%", y: 80, delay: 0, duration: 4 },
-  { emoji: "🌈", x: "85%", y: 120, delay: 0.5, duration: 3.5 },
-  { emoji: "🎵", x: "20%", y: 300, delay: 1, duration: 4.5 },
-  { emoji: "✨", x: "75%", y: 250, delay: 0.3, duration: 3 },
-  { emoji: "🎨", x: "90%", y: 400, delay: 0.8, duration: 3.8 },
-  { emoji: "📚", x: "5%", y: 450, delay: 1.2, duration: 4.2 },
+  { icon: Star, x: "10%", y: 80, delay: 0, duration: 4, color: "#FFD93D" },
+  { icon: Rainbow, x: "85%", y: 120, delay: 0.5, duration: 3.5, color: "#B28DFF" },
+  { icon: MusicNote, x: "20%", y: 300, delay: 1, duration: 4.5, color: "#FF6B6B" },
+  { icon: SparkleIcon, x: "75%", y: 250, delay: 0.3, duration: 3, color: "#6BCBFF" },
+  { icon: PaintPalette, x: "90%", y: 400, delay: 0.8, duration: 3.8, color: "#6EE7B7" },
+  { icon: Star, x: "5%", y: 450, delay: 1.2, duration: 4.2, color: "#FFD93D" },
 ]
 
 export function Hero() {
@@ -26,12 +28,12 @@ export function Hero() {
         {floatingShapes.map((shape, i) => (
           <motion.div
             key={i}
-            className="absolute text-3xl opacity-25"
+            className="absolute opacity-25"
             style={{ top: shape.y, left: shape.x }}
             animate={{ y: [0, -20, 0], rotate: [0, 5, -5, 0] }}
             transition={{ duration: shape.duration, repeat: Infinity, ease: "easeInOut", delay: shape.delay }}
           >
-            {shape.emoji}
+            <shape.icon size={28} color={shape.color} />
           </motion.div>
         ))}
       </motion.div>
@@ -123,9 +125,9 @@ export function Hero() {
                   <motion.div
                     animate={{ y: [0, -12, 0] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    className="text-8xl md:text-9xl drop-shadow-2xl"
+                    className="drop-shadow-2xl"
                   >
-                    🦊
+                    <PogoFox size={80} className="md:w-24 md:h-24" />
                   </motion.div>
                   <motion.p
                     initial={{ opacity: 0, y: 5 }}
@@ -139,18 +141,18 @@ export function Hero() {
                 </div>
               </div>
               <motion.div
-                className="absolute -top-2 -right-2 text-5xl drop-shadow-lg"
+                className="absolute -top-2 -right-2 drop-shadow-lg"
                 animate={{ y: [0, -8, 0], rotate: [0, 8, -5, 0] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               >
-                🐰
+                <TuniRabbit size={44} />
               </motion.div>
               <motion.div
-                className="absolute -bottom-2 -left-2 text-5xl drop-shadow-lg"
+                className="absolute -bottom-2 -left-2 drop-shadow-lg"
                 animate={{ y: [0, 8, 0], rotate: [0, -8, 5, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               >
-                🐻
+                <BoboBear size={44} />
               </motion.div>
             </div>
           </motion.div>

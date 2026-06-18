@@ -1,13 +1,16 @@
 "use client"
 
-import { useState, type FormEvent } from "react"
+import React, { useState, type FormEvent } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Mail, MessageSquare, HelpCircle, CheckCircle, AlertCircle, Send } from "lucide-react"
+import { Mail, MessageSquare, HelpCircle, CheckCircle, AlertCircle, Send, Star, Heart } from "lucide-react"
+import { Rainbow, SparkleIcon } from "@/components/icons/emojis"
 import { Button } from "@/components/ui/button"
 import { StructuredData } from "@/components/structured-data"
 import { contactPageSchema, organizationSchema } from "@/lib/structured-data"
 
-const floatingIcons = ["💌", "⭐", "✉️", "🌈", "📬", "✨"]
+const floatingIcons: React.ComponentType<{ className?: string }>[] = [
+  Heart, Star, Mail, Rainbow, Mail, SparkleIcon,
+]
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
@@ -49,15 +52,15 @@ export default function ContactPage() {
     <>
       <StructuredData schema={[contactPageSchema(), organizationSchema()]} />
       <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-cream to-white pt-24 pb-16 md:pt-32">
-        {floatingIcons.map((icon, i) => (
+        {floatingIcons.map((Icon, i) => (
           <motion.div
             key={i}
-            className="absolute text-2xl opacity-10 pointer-events-none"
+            className="absolute opacity-10 pointer-events-none"
             style={{ top: `${15 + i * 10}%`, left: `${i % 2 === 0 ? 5 : 92}%` }}
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
           >
-            {icon}
+            <Icon className="h-6 w-6" />
           </motion.div>
         ))}
       <div className="relative mx-auto max-w-4xl px-4">

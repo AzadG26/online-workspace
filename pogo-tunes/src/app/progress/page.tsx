@@ -1,8 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import { motion } from "framer-motion"
-import { Trophy, Gamepad2, Brain, Flame, Star, RotateCcw } from "lucide-react"
+import { Trophy, Gamepad2, Brain, Flame, Star, RotateCcw, Sparkles } from "lucide-react"
+import { Rainbow, SparkleIcon } from "@/components/icons/emojis"
 import { Button } from "@/components/ui/button"
 import { Section } from "@/components/ui/section"
 import { useProgress } from "@/hooks/use-progress"
@@ -10,7 +11,9 @@ import { AchievementPopup } from "@/components/achievement-popup"
 import { StructuredData } from "@/components/structured-data"
 import { breadcrumbSchema } from "@/lib/structured-data"
 
-const floatingIcons = ["🏆", "⭐", "🎯", "✨", "💫", "🌟"]
+const floatingIcons: React.ComponentType<{ className?: string }>[] = [
+  Trophy, Star, Star, SparkleIcon, Sparkles, Star,
+]
 
 export default function ProgressPage() {
   const { progress, newAchievement, resetProgress } = useProgress()
@@ -39,15 +42,15 @@ export default function ProgressPage() {
       <StructuredData schema={[breadcrumbSchema([{ name: "Home", url: "/" }, { name: "Progress", url: "/progress" }])]} />
       <AchievementPopup achievement={newAchievement} />
       <section className="relative overflow-hidden bg-gradient-to-b from-yellow/10 via-cream to-white pt-24 pb-12 md:pt-32">
-        {floatingIcons.map((icon, i) => (
+        {floatingIcons.map((Icon, i) => (
           <motion.div
             key={i}
-            className="absolute text-2xl opacity-15 pointer-events-none"
+            className="absolute opacity-15 pointer-events-none"
             style={{ top: `${15 + i * 10}%`, left: `${i % 2 === 0 ? 5 : 92}%` }}
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
           >
-            {icon}
+            <Icon className="h-6 w-6" />
           </motion.div>
         ))}
         <div className="mx-auto max-w-7xl px-4 text-center">

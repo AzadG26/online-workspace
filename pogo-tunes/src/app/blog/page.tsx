@@ -1,14 +1,18 @@
 "use client"
 
+import React from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Calendar, ArrowRight } from "lucide-react"
+import { Calendar, ArrowRight, Star, Sparkles, BookOpen, PenTool, Newspaper } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { blogPosts } from "@/data/content"
 import { StructuredData } from "@/components/structured-data"
 import { collectionPageSchema, breadcrumbSchema } from "@/lib/structured-data"
+import { Rainbow } from "@/components/icons/emojis"
 
-const floatingIcons = ["📖", "⭐", "✍️", "🌈", "📰", "✨"]
+const floatingIcons: React.ComponentType<{ className?: string }>[] = [
+  BookOpen, Star, PenTool, Rainbow, Newspaper, Sparkles,
+]
 
 export default function BlogPage() {
   return (
@@ -23,15 +27,15 @@ export default function BlogPage() {
         ]}
       />
       <section className="relative overflow-hidden bg-gradient-to-b from-purple/10 via-cream to-white pt-24 pb-12 md:pt-32">
-        {floatingIcons.map((icon, i) => (
+        {floatingIcons.map((Icon, i) => (
           <motion.div
             key={i}
-            className="absolute text-2xl opacity-15 pointer-events-none"
+            className="absolute opacity-15 pointer-events-none"
             style={{ top: `${15 + i * 10}%`, left: `${i % 2 === 0 ? 5 : 92}%` }}
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
           >
-            {icon}
+            <Icon className="h-6 w-6" />
           </motion.div>
         ))}
         <div className="mx-auto max-w-7xl px-4 text-center">

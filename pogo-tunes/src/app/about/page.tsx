@@ -1,28 +1,35 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
-import { Heart, Sparkles, Globe, BookOpen } from "lucide-react"
+import { Heart, Sparkles, Globe, BookOpen, Star } from "lucide-react"
+import { Rainbow, SparkleIcon } from "@/components/icons/emojis"
 import { Section } from "@/components/ui/section"
 import { characters } from "@/data/content"
+import { PogoFox, TuniRabbit, BoboBear } from "@/components/icons/characters"
 import { StructuredData } from "@/components/structured-data"
 import { aboutPageSchema, organizationSchema } from "@/lib/structured-data"
 
-const floatingIcons = ["💜", "⭐", "🌈", "✨", "📚", "🌟"]
+const charIcons = [PogoFox, TuniRabbit, BoboBear]
+
+const floatingIcons: React.ComponentType<{ className?: string }>[] = [
+  Heart, Star, Rainbow, SparkleIcon, BookOpen, Star,
+]
 
 export default function AboutPage() {
   return (
     <>
       <StructuredData schema={[aboutPageSchema(), organizationSchema()]} />
       <section className="relative overflow-hidden bg-gradient-to-b from-coral/10 via-cream to-white pt-24 pb-12 md:pt-32">
-        {floatingIcons.map((icon, i) => (
+        {floatingIcons.map((Icon, i) => (
           <motion.div
             key={i}
-            className="absolute text-2xl opacity-15 pointer-events-none"
+            className="absolute opacity-15 pointer-events-none"
             style={{ top: `${15 + i * 10}%`, left: `${i % 2 === 0 ? 5 : 92}%` }}
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
           >
-            {icon}
+            <Icon className="h-6 w-6" />
           </motion.div>
         ))}
         <div className="mx-auto max-w-4xl px-4 text-center">
@@ -93,11 +100,11 @@ export default function AboutPage() {
                 className="group rounded-2xl bg-white/70 p-6 text-center shadow-soft backdrop-blur-xl border border-white/50 transition-all duration-300 hover:shadow-card"
               >
                 <motion.div
-                  className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-white to-cream text-3xl shadow-soft ring-2 ring-white"
+                  className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-white to-cream shadow-soft ring-2 ring-white"
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
                 >
-                  {char.emoji}
+                  {React.createElement(charIcons[i] || charIcons[0], { size: 40 })}
                 </motion.div>
                 <h3 className="font-display text-lg font-bold" style={{ color: char.color }}>{char.name}</h3>
                 <p className="text-sm font-semibold text-gray font-display">{char.role}</p>

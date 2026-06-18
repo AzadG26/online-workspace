@@ -1,8 +1,12 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { Section } from "@/components/ui/section"
 import { characters } from "@/data/content"
+import { PogoFox, TuniRabbit, BoboBear } from "@/components/icons/characters"
+
+const charIcons = [PogoFox, TuniRabbit, BoboBear]
 
 export function CharactersSection() {
   return (
@@ -27,7 +31,7 @@ export function CharactersSection() {
               style={{ background: char.color }}
             />
             <motion.div
-              className="relative mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-white to-cream text-5xl shadow-soft ring-2 ring-white"
+              className="relative mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-white to-cream shadow-soft ring-2 ring-white"
               animate={{ y: [0, -8, 0] }}
               transition={{
                 duration: 3,
@@ -36,7 +40,7 @@ export function CharactersSection() {
                 delay: i * 0.3,
               }}
             >
-              {char.emoji}
+              {React.createElement(charIcons[i] || charIcons[0], { size: 56 })}
             </motion.div>
             <h3 className="font-display text-2xl font-bold" style={{ color: char.color }}>
               {char.name}

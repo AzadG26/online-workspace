@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Sparkles, Heart, Gamepad2, BookOpen, Music, Palette, Brain, Calculator, PenTool, GraduationCap } from "lucide-react"
+import { PogoFox, TuniRabbit, BoboBear } from "@/components/icons/characters"
 
 const quickLinks = [
   { label: "ABC Songs", href: "/videos?category=abc-songs" },
@@ -50,9 +51,9 @@ const legal = [
 ]
 
 const characters = [
-  { emoji: "🦊", name: "Pogo", color: "from-coral to-coral-dark" },
-  { emoji: "🐰", name: "Tuni", color: "from-purple to-purple-dark" },
-  { emoji: "🐻", name: "Bobo", color: "from-yellow to-yellow-dark" },
+  { icon: PogoFox, name: "Pogo", color: "from-coral to-coral-dark", bg: "bg-gradient-to-br from-coral/20 to-coral/5" },
+  { icon: TuniRabbit, name: "Tuni", color: "from-purple to-purple-dark", bg: "bg-gradient-to-br from-purple/20 to-purple/5" },
+  { icon: BoboBear, name: "Bobo", color: "from-yellow to-yellow-dark", bg: "bg-gradient-to-br from-yellow/20 to-yellow/5" },
 ]
 
 export function Footer() {
@@ -85,26 +86,26 @@ export function Footer() {
             viewport={{ once: true }}
             className="mb-6 flex items-center justify-center gap-4"
           >
-            {characters.map((char, i) => (
-              <motion.div
-                key={char.name}
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 * i }}
-                whileHover={{ y: -6, scale: 1.1 }}
-                className="flex flex-col items-center gap-1.5"
-              >
-                <motion.span
-                  className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br text-2xl shadow-lg"
-                  animate={{ rotate: [0, -5, 5, -3, 0] }}
-                  transition={{ repeat: Infinity, duration: 3, delay: 0.5 * i, ease: "easeInOut" }}
+              {characters.map((char, i) => (
+                <motion.div
+                  key={char.name}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 * i }}
+                  whileHover={{ y: -6, scale: 1.1 }}
+                  className="flex flex-col items-center gap-1.5"
                 >
-                  {char.emoji}
-                </motion.span>
-                <span className="font-display text-xs font-bold text-white/70">{char.name}</span>
-              </motion.div>
-            ))}
+                  <motion.div
+                    className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 shadow-lg backdrop-blur-sm"
+                    animate={{ rotate: [0, -5, 5, -3, 0] }}
+                    transition={{ repeat: Infinity, duration: 3, delay: 0.5 * i, ease: "easeInOut" }}
+                  >
+                    <char.icon size={28} className="drop-shadow-lg" />
+                  </motion.div>
+                  <span className="font-display text-xs font-bold text-white/70">{char.name}</span>
+                </motion.div>
+              ))}
           </motion.div>
 
           <motion.p

@@ -1,11 +1,16 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
+import { Star, Sparkles, Music } from "lucide-react"
 import { categories } from "@/data/content"
 import { StructuredData } from "@/components/structured-data"
 import { categorySchema, breadcrumbSchema } from "@/lib/structured-data"
+import { Rainbow, SparkleIcon } from "@/components/icons/emojis"
 
-const floatingIcons = ["⭐", "✨", "🌈", "🎵", "💫"]
+const floatingIcons: React.ComponentType<{ className?: string }>[] = [
+  Star, SparkleIcon, Rainbow, Music, Sparkles,
+]
 
 interface CategoryHeroProps {
   title: string
@@ -41,15 +46,15 @@ export function CategoryHero({ title, description, emoji, gradient, color, categ
           }}
         />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,107,107,0.06),transparent_50%)]" />
-        {floatingIcons.map((icon, i) => (
+        {floatingIcons.map((Icon, i) => (
           <motion.div
             key={i}
-            className="absolute text-2xl opacity-20 pointer-events-none"
+            className="absolute opacity-20 pointer-events-none"
             style={{ top: `${15 + i * 12}%`, left: `${i % 2 === 0 ? 5 : 90}%` }}
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
           >
-            {icon}
+            <Icon className="h-6 w-6" />
           </motion.div>
         ))}
 

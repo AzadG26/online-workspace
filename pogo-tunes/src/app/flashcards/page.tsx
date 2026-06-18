@@ -1,12 +1,13 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Shuffle, RotateCcw, ChevronLeft, ChevronRight, Play, Pause, Keyboard } from "lucide-react"
+import { Shuffle, RotateCcw, ChevronLeft, ChevronRight, Play, Pause, Keyboard, Star, Sparkles } from "lucide-react"
 import { Section } from "@/components/ui/section"
 import { abcLetters, animalData, colorData } from "@/data/content"
 import { StructuredData } from "@/components/structured-data"
 import { collectionPageSchema, breadcrumbSchema } from "@/lib/structured-data"
+import { Rainbow, SparkleIcon } from "@/components/icons/emojis"
 
 const CATEGORIES = [
   { id: "letters", label: "Letters", emoji: "🔤" },
@@ -14,7 +15,9 @@ const CATEGORIES = [
   { id: "colors", label: "Colors", emoji: "🎨" },
 ] as const
 
-const floatingIcons = ["🃏", "⭐", "🌈", "✨", "🎴", "💫"]
+const floatingIcons: React.ComponentType<{ className?: string }>[] = [
+  SparkleIcon, Star, Rainbow, Sparkles, Star, Sparkles,
+]
 
 type FlashCard = { front: string; back: string; type: string }
 
@@ -123,15 +126,15 @@ export default function FlashcardsPage() {
         ]}
       />
       <section className="relative overflow-hidden bg-gradient-to-b from-purple/10 via-cream to-white pt-24 pb-12 md:pt-32">
-        {floatingIcons.map((icon, i) => (
+        {floatingIcons.map((Icon, i) => (
           <motion.div
             key={i}
-            className="absolute text-2xl opacity-15 pointer-events-none"
+            className="absolute opacity-15 pointer-events-none"
             style={{ top: `${15 + i * 10}%`, left: `${i % 2 === 0 ? 5 : 92}%` }}
             animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
             transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
           >
-            {icon}
+            <Icon className="h-6 w-6" />
           </motion.div>
         ))}
         <div className="mx-auto max-w-7xl px-4 text-center">
