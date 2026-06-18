@@ -1,141 +1,154 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
-import { Play, Sparkles } from "lucide-react"
+import { Play, Sparkles, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export function Hero() {
-  return (
-    <section className="relative min-h-[600px] overflow-hidden bg-gradient-to-b from-cream via-cream to-white pt-24 md:pt-32">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-20 left-[10%] text-4xl opacity-20"
-          animate={{ y: [0, -20, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        >
-          ⭐
-        </motion.div>
-        <motion.div
-          className="absolute top-40 right-[15%] text-3xl opacity-20"
-          animate={{ y: [0, -15, 0] }}
-          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        >
-          🌈
-        </motion.div>
-        <motion.div
-          className="absolute bottom-32 left-[20%] text-3xl opacity-15"
-          animate={{ y: [0, -18, 0] }}
-          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        >
-          🎵
-        </motion.div>
-        <motion.div
-          className="absolute top-60 left-[60%] text-2xl opacity-15"
-          animate={{ y: [0, -12, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        >
-          ✨
-        </motion.div>
-      </div>
+const floatingShapes = [
+  { emoji: "⭐", x: "10%", y: 80, delay: 0, duration: 4 },
+  { emoji: "🌈", x: "85%", y: 120, delay: 0.5, duration: 3.5 },
+  { emoji: "🎵", x: "20%", y: 300, delay: 1, duration: 4.5 },
+  { emoji: "✨", x: "75%", y: 250, delay: 0.3, duration: 3 },
+  { emoji: "🎨", x: "90%", y: 400, delay: 0.8, duration: 3.8 },
+  { emoji: "📚", x: "5%", y: 450, delay: 1.2, duration: 4.2 },
+]
 
-      <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24">
+export function Hero() {
+  const { scrollYProgress } = useScroll()
+  const heroParallax = useTransform(scrollYProgress, [0, 0.2], [0, -40])
+
+  return (
+    <section className="relative min-h-[650px] overflow-hidden bg-gradient-to-br from-cream via-cream to-white pt-24 md:pt-32">
+      <motion.div style={{ y: heroParallax }} className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,107,107,0.08),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(178,141,255,0.08),transparent_50%)]" />
+        {floatingShapes.map((shape, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-3xl opacity-25"
+            style={{ top: shape.y, left: shape.x }}
+            animate={{ y: [0, -20, 0], rotate: [0, 5, -5, 0] }}
+            transition={{ duration: shape.duration, repeat: Infinity, ease: "easeInOut", delay: shape.delay }}
+          >
+            {shape.emoji}
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ type: "spring", stiffness: 150, damping: 20 }}
           >
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="mb-4 inline-flex items-center gap-2 rounded-full bg-coral/10 px-4 py-2"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.15, type: "spring", stiffness: 200, damping: 20 }}
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-coral/20 bg-gradient-to-r from-coral/10 to-purple/10 px-4 py-2 shadow-sm"
             >
-              <Sparkles className="h-4 w-4 text-coral" />
-              <span className="font-display text-xs font-semibold text-coral">
+              <Sparkles className="h-3.5 w-3.5 text-coral" />
+              <span className="font-display text-xs font-bold text-coral">
                 Free Educational Platform
               </span>
             </motion.div>
 
-            <h1 className="font-display text-5xl font-bold leading-tight md:text-6xl lg:text-7xl">
-              Learning is{" "}
-              <span className="text-gradient-coral">Fun</span>
+            <h1 className="font-display text-5xl font-bold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
+              <span className="text-dark">Learning is</span>{" "}
+              <span className="bg-gradient-to-r from-coral via-coral-dark to-purple bg-clip-text text-transparent">Fun</span>
               <br />
-              with <span className="text-gradient-purple">Pogo</span>{" "}
-              <span className="text-gradient-sky">&amp; Friends</span>
+              <span className="text-dark">with </span>
+              <span className="bg-gradient-to-r from-purple via-purple-dark to-sky bg-clip-text text-transparent">Pogo</span>
+              <span className="text-dark"> &amp; Friends</span>
             </h1>
 
-            <p className="mt-6 max-w-lg font-body text-lg text-gray md:text-xl">
+            <p className="mt-6 max-w-lg font-body text-lg leading-relaxed text-gray md:text-xl">
               Join Pogo, Tuni, and Bobo on an exciting learning adventure!
               Songs, games, videos, and activities — all completely free.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/videos">
                 <Button variant="coral" size="lg">
                   <Play className="h-5 w-5" /> Start Learning
                 </Button>
               </Link>
               <Link href="/abc">
-                <Button variant="outline" size="lg">
-                  Explore ABCs
+                <Button variant="white" size="lg">
+                  Explore ABCs <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
             </div>
 
-            <div className="mt-8 flex items-center gap-8">
-              <div className="text-center">
-                <p className="font-display text-2xl font-bold text-coral">500+</p>
-                <p className="font-body text-xs text-gray">Videos</p>
-              </div>
-              <div className="text-center">
-                <p className="font-display text-2xl font-bold text-purple">50+</p>
-                <p className="font-body text-xs text-gray">Games</p>
-              </div>
-              <div className="text-center">
-                <p className="font-display text-2xl font-bold text-sky">1000+</p>
-                <p className="font-body text-xs text-gray">Activities</p>
-              </div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="mt-10 flex items-center gap-8"
+            >
+              {[
+                { value: "500+", label: "Videos", color: "text-coral" },
+                { value: "50+", label: "Games", color: "text-purple" },
+                { value: "1000+", label: "Activities", color: "text-sky" },
+              ].map((stat) => (
+                <div key={stat.label} className="relative">
+                  <p className={`font-display text-2xl font-bold ${stat.color}`}>{stat.value}</p>
+                  <p className="font-body text-xs text-gray">{stat.label}</p>
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            transition={{ type: "spring", stiffness: 120, damping: 15, delay: 0.2 }}
             className="relative flex justify-center"
           >
-            <div className="relative h-[320px] w-[320px] md:h-[400px] md:w-[400px]">
+            <div className="relative h-[340px] w-[340px] md:h-[440px] md:w-[440px]">
               <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-br from-coral/20 via-yellow/20 to-purple/20"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-4 rounded-full bg-gradient-to-br from-coral/15 via-yellow/10 to-purple/15 blur-xl"
+                animate={{ scale: [1, 1.08, 1], rotate: [0, 3, -3, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="absolute inset-8 rounded-full bg-gradient-to-br from-coral/10 via-yellow/5 to-purple/10 blur-lg"
+                animate={{ scale: [1.05, 1, 1.05] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
                   <motion.div
-                    animate={{ y: [0, -10, 0] }}
+                    animate={{ y: [0, -12, 0] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    className="text-8xl md:text-9xl"
+                    className="text-8xl md:text-9xl drop-shadow-2xl"
                   >
                     🦊
                   </motion.div>
-                  <p className="mt-4 font-display text-xl font-bold text-coral">Pogo</p>
+                  <motion.p
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
+                    className="mt-4 font-display text-xl font-bold bg-gradient-to-r from-coral to-purple bg-clip-text text-transparent"
+                  >
+                    Pogo
+                  </motion.p>
                   <p className="font-body text-sm text-gray">The Energetic Explorer</p>
                 </div>
               </div>
               <motion.div
-                className="absolute -top-4 -right-4 text-5xl"
-                animate={{ rotate: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-2 -right-2 text-5xl drop-shadow-lg"
+                animate={{ y: [0, -8, 0], rotate: [0, 8, -5, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               >
                 🐰
               </motion.div>
               <motion.div
-                className="absolute -bottom-4 -left-4 text-5xl"
-                animate={{ rotate: [0, -10, 0] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute -bottom-2 -left-2 text-5xl drop-shadow-lg"
+                animate={{ y: [0, 8, 0], rotate: [0, -8, 5, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               >
                 🐻
               </motion.div>

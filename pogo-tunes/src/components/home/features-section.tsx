@@ -12,6 +12,7 @@ const features = [
     description: "Every single resource is completely free. No subscriptions, no paywalls, no hidden fees.",
     color: "text-coral",
     bg: "bg-coral/10",
+    glow: "rgba(255,107,107,0.15)",
   },
   {
     icon: Sparkles,
@@ -19,6 +20,7 @@ const features = [
     description: "Beautiful, engaging animations that captivate young learners and make concepts stick.",
     color: "text-yellow-dark",
     bg: "bg-yellow/10",
+    glow: "rgba(255,217,61,0.15)",
   },
   {
     icon: Shield,
@@ -26,6 +28,7 @@ const features = [
     description: "A completely safe, ad-free environment. No tracking, no distractions, just learning.",
     color: "text-sky-dark",
     bg: "bg-sky/10",
+    glow: "rgba(107,203,255,0.15)",
   },
   {
     icon: Music,
@@ -33,6 +36,7 @@ const features = [
     description: "Catchy educational songs that help children remember concepts through melody and rhythm.",
     color: "text-purple-dark",
     bg: "bg-purple/10",
+    glow: "rgba(178,141,255,0.15)",
   },
   {
     icon: Globe,
@@ -40,6 +44,7 @@ const features = [
     description: "Content available in multiple languages. Start with English and Hindi, with more coming!",
     color: "text-green-dark",
     bg: "bg-green/10",
+    glow: "rgba(110,231,183,0.15)",
   },
   {
     icon: Smile,
@@ -47,13 +52,14 @@ const features = [
     description: "Designed with input from educators, child psychologists, and most importantly — kids!",
     color: "text-coral",
     bg: "bg-coral/10",
+    glow: "rgba(255,107,107,0.15)",
   },
 ]
 
 export function FeaturesSection() {
   return (
     <Section
-      title="Why Parents & Teachers Love Pogo Tunes"
+      title={<span>Why Parents & Teachers <span className="bg-gradient-to-r from-coral to-purple bg-clip-text text-transparent">Love</span> Pogo Tunes</span>}
       subtitle="We believe learning should be joyful, accessible, and completely free for every child."
       className="bg-white"
     >
@@ -64,13 +70,19 @@ export function FeaturesSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.08 }}
-            whileHover={{ y: -4 }}
-            className="group rounded-2xl bg-white p-6 shadow-soft transition-all duration-300 hover:shadow-card"
+            transition={{ type: "spring", stiffness: 200, damping: 25, delay: i * 0.08 }}
+            whileHover={{ y: -5, transition: { type: "spring", stiffness: 300, damping: 20 } }}
+            className="group relative overflow-hidden rounded-2xl bg-white/70 p-6 shadow-soft backdrop-blur-xl transition-all duration-300 hover:shadow-card border border-white/50"
           >
+            <motion.div
+              className="pointer-events-none absolute -inset-1 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              style={{
+                background: `radial-gradient(600px circle at 50% 50%, ${feature.glow}, transparent 60%)`,
+              }}
+            />
             <div
               className={cn(
-                "mb-4 flex h-12 w-12 items-center justify-center rounded-xl transition-transform group-hover:scale-110",
+                "mb-4 flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg",
                 feature.bg,
               )}
             >

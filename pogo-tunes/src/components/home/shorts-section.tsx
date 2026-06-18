@@ -9,7 +9,7 @@ import { shorts } from "@/data/content"
 export function ShortsSection() {
   return (
     <Section
-      title="Quick Learning Shorts"
+      title={<span>Quick Learning <span className="bg-gradient-to-r from-purple to-sky bg-clip-text text-transparent">Shorts</span></span>}
       subtitle="Bite-sized fun for little learners!"
       className="bg-white"
     >
@@ -17,24 +17,30 @@ export function ShortsSection() {
         {shorts.map((short, i) => (
           <Link key={short.id} href={short.href} className="snap-start shrink-0">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              whileHover={{ y: -6, scale: 1.02 }}
-              className="flex h-44 w-32 flex-col items-center justify-center rounded-2xl p-4 text-center shadow-soft transition-all duration-300 hover:shadow-card md:h-52 md:w-40"
+              transition={{ type: "spring", stiffness: 200, damping: 25, delay: i * 0.05 }}
+              whileHover={{ y: -8, scale: 1.04, transition: { type: "spring", stiffness: 300, damping: 20 } }}
+              className="relative flex h-44 w-32 flex-col items-center justify-center overflow-hidden rounded-2xl p-4 text-center shadow-soft transition-all duration-300 hover:shadow-card md:h-52 md:w-40"
               style={{
-                background: `linear-gradient(135deg, ${short.color}, ${short.color}88)`,
+                background: `linear-gradient(135deg, ${short.color}, ${short.color}66)`,
               }}
             >
+              <div
+                className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-20"
+                style={{
+                  background: `radial-gradient(600px circle at 50% 50%, rgba(255,255,255,0.4), transparent 60%)`,
+                }}
+              />
               <motion.span
-                className="text-4xl md:text-5xl"
+                className="text-4xl md:text-5xl drop-shadow-lg"
                 whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
                 transition={{ duration: 0.3 }}
               >
                 {short.emoji}
               </motion.span>
-              <p className="mt-3 font-display text-sm font-bold text-white">{short.title}</p>
+              <p className="mt-3 font-display text-sm font-bold text-white drop-shadow-md">{short.title}</p>
             </motion.div>
           </Link>
         ))}
@@ -48,7 +54,7 @@ export function ShortsSection() {
       >
         <Link
           href="/shorts"
-          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple to-sky px-6 py-3 font-display text-sm font-bold text-white shadow-soft transition-all hover:shadow-card hover:scale-105"
+          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple to-sky px-6 py-3 font-display text-sm font-bold text-white shadow-soft transition-all duration-300 hover:shadow-glow-purple hover:scale-105"
         >
           View All Shorts <ArrowRight className="h-4 w-4" />
         </Link>

@@ -8,6 +8,8 @@ import { blogPosts } from "@/data/content"
 import { StructuredData } from "@/components/structured-data"
 import { collectionPageSchema, breadcrumbSchema } from "@/lib/structured-data"
 
+const floatingIcons = ["📖", "⭐", "✍️", "🌈", "📰", "✨"]
+
 export default function BlogPage() {
   return (
     <>
@@ -21,18 +23,31 @@ export default function BlogPage() {
         ]}
       />
       <section className="relative overflow-hidden bg-gradient-to-b from-purple/10 via-cream to-white pt-24 pb-12 md:pt-32">
+        {floatingIcons.map((icon, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-2xl opacity-15 pointer-events-none"
+            style={{ top: `${15 + i * 10}%`, left: `${i % 2 === 0 ? 5 : 92}%` }}
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
+          >
+            {icon}
+          </motion.div>
+        ))}
         <div className="mx-auto max-w-7xl px-4 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 150, damping: 20 }}
             className="font-display text-4xl font-bold text-dark md:text-5xl"
           >
-            Pogo Tunes <span className="text-gradient-purple">Blog</span>
+            Pogo Tunes{" "}
+            <span className="bg-gradient-to-r from-purple to-purple-dark bg-clip-text text-transparent">Blog</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.1, type: "spring", stiffness: 150, damping: 20 }}
             className="mx-auto mt-4 max-w-2xl font-body text-lg text-gray"
           >
             Learning tips, parenting guides, and educational resources.
@@ -40,7 +55,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="bg-white px-4 py-12">
+      <section className="bg-gradient-to-b from-white to-cream px-4 py-12">
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-8">
             {blogPosts.map((post, i) => (
@@ -49,12 +64,12 @@ export default function BlogPage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  whileHover={{ y: -4 }}
-                  className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-soft transition-all duration-300 hover:shadow-card md:flex-row"
+                  transition={{ type: "spring", stiffness: 200, damping: 25, delay: i * 0.08 }}
+                  whileHover={{ y: -4, transition: { type: "spring", stiffness: 300, damping: 20 } }}
+                  className="group flex flex-col overflow-hidden rounded-2xl bg-white/70 shadow-soft backdrop-blur-xl border border-white/50 transition-all duration-300 hover:shadow-card md:flex-row"
                 >
                   <div className="flex h-48 w-full shrink-0 items-center justify-center bg-gradient-to-br from-coral/10 to-purple/10 md:h-auto md:w-72">
-                    <span className="text-6xl opacity-30">📖</span>
+                    <span className="text-6xl opacity-30 drop-shadow-lg">📖</span>
                   </div>
                   <div className="flex flex-1 flex-col justify-center p-6">
                     <Badge variant={
@@ -64,7 +79,7 @@ export default function BlogPage() {
                     }>
                       {post.category}
                     </Badge>
-                    <h2 className="mt-3 font-display text-xl font-bold text-dark group-hover:text-coral transition-colors">
+                    <h2 className="mt-3 font-display text-xl font-bold text-dark transition-colors group-hover:text-coral">
                       {post.title}
                     </h2>
                     <p className="mt-2 font-body text-sm text-gray">{post.excerpt}</p>

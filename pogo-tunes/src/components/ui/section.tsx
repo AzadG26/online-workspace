@@ -1,11 +1,11 @@
 "use client"
 
-import { type HTMLAttributes, forwardRef } from "react"
+import { type HTMLAttributes, type ReactNode, forwardRef } from "react"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
-interface SectionProps extends HTMLAttributes<HTMLElement> {
-  title?: string
+interface SectionProps extends Omit<HTMLAttributes<HTMLElement>, "title"> {
+  title?: ReactNode
   subtitle?: string
   gradient?: boolean
   wave?: "top" | "bottom" | "both"

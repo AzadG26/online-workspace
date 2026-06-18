@@ -1,10 +1,9 @@
 "use client"
 
-import { useState, useEffect, useCallback, useMemo, type Dispatch, type SetStateAction } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Shuffle, RotateCcw, ChevronLeft, ChevronRight, Play, Pause, Keyboard } from "lucide-react"
 import { Section } from "@/components/ui/section"
-import { Button } from "@/components/ui/button"
 import { abcLetters, animalData, colorData } from "@/data/content"
 import { StructuredData } from "@/components/structured-data"
 import { collectionPageSchema, breadcrumbSchema } from "@/lib/structured-data"
@@ -14,6 +13,8 @@ const CATEGORIES = [
   { id: "animals", label: "Animals", emoji: "🐾" },
   { id: "colors", label: "Colors", emoji: "🎨" },
 ] as const
+
+const floatingIcons = ["🃏", "⭐", "🌈", "✨", "🎴", "💫"]
 
 type FlashCard = { front: string; back: string; type: string }
 
@@ -122,18 +123,30 @@ export default function FlashcardsPage() {
         ]}
       />
       <section className="relative overflow-hidden bg-gradient-to-b from-purple/10 via-cream to-white pt-24 pb-12 md:pt-32">
+        {floatingIcons.map((icon, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-2xl opacity-15 pointer-events-none"
+            style={{ top: `${15 + i * 10}%`, left: `${i % 2 === 0 ? 5 : 92}%` }}
+            animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
+            transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
+          >
+            {icon}
+          </motion.div>
+        ))}
         <div className="mx-auto max-w-7xl px-4 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 150, damping: 20 }}
             className="font-display text-4xl font-bold text-dark md:text-5xl"
           >
-            <span className="text-gradient-purple">Flashcards</span>
+            <span className="bg-gradient-to-r from-purple to-purple-dark bg-clip-text text-transparent">Flashcards</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.1, type: "spring", stiffness: 150, damping: 20 }}
             className="mx-auto mt-4 max-w-2xl font-body text-lg text-gray"
           >
             Flip cards to learn letters, animals, and more!
@@ -141,17 +154,17 @@ export default function FlashcardsPage() {
         </div>
       </section>
 
-      <Section className="bg-white">
+      <Section className="bg-gradient-to-b from-white to-cream">
         <div className="mx-auto flex max-w-md flex-col items-center">
           <div className="mb-6 flex flex-wrap justify-center gap-2">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => changeCategory(cat.id)}
-                className={`rounded-full px-5 py-2 font-display text-sm font-bold transition-all ${
+                className={`rounded-full px-5 py-2 font-display text-sm font-bold transition-all duration-300 ${
                   category === cat.id
-                    ? "bg-purple text-white shadow-glow-purple"
-                    : "bg-cream text-gray hover:bg-purple/10"
+                    ? "bg-gradient-to-r from-purple to-purple-dark text-white shadow-glow-purple"
+                    : "bg-white/70 border border-white/50 text-gray shadow-soft backdrop-blur-xl hover:bg-purple/10 hover:text-purple"
                 }`}
               >
                 {cat.emoji} {cat.label}
@@ -162,24 +175,24 @@ export default function FlashcardsPage() {
           <div className="mb-6 flex items-center gap-4">
             <button
               onClick={shuffle}
-              className="flex items-center gap-2 rounded-full bg-cream px-4 py-2 font-display text-sm font-semibold text-gray transition-all hover:bg-purple/10 hover:text-purple"
+              className="flex items-center gap-2 rounded-full bg-white/70 border border-white/50 px-4 py-2 font-display text-sm font-semibold text-gray shadow-soft backdrop-blur-xl transition-all hover:bg-purple/10 hover:text-purple"
               aria-label="Shuffle cards"
             >
               <Shuffle className="h-4 w-4" /> Shuffle
             </button>
             <button
               onClick={reset}
-              className="flex items-center gap-2 rounded-full bg-cream px-4 py-2 font-display text-sm font-semibold text-gray transition-all hover:bg-coral/10 hover:text-coral"
+              className="flex items-center gap-2 rounded-full bg-white/70 border border-white/50 px-4 py-2 font-display text-sm font-semibold text-gray shadow-soft backdrop-blur-xl transition-all hover:bg-coral/10 hover:text-coral"
               aria-label="Reset cards"
             >
               <RotateCcw className="h-4 w-4" /> Reset
             </button>
             <button
               onClick={toggleAutoPlay}
-              className={`flex items-center gap-2 rounded-full px-4 py-2 font-display text-sm font-semibold transition-all ${
+              className={`flex items-center gap-2 rounded-full px-4 py-2 font-display text-sm font-semibold transition-all duration-300 ${
                 isAutoPlaying
-                  ? "bg-purple text-white shadow-glow-purple"
-                  : "bg-cream text-gray hover:bg-purple/10"
+                  ? "bg-gradient-to-r from-purple to-purple-dark text-white shadow-glow-purple"
+                  : "bg-white/70 border border-white/50 text-gray shadow-soft backdrop-blur-xl hover:bg-purple/10 hover:text-purple"
               }`}
               aria-label={isAutoPlaying ? "Pause auto-play" : "Start auto-play"}
             >
@@ -204,15 +217,25 @@ export default function FlashcardsPage() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex + (isFlipped ? "-flipped" : "")}
-                initial={{ opacity: 0, scale: 0.8, rotateY: isFlipped ? 180 : 0 }}
+                initial={{ opacity: 0, scale: 0.85, rotateY: isFlipped ? 180 : 0 }}
                 animate={{ opacity: 1, scale: 1, rotateY: isFlipped ? 180 : 0 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.3 }}
-                className="flex h-full w-full flex-col items-center justify-center rounded-3xl bg-gradient-to-br from-purple/10 to-coral/10 p-8 text-center shadow-card"
+                exit={{ opacity: 0, scale: 0.85 }}
+                transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                className="relative flex h-full w-full flex-col items-center justify-center rounded-3xl bg-white/70 p-8 text-center shadow-card backdrop-blur-xl border border-white/50"
                 style={{ transformStyle: "preserve-3d" }}
               >
-                <span className="text-6xl md:text-7xl">{isFlipped ? current.back : current.front}</span>
-                <p className="mt-4 font-display text-sm text-gray">
+                <motion.div
+                  className="pointer-events-none absolute -inset-4 rounded-3xl opacity-30 blur-2xl"
+                  style={{
+                    background: isFlipped
+                      ? "linear-gradient(135deg, rgba(178,141,255,0.2), rgba(255,107,107,0.2))"
+                      : "linear-gradient(135deg, rgba(255,217,61,0.2), rgba(107,203,255,0.2))",
+                  }}
+                  animate={{ opacity: [0.2, 0.4, 0.2] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <span className="relative text-6xl md:text-7xl drop-shadow-lg">{isFlipped ? current.back : current.front}</span>
+                <p className="relative mt-4 font-display text-sm text-gray">
                   {isFlipped ? "Tap to flip back" : "Tap to flip"}
                 </p>
               </motion.div>
@@ -222,24 +245,24 @@ export default function FlashcardsPage() {
           <div className="mt-6 flex items-center gap-6">
             <button
               onClick={prev}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-soft transition-all hover:shadow-card"
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-white/70 border border-white/50 shadow-soft backdrop-blur-xl transition-all hover:shadow-card"
               aria-label="Previous card"
             >
-              <ChevronLeft className="h-5 w-5" />
+              <ChevronLeft className="h-5 w-5 text-gray" />
             </button>
             <span className="font-display text-sm font-bold text-gray" aria-live="polite">
               {currentIndex + 1} / {cards.length}
             </span>
             <button
               onClick={next}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-soft transition-all hover:shadow-card"
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-white/70 border border-white/50 shadow-soft backdrop-blur-xl transition-all hover:shadow-card"
               aria-label="Next card"
             >
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-5 w-5 text-gray" />
             </button>
           </div>
 
-          <div className="mt-4 flex items-center gap-2 font-body text-xs text-gray">
+          <div className="mt-4 flex items-center gap-2 font-body text-xs text-gray/60">
             <Keyboard className="h-3 w-3" /> Use ← → arrows to navigate, Space to flip
           </div>
         </div>

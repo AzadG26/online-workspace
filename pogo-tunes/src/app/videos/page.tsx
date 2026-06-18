@@ -8,6 +8,10 @@ import { featuredVideos, categories } from "@/data/content"
 import { StructuredData } from "@/components/structured-data"
 import { collectionPageSchema, breadcrumbSchema } from "@/lib/structured-data"
 
+const floatingIcons = ["🎵", "⭐", "🌈", "✨", "🎶", "💫"]
+
+const emojiMap = ["🔤", "🔢", "🐾", "🎨", "🕉️", "🔷", "🍎", "🐶"]
+
 export default function VideosPage() {
   return (
     <>
@@ -21,18 +25,31 @@ export default function VideosPage() {
         ]}
       />
       <section className="relative overflow-hidden bg-gradient-to-b from-coral/10 via-cream to-white pt-24 pb-12 md:pt-32">
+        {floatingIcons.map((icon, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-2xl opacity-15 pointer-events-none"
+            style={{ top: `${15 + i * 10}%`, left: `${i % 2 === 0 ? 5 : 92}%` }}
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
+          >
+            {icon}
+          </motion.div>
+        ))}
         <div className="mx-auto max-w-7xl px-4 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 150, damping: 20 }}
             className="font-display text-4xl font-bold text-dark md:text-5xl"
           >
-            Learning <span className="text-gradient-coral">Videos</span>
+            Learning{" "}
+            <span className="bg-gradient-to-r from-coral to-purple bg-clip-text text-transparent">Videos</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.1, type: "spring", stiffness: 150, damping: 20 }}
             className="mx-auto mt-4 max-w-2xl font-body text-lg text-gray"
           >
             Sing, dance, and learn with hundreds of educational videos!
@@ -43,14 +60,14 @@ export default function VideosPage() {
       <section className="bg-white px-4 py-12">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-wrap gap-3">
-            <button className="rounded-full bg-coral px-5 py-2 font-display text-sm font-bold text-white">
+            <button className="rounded-full bg-gradient-to-r from-coral to-purple px-5 py-2 font-display text-sm font-bold text-white shadow-soft">
               All
             </button>
             {categories.slice(0, 6).map((cat) => (
               <Link
                 key={cat.id}
                 href={cat.href}
-                className="rounded-full bg-cream px-5 py-2 font-display text-sm font-semibold text-gray transition-all hover:bg-coral/10 hover:text-coral"
+                className="rounded-full bg-white/70 border border-white/50 px-5 py-2 font-display text-sm font-semibold text-gray shadow-soft backdrop-blur-xl transition-all hover:bg-gradient-to-r hover:from-coral hover:to-purple hover:text-white hover:shadow-glow-coral"
               >
                 {cat.emoji} {cat.title}
               </Link>
@@ -64,29 +81,30 @@ export default function VideosPage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  whileHover={{ y: -6 }}
-                  className="group cursor-pointer overflow-hidden rounded-2xl bg-white shadow-soft transition-all duration-300 hover:shadow-card"
+                  transition={{ type: "spring", stiffness: 200, damping: 25, delay: i * 0.05 }}
+                  whileHover={{ y: -6, transition: { type: "spring", stiffness: 300, damping: 20 } }}
+                  className="group relative overflow-hidden rounded-2xl bg-white/70 shadow-soft backdrop-blur-xl transition-all duration-300 hover:shadow-card border border-white/50"
                 >
                   <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-coral/10 to-purple/10">
                     <div className="flex h-full items-center justify-center">
-                      <span className="text-5xl opacity-30">
-                        {["🔤", "🔢", "🐾", "🎨", "🕉️", "🔷", "🍎", "🐶"][i]}
-                      </span>
+                      <span className="text-5xl opacity-30">{emojiMap[i % emojiMap.length]}</span>
                     </div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-coral text-white shadow-glow-coral transition-all group-hover:scale-110">
+                    <motion.div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all group-hover:bg-black/10">
+                      <motion.div
+                        whileHover={{ scale: 1.15 }}
+                        className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-coral to-coral-dark text-white shadow-glow-coral"
+                      >
                         <Play className="ml-0.5 h-5 w-5" />
-                      </div>
-                    </div>
-                    <div className="absolute bottom-3 right-3 rounded-full bg-black/60 px-2.5 py-1">
+                      </motion.div>
+                    </motion.div>
+                    <div className="absolute bottom-3 right-3 rounded-full bg-black/50 backdrop-blur-sm px-2.5 py-1">
                       <span className="flex items-center gap-1 font-display text-xs text-white">
                         <Clock className="h-3 w-3" /> {video.duration}
                       </span>
                     </div>
                   </div>
                   <div className="p-4">
-                    <h3 className="font-display text-sm font-bold text-dark line-clamp-2 group-hover:text-coral transition-colors">
+                    <h3 className="font-display text-sm font-bold text-dark line-clamp-2 transition-colors group-hover:text-coral">
                       {video.title}
                     </h3>
                     <div className="mt-2 flex items-center gap-3">
@@ -127,7 +145,7 @@ export default function VideosPage() {
             href="https://www.youtube.com/@Pogotunes?sub_confirmation=1"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-3 rounded-full bg-coral px-8 py-4 font-display text-lg font-bold text-white shadow-soft transition-all hover:shadow-glow-coral hover:scale-105"
+            className="mt-6 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-coral to-purple px-8 py-4 font-display text-lg font-bold text-white shadow-soft transition-all hover:shadow-glow-coral hover:scale-105"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white">
               <Play className="h-4 w-4 fill-coral text-coral" />

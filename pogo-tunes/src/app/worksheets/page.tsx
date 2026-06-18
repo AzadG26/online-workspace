@@ -319,17 +319,29 @@ export default function WorksheetsPage() {
         ]}
       />
       <section className="relative overflow-hidden bg-gradient-to-b from-green/10 via-cream to-white pt-24 pb-12 md:pt-32">
+        {["📝", "⭐", "✏️", "🌈", "📄", "✨"].map((icon, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-2xl opacity-15 pointer-events-none"
+            style={{ top: `${15 + i * 10}%`, left: `${i % 2 === 0 ? 5 : 92}%` }}
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
+          >
+            {icon}
+          </motion.div>
+        ))}
         <div className="mx-auto max-w-7xl px-4 text-center">
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-display text-4xl font-bold text-dark md:text-5xl">
-            Free <span className="text-gradient-green">Worksheets</span>
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", stiffness: 150, damping: 20 }} className="font-display text-4xl font-bold text-dark md:text-5xl">
+            Free{" "}
+            <span className="bg-gradient-to-r from-green to-green-dark bg-clip-text text-transparent">Worksheets</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mx-auto mt-4 max-w-2xl font-body text-lg text-gray">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, type: "spring", stiffness: 150, damping: 20 }} className="mx-auto mt-4 max-w-2xl font-body text-lg text-gray">
             {Object.values(worksheetData).reduce((sum, c) => sum + c.sheets.length, 0)} printable worksheets across {Object.keys(worksheetData).length} categories!
           </motion.p>
         </div>
       </section>
 
-      <Section className="bg-white">
+      <Section className="bg-gradient-to-b from-white to-cream">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {Object.entries(worksheetData).map(([catKey, data], i) => (
             <motion.div
@@ -337,25 +349,25 @@ export default function WorksheetsPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="overflow-hidden rounded-2xl bg-white shadow-soft transition-all duration-300 hover:shadow-card"
+              transition={{ type: "spring", stiffness: 200, damping: 25, delay: i * 0.05 }}
+              className="group overflow-hidden rounded-2xl bg-white/70 shadow-soft backdrop-blur-xl border border-white/50 transition-all duration-300 hover:shadow-card"
             >
               <div
                 className="flex items-center justify-center p-8"
                 style={{ background: `linear-gradient(135deg, ${data.color}15, ${data.color}08)` }}
               >
-                <span className="text-6xl">{data.emoji}</span>
+                <span className="text-6xl drop-shadow-lg">{data.emoji}</span>
               </div>
               <div className="p-5">
                 <h3 className="font-display text-lg font-bold text-dark">{catKey} Worksheets</h3>
                 <p className="mt-1 font-body text-sm text-gray">{data.sheets.length} sheets available</p>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {data.sheets.map((s, si) => (
-                    <span key={si} className={`rounded-full px-2.5 py-0.5 font-display text-[10px] font-semibold ${
-                      s.type === "tracing" ? "bg-coral/10 text-coral" :
-                      s.type === "coloring" ? "bg-green/10 text-green-dark" :
-                      s.type === "matching" ? "bg-purple/10 text-purple-dark" :
-                      "bg-yellow/10 text-yellow-dark"
+                    <span key={si} className={`rounded-full px-2.5 py-0.5 font-display text-[10px] font-semibold backdrop-blur-sm ${
+                      s.type === "tracing" ? "bg-coral/15 text-coral" :
+                      s.type === "coloring" ? "bg-green/15 text-green-dark" :
+                      s.type === "matching" ? "bg-purple/15 text-purple-dark" :
+                      "bg-yellow/15 text-yellow-dark"
                     }`}>
                       {s.type === "tracing" ? "✏️" : s.type === "coloring" ? "🎨" : s.type === "matching" ? "🔗" : "🔢"} {s.type}
                     </span>
@@ -363,29 +375,29 @@ export default function WorksheetsPage() {
                 </div>
                 <div className="mt-4 space-y-2">
                   {data.sheets.slice(0, 3).map((s, si) => (
-                    <div key={si} className="flex items-center gap-2">
-                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cream">
-                        <span className="text-xs">{si + 1}</span>
+                    <div key={si} className="flex items-center gap-2 group/item">
+                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/70 border border-white/50 backdrop-blur-sm">
+                        <span className="text-xs font-bold text-gray">{si + 1}</span>
                       </div>
                       <span className="flex-1 font-body text-xs text-gray truncate">{s.name}</span>
                       <div className="flex gap-1">
                         <button
                           onClick={() => setPreview({ cat: catKey, sheet: si })}
-                          className="flex h-7 w-7 items-center justify-center rounded-lg bg-cream text-gray/60 hover:bg-coral/10 hover:text-coral transition-all"
+                          className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/70 border border-white/50 text-gray/60 backdrop-blur-sm hover:bg-coral/15 hover:text-coral hover:border-coral/30 transition-all"
                           title="Preview"
                         >
                           <Eye className="h-3.5 w-3.5" />
                         </button>
                         <button
                           onClick={() => handleDownload(catKey, si)}
-                          className="flex h-7 w-7 items-center justify-center rounded-lg bg-cream text-gray/60 hover:bg-green/10 hover:text-green-dark transition-all"
+                          className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/70 border border-white/50 text-gray/60 backdrop-blur-sm hover:bg-green/15 hover:text-green-dark hover:border-green/30 transition-all"
                           title="Download"
                         >
                           <Download className="h-3.5 w-3.5" />
                         </button>
                         <button
                           onClick={() => handlePrint(catKey, si)}
-                          className="flex h-7 w-7 items-center justify-center rounded-lg bg-cream text-gray/60 hover:bg-purple/10 hover:text-purple-dark transition-all"
+                          className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/70 border border-white/50 text-gray/60 backdrop-blur-sm hover:bg-purple/15 hover:text-purple-dark hover:border-purple/30 transition-all"
                           title="Print"
                         >
                           <Printer className="h-3.5 w-3.5" />
@@ -437,11 +449,11 @@ export default function WorksheetsPage() {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
                 onClick={(e) => e.stopPropagation()}
-                className="relative max-h-[80vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-6 shadow-card"
+                className="relative max-h-[80vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white/90 p-6 shadow-card backdrop-blur-xl border border-white/50"
               >
                 <button
                   onClick={() => setPreview(null)}
-                  className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-cream text-gray hover:bg-coral/10 hover:text-coral"
+                  className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/70 border border-white/50 text-gray backdrop-blur-sm hover:bg-coral/15 hover:text-coral"
                 >
                   <X className="h-4 w-4" />
                 </button>

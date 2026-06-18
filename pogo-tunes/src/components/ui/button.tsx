@@ -6,7 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-full font-display font-semibold transition-all duration-300 active:scale-95 cursor-pointer select-none",
+  "inline-flex items-center justify-center gap-2 rounded-full font-display font-semibold transition-all duration-300 active:scale-90 cursor-pointer select-none relative overflow-hidden group",
   {
     variants: {
       variant: {
@@ -17,7 +17,7 @@ const buttonVariants = cva(
         green: "bg-green text-dark hover:bg-green-dark shadow-md hover:shadow-glow-green",
         outline: "border-2 border-coral text-coral hover:bg-coral hover:text-white",
         ghost: "text-dark hover:bg-cream",
-        white: "bg-white text-dark hover:bg-cream shadow-md",
+        white: "bg-white text-dark hover:bg-cream shadow-md hover:shadow-card",
       },
       size: {
         sm: "px-4 py-2 text-sm",

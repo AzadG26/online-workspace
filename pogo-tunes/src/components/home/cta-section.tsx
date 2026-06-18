@@ -2,23 +2,32 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Play, ArrowRight } from "lucide-react"
+import { Play, ArrowRight, Sparkles, Music } from "lucide-react"
 import { Button } from "@/components/ui/button"
+
+const particles = Array.from({ length: 8 }, (_, i) => ({
+  emoji: ["⭐", "🎵", "🌈", "✨", "🎨", "💫", "🌟", "🎶"][i],
+  x: `${10 + (i * 10)}%`,
+  y: `${20 + (i % 4) * 15}%`,
+  delay: i * 0.4,
+  size: 20 + (i % 3) * 10,
+}))
 
 export function CTASection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-coral via-purple to-sky py-20">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute -top-10 -left-10 h-40 w-40 rounded-full bg-white/5"
-          animate={{ scale: [1, 1.2, 1], rotate: [0, 45, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute -bottom-10 -right-10 h-60 w-60 rounded-full bg-white/5"
-          animate={{ scale: [1.2, 1, 1.2] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
+        {particles.map((p, i) => (
+          <motion.div
+            key={i}
+            className="absolute opacity-20"
+            style={{ left: p.x, top: p.y, fontSize: p.size }}
+            animate={{ y: [0, -15, 0], rotate: [0, 10, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: p.delay }}
+          >
+            {p.emoji}
+          </motion.div>
+        ))}
       </div>
 
       <div className="relative mx-auto max-w-4xl px-4 text-center">
@@ -26,18 +35,18 @@ export function CTASection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ type: "spring", stiffness: 150, damping: 20 }}
         >
           <motion.div
             className="mb-6 text-6xl"
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ y: [0, -8, 0], rotate: [0, 5, -5, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
           >
             🎵
           </motion.div>
 
-          <h2 className="font-display text-3xl font-bold text-white md:text-5xl">
-            Join Our Learning Community!
+          <h2 className="font-display text-3xl font-bold text-white md:text-5xl drop-shadow-sm">
+            Join Our Learning <span className="text-yellow">Community</span>!
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-white/80">
@@ -54,7 +63,7 @@ export function CTASection() {
               <Button
                 variant="white"
                 size="lg"
-                className="gap-3"
+                className="gap-3 shadow-xl hover:shadow-2xl"
               >
                 <Play className="h-6 w-6 text-coral" />
                 Subscribe on YouTube
@@ -64,16 +73,30 @@ export function CTASection() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-dark"
+                className="border-white/80 text-white hover:bg-white hover:text-dark backdrop-blur-sm"
               >
                 Browse Videos <ArrowRight className="h-5 w-5" />
               </Button>
             </Link>
           </div>
 
-          <p className="mt-6 font-body text-sm text-white/60">
-            500+ videos and growing • 100% free • No ads • No signup required
-          </p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mt-8 flex items-center justify-center gap-6"
+          >
+            {[
+              { icon: Music, text: "500+ videos" },
+              { icon: Sparkles, text: "100% free" },
+              { icon: Sparkles, text: "No ads" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-2 text-white/60">
+                <item.icon className="h-3.5 w-3.5" />
+                <span className="font-body text-xs">{item.text}</span>
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>

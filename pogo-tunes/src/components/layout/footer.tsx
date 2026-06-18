@@ -2,84 +2,135 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Play, Camera, Globe, PinIcon, ExternalLink, Globe2, BookOpen, Zap } from "lucide-react"
-import { categories, characters } from "@/data/content"
-
-const socialLinks = [
-  { label: "YouTube", icon: Play, href: "https://www.youtube.com/@Pogotunes", color: "hover:text-coral" },
-  { label: "Instagram", icon: Camera, href: "https://www.instagram.com/pogo.tunes/", color: "hover:text-purple" },
-  { label: "Facebook", icon: Globe, href: "https://www.facebook.com/profile.php?id=61590129552207", color: "hover:text-sky" },
-  { label: "Pinterest", icon: PinIcon, href: "https://in.pinterest.com/pogotunes/", color: "hover:text-coral" },
-  { label: "Twitter", icon: ExternalLink, href: "https://x.com/pogotunes", color: "hover:text-dark" },
-]
-
-const platformLinks = [
-  { label: "Main Site", href: "https://pogotunes.netlify.app", icon: Globe2 },
-  { label: "Vercel", href: "https://pogotunes.vercel.app", icon: Zap },
-  { label: "Blogger Blog", href: "https://pogotunes.blogspot.com", icon: BookOpen },
-]
+import { Sparkles, Heart, Gamepad2, BookOpen, Music, Palette, Brain, Calculator, PenTool, GraduationCap } from "lucide-react"
 
 const quickLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Contact", href: "/contact" },
-  { label: "Blog", href: "/blog" },
-  { label: "Games", href: "/games" },
-  { label: "Worksheets", href: "/worksheets" },
-  { label: "Flashcards", href: "/flashcards" },
+  { label: "ABC Songs", href: "/videos?category=abc-songs" },
+  { label: "Counting", href: "/videos?category=counting-numbers" },
+  { label: "Phonics", href: "/videos?category=phonics" },
+  { label: "Colors", href: "/colors" },
+  { label: "Animals", href: "/videos?category=animals" },
+  { label: "Shapes", href: "/shapes" },
 ]
 
+const playLinks = [
+  { label: "Memory Match", href: "/games/memory-match" },
+  { label: "Alphabet Puzzle", href: "/games/alphabet-puzzle" },
+  { label: "Color Sort", href: "/games/color-sort" },
+  { label: "Number Match", href: "/games/number-match" },
+  { label: "Music Maker", href: "/music" },
+  { label: "Math Practice", href: "/math" },
+]
 
-const legalLinks = [
+const learnLinks = [
+  { label: "Tracing", href: "/tracing" },
+  { label: "Spelling Bee", href: "/spelling-bee" },
+  { label: "Tell Time", href: "/tell-time" },
+  { label: "Word Builder", href: "/word-builder" },
+  { label: "Opposites", href: "/opposites" },
+  { label: "Daily Challenge", href: "/daily-challenge" },
+]
+
+const platforms = [
+  { label: "YouTube", href: "https://youtube.com/@Pogotunes" },
+  { label: "Instagram", href: "https://instagram.com/pogotunes" },
+  { label: "Facebook", href: "https://facebook.com/pogotunes" },
+  { label: "Twitter / X", href: "https://x.com/pogotunes" },
+  { label: "Pinterest", href: "https://pinterest.com/pogotunes" },
+  { label: "TikTok", href: "https://tiktok.com/@pogotunes" },
+]
+
+const legal = [
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Use", href: "/terms" },
+  { label: "Cookie Policy", href: "/cookies" },
   { label: "DMCA", href: "/dmca" },
-  { label: "Cookie Policy", href: "/cookie-policy" },
   { label: "Disclaimer", href: "/disclaimer" },
+  { label: "Contact Us", href: "/contact" },
+]
+
+const characters = [
+  { emoji: "🦊", name: "Pogo", color: "from-coral to-coral-dark" },
+  { emoji: "🐰", name: "Tuni", color: "from-purple to-purple-dark" },
+  { emoji: "🐻", name: "Bobo", color: "from-yellow to-yellow-dark" },
 ]
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-b from-cream to-white pt-16 pb-8">
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-coral via-yellow via-sky via-purple to-green" />
+    <footer className="relative mt-20 overflow-hidden bg-gradient-to-b from-dark to-dark/95">
+      <div className="absolute top-0 left-0 right-0 h-24 overflow-hidden">
+        <svg viewBox="0 0 1440 120" className="h-full w-full" preserveAspectRatio="none">
+          <motion.path
+            d="M0,40 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z"
+            fill="url(#wave-grad)"
+            initial={{ translateY: 0 }}
+            animate={{ translateY: [-2, 2, -2] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+          />
+          <defs>
+            <linearGradient id="wave-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#FF6B6B" stopOpacity={0.3} />
+              <stop offset="50%" stopColor="#B28DFF" stopOpacity={0.3} />
+              <stop offset="100%" stopColor="#6EE7B7" stopOpacity={0.3} />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
 
-      <div className="mx-auto max-w-7xl px-4">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
-          <div>
-            <Link href="/" className="inline-flex items-center gap-2">
-              <span className="font-display text-2xl font-bold">
-                <span className="text-coral">Pogo</span> <span className="text-purple">Tunes</span>
-              </span>
-            </Link>
-            <p className="mt-4 font-body text-sm text-gray leading-relaxed">
-              Making learning fun and accessible for every child. Free educational content for kids worldwide.
-            </p>
-            <div className="mt-6 flex gap-3">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  className={`flex h-10 w-10 items-center justify-center rounded-full bg-white text-gray shadow-soft transition-colors ${social.color}`}
-                  aria-label={social.label}
+      <div className="relative mx-auto max-w-7xl px-4 pt-20 pb-8">
+        <div className="mb-12 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-6 flex items-center justify-center gap-4"
+          >
+            {characters.map((char, i) => (
+              <motion.div
+                key={char.name}
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 * i }}
+                whileHover={{ y: -6, scale: 1.1 }}
+                className="flex flex-col items-center gap-1.5"
+              >
+                <motion.span
+                  className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br text-2xl shadow-lg"
+                  animate={{ rotate: [0, -5, 5, -3, 0] }}
+                  transition={{ repeat: Infinity, duration: 3, delay: 0.5 * i, ease: "easeInOut" }}
                 >
-                  <social.icon className="h-5 w-5" />
-                </motion.a>
-              ))}
-            </div>
-          </div>
+                  {char.emoji}
+                </motion.span>
+                <span className="font-display text-xs font-bold text-white/70">{char.name}</span>
+              </motion.div>
+            ))}
+          </motion.div>
 
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mx-auto max-w-lg font-body text-sm leading-relaxed text-white/50"
+          >
+            Pogo Tunes makes learning fun with educational songs, games, and activities for toddlers and preschoolers. Free and ad-free — learning through play!
+          </motion.p>
+        </div>
+
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h4 className="font-display text-lg font-bold text-dark">Quick Links</h4>
-            <ul className="mt-4 space-y-3">
+            <h3 className="mb-4 flex items-center gap-2 font-display text-sm font-bold uppercase tracking-wider text-coral">
+              <Sparkles className="h-3.5 w-3.5" />
+              Quick Videos
+            </h3>
+            <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="font-body text-sm text-gray transition-colors hover:text-coral"
+                    className="group font-body text-sm text-white/50 transition-all hover:text-white"
                   >
-                    {link.label}
+                    <span className="inline-block transition-transform group-hover:translate-x-1">{link.label}</span>
                   </Link>
                 </li>
               ))}
@@ -87,78 +138,107 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display text-lg font-bold text-dark">Our Platforms</h4>
-            <ul className="mt-4 space-y-3">
-              {platformLinks.map((link) => (
+            <h3 className="mb-4 flex items-center gap-2 font-display text-sm font-bold uppercase tracking-wider text-yellow">
+              <Gamepad2 className="h-3.5 w-3.5" />
+              Play & Learn
+            </h3>
+            <ul className="space-y-2">
+              {playLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="group font-body text-sm text-white/50 transition-all hover:text-white"
+                  >
+                    <span className="inline-block transition-transform group-hover:translate-x-1">{link.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-4 flex items-center gap-2 font-display text-sm font-bold uppercase tracking-wider text-purple">
+              <GraduationCap className="h-3.5 w-3.5" />
+              Activities
+            </h3>
+            <ul className="space-y-2">
+              {learnLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="group font-body text-sm text-white/50 transition-all hover:text-white"
+                  >
+                    <span className="inline-block transition-transform group-hover:translate-x-1">{link.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-4 flex items-center gap-2 font-display text-sm font-bold uppercase tracking-wider text-green">
+              <Music className="h-3.5 w-3.5" />
+              Follow Us
+            </h3>
+            <ul className="space-y-2">
+              {platforms.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 font-body text-sm text-gray transition-colors hover:text-coral"
+                    className="group font-body text-sm text-white/50 transition-all hover:text-white"
                   >
-                    <link.icon className="h-4 w-4" />
-                    {link.label}
+                    <span className="inline-block transition-transform group-hover:translate-x-1">{link.label}</span>
+                    <span className="ml-1.5 opacity-0 transition-opacity group-hover:opacity-100">↗</span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
-
-          <div>
-            <h4 className="font-display text-lg font-bold text-dark">Learning Categories</h4>
-            <ul className="mt-4 space-y-3">
-              {categories.slice(0, 6).map((cat) => (
-                <li key={cat.id}>
-                  <Link
-                    href={cat.href}
-                    className="flex items-center gap-2 font-body text-sm text-gray transition-colors hover:text-coral"
-                  >
-                    <span>{cat.emoji}</span>
-                    {cat.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-display text-lg font-bold text-dark">Meet Our Characters</h4>
-            <ul className="mt-4 space-y-4">
-              {characters.map((char) => (
-                <li key={char.name} className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-lg shadow-soft">
-                    {char.emoji}
-                  </span>
-                  <div>
-                    <p className="font-display text-sm font-bold text-dark">{char.name}</p>
-                    <p className="font-body text-xs text-gray">{char.role}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-cream-dark">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="font-body text-sm text-gray">
-              &copy; {new Date().getFullYear()} Pogo Tunes. All rights reserved. | Made with{" "}
-              <span className="text-coral">❤️</span> for kids everywhere
-            </p>
-            <div className="flex flex-wrap gap-4">
-              {legalLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="font-body text-xs text-gray transition-colors hover:text-coral"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
+        <div className="mt-12 flex flex-wrap justify-center gap-2">
+          {legal.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="rounded-full px-3.5 py-1.5 font-body text-[11px] text-white/30 transition-all hover:bg-white/5 hover:text-white/60"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-6 flex flex-col items-center gap-3 border-t border-white/5 pt-6 text-center"
+        >
+          <div className="flex items-center gap-2 text-sm text-white/30">
+            <Heart className="h-3.5 w-3.5 text-coral" />
+            <span className="font-body">
+              Made with love for little learners worldwide
+            </span>
+            <Heart className="h-3.5 w-3.5 text-coral" />
+          </div>
+          <p className="font-body text-xs text-white/20">
+            © {new Date().getFullYear()} Pogo Tunes. Free educational content for everyone.
+          </p>
+        </motion.div>
+      </div>
+
+      <div className="relative h-1.5 w-full overflow-hidden bg-dark">
+        <motion.div
+          className="absolute inset-y-0 left-0 w-1/4 rounded-full"
+          style={{
+            background: "linear-gradient(90deg, #FF6B6B, #FFD93D, #6BCBFF, #B28DFF, #6EE7B7, #FF6B6B)",
+            backgroundSize: "200% 100%",
+          }}
+          animate={{ left: ["-25%", "100%"] }}
+          transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+        />
       </div>
     </footer>
   )

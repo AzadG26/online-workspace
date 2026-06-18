@@ -10,24 +10,40 @@ interface CardProps {
   gradient?: string
   hover?: boolean
   delay?: number
+  glass?: boolean
+  glow?: "coral" | "purple" | "sky" | "yellow" | "green"
   style?: React.CSSProperties
 }
 
-function Card({ className, gradient, hover = true, delay = 0, style, children }: CardProps) {
+function Card({ className, gradient, hover = true, delay = 0, glass, glow, style, children }: CardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay, ease: "easeOut" }}
-      whileHover={hover ? { y: -4, transition: { duration: 0.2 } } : undefined}
+      transition={{ type: "spring", stiffness: 200, damping: 25, delay }}
+      whileHover={hover ? { y: -5, transition: { type: "spring", stiffness: 300, damping: 20 } } : undefined}
       className={cn(
-        "rounded-2xl bg-white p-6 shadow-soft transition-shadow duration-300",
-        hover && "cursor-pointer hover:shadow-card",
+        "rounded-2xl p-6 transition-all duration-300 relative overflow-hidden group",
+        glass
+          ? "bg-white/70 backdrop-blur-xl border border-white/50 shadow-soft"
+          : "bg-white shadow-soft",
+        hover && "cursor-pointer",
+        glow && "hover:shadow-glow-" + glow,
         className,
       )}
       style={gradient ? { background: gradient, ...style } : style}
     >
+      {hover && (
+        <motion.div
+          className="pointer-events-none absolute -inset-1 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          style={{
+            background: glow
+              ? `radial-gradient(600px circle at 50% 50%, rgba(255,107,107,0.06), transparent 60%)`
+              : undefined,
+          }}
+        />
+      )}
       {children}
     </motion.div>
   )
