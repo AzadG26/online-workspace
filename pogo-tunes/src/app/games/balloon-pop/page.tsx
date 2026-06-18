@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import { BalloonPop } from "@/components/games/balloon-pop"
 import Link from "next/link"
@@ -7,9 +8,18 @@ import { ArrowLeft } from "lucide-react"
 import { StructuredData } from "@/components/structured-data"
 import { gameSchema, breadcrumbSchema } from "@/lib/structured-data"
 import { getGameContent } from "@/data/content"
+import { useProgressContext } from "@/components/progress-provider"
 
 export default function BalloonPopPage() {
   const game = getGameContent("balloon-pop")
+  const { recordGame } = useProgressContext()
+  const recordedRef = useRef(false)
+  useEffect(() => {
+    if (!recordedRef.current) {
+      recordedRef.current = true
+      recordGame("balloon-pop", game?.title ?? "Balloon Pop", 0, false)
+    }
+  }, [game?.title, recordGame])
   return (
     <div className="min-h-screen bg-gradient-to-b from-coral/5 via-cream to-white pt-24">
       {game && (

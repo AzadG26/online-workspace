@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import { ConnectDots } from "@/components/games/connect-dots"
 import Link from "next/link"
@@ -7,9 +8,19 @@ import { ArrowLeft } from "lucide-react"
 import { StructuredData } from "@/components/structured-data"
 import { gameSchema, breadcrumbSchema } from "@/lib/structured-data"
 import { getGameContent } from "@/data/content"
+import { useProgressContext } from "@/components/progress-provider"
 
 export default function ConnectDotsPage() {
   const game = getGameContent("connect-dots")
+  const { recordGame } = useProgressContext()
+  const recordedRef = useRef(false)
+  useEffect(() => {
+    if (!recordedRef.current) {
+      recordedRef.current = true
+      recordGame("connect-dots", game?.title ?? "Connect the Dots", 0, false)
+    }
+  }, [game?.title, recordGame])
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple/5 via-cream to-white pt-24">
       {game && (

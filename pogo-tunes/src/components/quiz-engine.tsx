@@ -1,16 +1,18 @@
 "use client"
 
-import { useState, useMemo, useCallback } from "react"
+import { useState, useMemo, useCallback, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { RotateCcw, Sparkles, Check, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { quizQuestions, type QuizQuestion } from "@/data/content"
 import { playChime, triggerConfetti } from "@/hooks/use-game"
+import { useProgressContext } from "@/components/progress-provider"
 
 const CATEGORIES = ["All", ...new Set(quizQuestions.map((q) => q.category))]
 const QUESTIONS_PER_ROUND = 5
 
 export function QuizEngine() {
+  const { recordQuiz } = useProgressContext()
   const [started, setStarted] = useState(false)
   const [category, setCategory] = useState("All")
   const [currentQ, setCurrentQ] = useState(0)
@@ -19,13 +21,25 @@ export function QuizEngine() {
   const [feedback, setFeedback] = useState<"correct" | "wrong" | null>(null)
   const [answered, setAnswered] = useState<boolean[]>([])
   const [questions, setQuestions] = useState<QuizQuestion[]>([])
+  const quizRecordedRef = useRef(false)
 
   const filteredQuestions = useMemo(() => {
     const pool = category === "All" ? quizQuestions : quizQuestions.filter((q) => q.category === category)
     return [...pool].sort(() => Math.random() - 0.5).slice(0, QUESTIONS_PER_ROUND)
   }, [category])
 
+  const isComplete = currentQ >= questions.length && started
+  const correctCount = answered.filter(Boolean).length
+
+  useEffect(() => {
+    if (isComplete && !quizRecordedRef.current && questions.length > 0) {
+      quizRecordedRef.current = true
+      recordQuiz(category === "All" ? "Mixed" : category, correctCount * 10, questions.length * 10)
+    }
+  }, [isComplete, category, correctCount, questions.length, recordQuiz])
+
   const startQuiz = useCallback(() => {
+    quizRecordedRef.current = false
     setQuestions(filteredQuestions)
     setCurrentQ(0)
     setScore(0)
@@ -90,9 +104,6 @@ export function QuizEngine() {
       </div>
     )
   }
-
-  const isComplete = currentQ >= questions.length
-  const correctCount = answered.filter(Boolean).length
 
   return (
     <div>

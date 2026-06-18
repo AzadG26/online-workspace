@@ -3,6 +3,8 @@ import { Baloo_2, Fredoka, Nunito } from "next/font/google"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { PageTransition } from "@/components/page-transition"
+import { ProgressProvider } from "@/components/progress-provider"
+import { GlobalAchievementPopup } from "@/components/global-achievement-popup"
 import { ServiceWorkerRegister } from "@/components/service-worker-register"
 import "./globals.css"
 
@@ -129,9 +131,12 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Header />
-        <main id="main-content" className="flex-1">
-          <PageTransition>{children}</PageTransition>
-        </main>
+        <ProgressProvider>
+          <main id="main-content" className="flex-1">
+            <PageTransition>{children}</PageTransition>
+          </main>
+          <GlobalAchievementPopup />
+        </ProgressProvider>
         <Footer />
         <ServiceWorkerRegister />
       </body>
