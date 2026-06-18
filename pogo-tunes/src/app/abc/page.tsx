@@ -8,6 +8,7 @@ import { CategoryHero } from "@/components/category/category-hero"
 import { LearningGrid } from "@/components/category/learning-grid"
 import { VideoRow } from "@/components/category/video-row"
 import { abcLetters } from "@/data/content"
+import { abcInteractive } from "@/data/learning"
 
 const letters = abcLetters.map((l) => ({ label: l }))
 
@@ -23,8 +24,8 @@ export default function ABCPage() {
         categoryId="abc"
       />
 
-      <Section title="Alphabet Letters" subtitle="Tap any letter to start learning!" className="bg-white">
-        <LearningGrid items={letters} color="#FF6B6B" columns={6} />
+      <Section title="Alphabet Letters" subtitle="Tap any letter to see a fun example!" className="bg-white">
+        <LearningGrid items={letters} color="#FF6B6B" columns={6} interactiveItems={abcInteractive} />
       </Section>
 
       <Section title="ABC Songs & Videos" subtitle="Sing along with our ABC videos!" className="bg-gradient-to-b from-white to-cream" wave="top" waveColor="#FFFFFF">

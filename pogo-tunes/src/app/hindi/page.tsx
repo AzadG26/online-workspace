@@ -8,6 +8,7 @@ import { CategoryHero } from "@/components/category/category-hero"
 import { LearningGrid } from "@/components/category/learning-grid"
 import { VideoRow } from "@/components/category/video-row"
 import { hindiVarnamala } from "@/data/content"
+import { hindiInteractive } from "@/data/hindi-learning"
 
 const letters = hindiVarnamala.map((l) => ({ label: l }))
 
@@ -23,8 +24,8 @@ export default function HindiPage() {
         categoryId="hindi"
       />
 
-      <Section title="Hindi Varnamala" subtitle="Tap any letter to start learning!" className="bg-white">
-        <LearningGrid items={letters} color="#B28DFF" columns={5} />
+      <Section title="Hindi Varnamala" subtitle="Tap any letter to see a fun example!" className="bg-white">
+        <LearningGrid items={letters} color="#B28DFF" columns={5} interactiveItems={hindiInteractive} />
       </Section>
 
       <Section title="Hindi Learning Videos" subtitle="Watch and learn Hindi the fun way!" className="bg-gradient-to-b from-white to-cream" wave="top" waveColor="#FFFFFF">

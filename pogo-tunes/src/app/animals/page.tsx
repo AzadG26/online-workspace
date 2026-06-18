@@ -11,6 +11,13 @@ import { animalData } from "@/data/content"
 
 const animals = animalData.map((a) => ({ label: a.name, emoji: a.emoji }))
 
+const animalInteractive = animalData.map((a) => ({
+  label: a.name,
+  emoji: a.emoji,
+  phrase: `${a.sound} — ${a.name}!`,
+  description: a.fact,
+}))
+
 export default function AnimalsPage() {
   return (
     <>
@@ -23,8 +30,8 @@ export default function AnimalsPage() {
         categoryId="animals"
       />
 
-      <Section title="Meet the Animals" subtitle="Tap any animal to learn more!" className="bg-white">
-        <LearningGrid items={animals} color="#6BCBFF" columns={5} type="emoji" />
+      <Section title="Meet the Animals" subtitle="Tap any animal to hear its sound!" className="bg-white">
+        <LearningGrid items={animals} color="#6BCBFF" columns={5} type="emoji" interactiveItems={animalInteractive} />
       </Section>
 
       <Section title="Animal Videos" subtitle="Watch and learn about amazing animals!" className="bg-gradient-to-b from-white to-cream" wave="top" waveColor="#FFFFFF">

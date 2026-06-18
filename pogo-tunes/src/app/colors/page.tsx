@@ -8,6 +8,7 @@ import { CategoryHero } from "@/components/category/category-hero"
 import { LearningGrid } from "@/components/category/learning-grid"
 import { VideoRow } from "@/components/category/video-row"
 import { colorData } from "@/data/content"
+import { colorInteractive } from "@/data/learning"
 
 const colors = colorData.map((c) => ({ label: c.name, color: c.hex }))
 
@@ -23,8 +24,8 @@ export default function ColorsPage() {
         categoryId="colors"
       />
 
-      <Section title="Color Palette" subtitle="Tap any color to learn its name!" className="bg-white">
-        <LearningGrid items={colors} color="#6EE7B7" columns={5} type="color" />
+      <Section title="Color Palette" subtitle="Tap any color to see a fun example!" className="bg-white">
+        <LearningGrid items={colors} color="#6EE7B7" columns={5} type="color" interactiveItems={colorInteractive} />
       </Section>
 
       <Section title="Color Songs & Videos" subtitle="Sing along with our color songs!" className="bg-gradient-to-b from-white to-cream" wave="top" waveColor="#FFFFFF">

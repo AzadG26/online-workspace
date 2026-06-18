@@ -8,6 +8,8 @@ import { CategoryHero } from "@/components/category/category-hero"
 import { LearningGrid } from "@/components/category/learning-grid"
 import { VideoRow } from "@/components/category/video-row"
 
+import { numberInteractive } from "@/data/learning"
+
 const numbers = Array.from({ length: 20 }, (_, i) => ({
   label: String(i + 1),
   emoji: ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣","🔟",
@@ -26,11 +28,15 @@ export default function CountingPage() {
         categoryId="counting"
       />
 
-      <Section title="Numbers 1-20" subtitle="Tap any number to learn more!" className="bg-white">
-        <LearningGrid items={numbers} color="#FFD93D" columns={5} type="emoji" />
+      <Section title="Numbers 1-10" subtitle="Tap any number to learn more!" className="bg-white">
+        <LearningGrid items={numbers.slice(0, 10)} color="#FFD93D" columns={5} type="emoji" interactiveItems={numberInteractive} />
       </Section>
 
-      <Section title="Counting Videos" subtitle="Sing along and learn to count!" className="bg-gradient-to-b from-white to-cream" wave="top" waveColor="#FFFFFF">
+      <Section title="Numbers 11-20" subtitle="Count higher and higher!" className="bg-gradient-to-b from-white to-cream">
+        <LearningGrid items={numbers.slice(10, 20)} color="#FFD93D" columns={5} type="emoji" />
+      </Section>
+
+      <Section title="Counting Videos" subtitle="Sing along and learn to count!" className="bg-white" wave="top" waveColor="#FFFFFF">
         <VideoRow category="counting" />
       </Section>
 
