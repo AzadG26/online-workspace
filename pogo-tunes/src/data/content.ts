@@ -300,6 +300,10 @@ export const games: GameItem[] = [
   { id: "g4", title: "Number Match", description: "Match numbers to the right quantity!", icon: "🔢", color: "var(--color-yellow)", gradient: "linear-gradient(135deg, #FFD93D, #FFE680)", href: "/games/number-match", ageRange: "3-6", skills: ["Counting", "Matching"] },
   { id: "g5", title: "Shape Sorter", description: "Fit shapes into their matching holes!", icon: "🔷", color: "var(--color-green)", gradient: "linear-gradient(135deg, #6EE7B7, #96F0CC)", href: "/games/shape-sorter", ageRange: "2-4", skills: ["Shapes", "Problem Solving"] },
   { id: "g6", title: "Animal Puzzle", description: "Complete animal puzzles with dragging!", icon: "🐾", color: "var(--color-sky)", gradient: "linear-gradient(135deg, #6BCBFF, #A0DEFF)", href: "/games/animal-puzzle", ageRange: "3-6", skills: ["Puzzles", "Animals"] },
+  { id: "g7", title: "Balloon Pop", description: "Pop balloons with the right letters and numbers!", icon: "🎈", color: "var(--color-coral)", gradient: "linear-gradient(135deg, #FF6B6B, #FF9F43)", href: "/games/balloon-pop", ageRange: "3-6", skills: ["Letters", "Numbers", "Fun"] },
+  { id: "g8", title: "Fruit Catch", description: "Catch falling fruits in your basket!", icon: "🍎", color: "var(--color-green)", gradient: "linear-gradient(135deg, #6EE7B7, #34D399)", href: "/games/fruit-catch", ageRange: "3-6", skills: ["Coordination", "Fun"] },
+  { id: "g9", title: "Connect the Dots", description: "Tap numbers in order to reveal a surprise picture!", icon: "🔗", color: "var(--color-purple)", gradient: "linear-gradient(135deg, #B28DFF, #818CF8)", href: "/games/connect-dots", ageRange: "3-6", skills: ["Numbers", "Sequencing"] },
+  { id: "g10", title: "Pattern Match", description: "Can you guess what comes next in the pattern?", icon: "🔷", color: "var(--color-yellow)", gradient: "linear-gradient(135deg, #FFD93D, #F59E0B)", href: "/games/pattern-match", ageRange: "3-6", skills: ["Patterns", "Thinking"] },
 ]
 
 export const blogPosts: BlogPost[] = [
