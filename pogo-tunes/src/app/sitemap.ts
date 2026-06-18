@@ -19,9 +19,11 @@ const routes: SitemapEntry[] = [
   { path: "/body-parts", freq: "weekly", priority: 0.7 },
   { path: "/categories", freq: "weekly", priority: 0.7 },
   { path: "/colors", freq: "weekly", priority: 0.8 },
+  { path: "/coloring-book", freq: "weekly", priority: 0.7 },
   { path: "/contact", freq: "monthly", priority: 0.5 },
   { path: "/cookie-policy", freq: "yearly", priority: 0.3 },
   { path: "/counting", freq: "weekly", priority: 0.8 },
+  { path: "/daily-challenge", freq: "daily", priority: 0.9 },
   { path: "/disclaimer", freq: "yearly", priority: 0.3 },
   { path: "/dmca", freq: "yearly", priority: 0.3 },
   { path: "/flashcards", freq: "weekly", priority: 0.7 },
@@ -42,6 +44,7 @@ const routes: SitemapEntry[] = [
   { path: "/vegetables", freq: "weekly", priority: 0.7 },
   { path: "/vehicles", freq: "weekly", priority: 0.7 },
   { path: "/videos", freq: "weekly", priority: 0.8 },
+  { path: "/word-builder", freq: "weekly", priority: 0.7 },
   { path: "/worksheets", freq: "weekly", priority: 0.7 },
 ]
 
